@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {
+  NbButtonModule,
+  NbInputModule,
+  NbLayoutModule,
+  NbThemeModule,
+} from '@nebular/theme';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NbThemeModule.forRoot(),
+    NbLayoutModule,
+    NbButtonModule,
+    NbInputModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
