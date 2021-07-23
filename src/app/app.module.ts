@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {
   NbButtonModule,
+  NbCardModule,
   NbInputModule,
   NbLayoutModule,
   NbSelectModule,
@@ -20,12 +21,13 @@ const maskConfig: Partial<IConfig> = {
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NbThemeModule.forRoot(),
+    NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
     NgxMaskModule.forRoot(maskConfig),
+    NbCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

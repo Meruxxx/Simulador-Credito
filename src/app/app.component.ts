@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NbIconLibraries } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,14 @@ export class AppComponent implements OnInit {
 
   options: number[] = [12, 24, 36, 48, 60, 72];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private iconLibraries: NbIconLibraries
+  ) {
+    this.iconLibraries.registerFontPack('font-awesome', {
+      iconClassPrefix: 'fa',
+    });
+    this.iconLibraries.setDefaultPack('font-awesome');
     this.form = formBuilder.group({
       campo1: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       campo2: ['', Validators.required],
