@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   _Tem: number = 1;
   selectedItemNgModel: any;
 
+  campo3: string = ' $3.000.000';
+
   form!: FormGroup;
 
   options: any = [
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit {
       value: 24,
     },
     {
-      text: '3 años',
+      text: '3                                                                       años',
       value: 36,
     },
     {
