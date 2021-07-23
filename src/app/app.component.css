@@ -1,4 +1,8 @@
-
+.layout-columContainer{
+display: flex;
+align-content: flex-start;
+width:40%;
+}
 .text {
   margin: 1rem 0 0;
 }

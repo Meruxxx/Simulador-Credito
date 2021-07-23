@@ -81,4 +81,5 @@ export class AppComponent implements OnInit {
       this.form.patchValue({ campo3: this.cuota });
     }
   }
+  onClickContacto(): void {}
 }
