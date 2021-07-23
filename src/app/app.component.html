@@ -1,54 +1,74 @@
 <nb-layout center>
   <nb-layout-header>Awesome Company</nb-layout-header>
-
-  <nb-layout-column>
-    <span class="caption-2 text-hint">Valor a prestar</span>
-  </nb-layout-column>
-
-  test:
-  <pre>
-    {{ form.value | json }}
-  </pre>
-
   <nb-layout-column>
     <form [formGroup]="form">
-      <div>
-        <input
-          type="text"
-          nbInput
-          placeholder="Monto"
-          formControlName="campo1"
-          mask="separator.2"
-        />
-        <ng-container *ngIf="campo1.touched && campo1.errors">
-          <span *ngIf="campo1.errors.required"> El campo es requerido </span>
-          <span *ngIf="campo1.errors.pattern">
-            El campo debe ser numérico
-          </span>
-        </ng-container>
-      </div>
-
-      <nb-select
-        placeholder="Nº Cuotas"
-        shape="semi-round"
-        formControlName="campo2"
-      >
-        <nb-option *ngFor="let option of options" [value]="option">
-          {{ option }}
-        </nb-option>
-      </nb-select>
-
-      <input
-        type="text"
-        nbInput
-        placeholder="Valor de la cuota"
-        formControlName="campo3"
-        mask="separator.0"
-      />
-
-      <nb-layout-column>
-        <button nbButton status="primary" (click)="onClick()">Simular</button>
-      </nb-layout-column>
+      <nb-card>
+        <nb-card-body class="example-items-col">
+          <nb-layout-column>
+            <span class="caption-1 text-hint">Monto</span>
+            <input
+              type="number"
+              Width="'600'"
+              shape="round"
+              type="text"
+              placeholder="Monto"
+              formControlName="campo1"
+              mask="separator.2"
+            />
+            <ng-container *ngIf="campo1.touched && campo1.errors">
+              <span *ngIf="campo1.errors.required">
+                El campo es requerido
+              </span>
+              <span *ngIf="campo1.errors.pattern">
+                El campo debe ser numérico
+              </span>
+            </ng-container>
+          </nb-layout-column>
+          <nb-layout-column>
+            Nº Cuotas
+            <div>
+              <nb-select
+                type="number"
+                fullWidth
+                shape="round"
+                type="text"
+                placeholder="Nº Cuotas"
+                shape="semi-round"
+                formControlName="campo2"
+              >
+                <nb-option *ngFor="let option of options" [value]="option">
+                  {{ option }}
+                </nb-option>
+              </nb-select>
+            </div>
+          </nb-layout-column>
+          <div>
+            <input
+              type="number"
+              fullWidth
+              shape="round"
+              type="text"
+              nbInput
+              placeholder="Valor de la cuota"
+              formControlName="campo3"
+              mask="separator.0"
+            />
+          </div>
+          <div>
+            <nb-button-group size="giant" shape="round">
+              <button nbButtonToggle>A</button>
+              <button nbButtonToggle>B</button>
+              <button nbButtonToggle>C</button>
+              <button nbButtonToggle>D</button>
+              <button nbButtonToggle>E</button>
+              <button nbButtonToggle>F</button>
+            </nb-button-group>
+          </div>
+        </nb-card-body>
+        <nb-layout-column>
+          <button nbButton status="primary" (click)="onClick()">Simular</button>
+        </nb-layout-column>
+      </nb-card>
     </form>
   </nb-layout-column>
 

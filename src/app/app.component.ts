@@ -7,6 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  isBold = false;
+  isItalic = true;
+  isUnderline = false;
   title = 'simulador-credito';
   cuota: number = 0;
   _Tem: number = 1;
