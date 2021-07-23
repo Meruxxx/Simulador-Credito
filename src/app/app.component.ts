@@ -17,7 +17,32 @@ export class AppComponent implements OnInit {
 
   form!: FormGroup;
 
-  options: number[] = [12, 24, 36, 48, 60, 72];
+  options: any = [
+    {
+      text: '1 año',
+      value: 12,
+    },
+    {
+      text: '2 años',
+      value: 24,
+    },
+    {
+      text: '3 años',
+      value: 36,
+    },
+    {
+      text: '5 años',
+      value: 60,
+    },
+    {
+      text: '10 años',
+      value: 120,
+    },
+    {
+      text: '20 años',
+      value: 240,
+    },
+  ];
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
