@@ -22,7 +22,11 @@ line-height: nb-theme(text-subtitle-line-height); */
    height: 50%;
   }
 
-  containerGrup{
+  .containerGrup{
     display:flex;
 
+  }
+
+  .position{
+    display: flex-end;
   }

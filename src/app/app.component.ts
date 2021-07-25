@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
   _Tem: number = 1;
   selectedItemNgModel: any;
 
-  campo3: string = ' $3.000.000';
-
   form!: FormGroup;
+
+  tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
 
   options: any = [
     {
@@ -48,17 +48,21 @@ export class AppComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      campo1: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
-      campo2: ['', Validators.required],
-      campo3: [''],
+      valorPropiedad: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
+      montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
+      numeroCuotas: ['', Validators.required],
+      valorCuota: [''],
     });
   }
 
-  get campo1() {
-    return this.form.controls['campo1'];
+  get montoPrestamo() {
+    return this.form.controls['montoPrestamo'];
   }
-  get campo2() {
-    return this.form.controls['campo2'];
+  get numeroCuotas() {
+    return this.form.controls['numeroCuotas'];
+  }
+  get valorCuota() {
+    return this.form.controls['valorCuota'];
   }
   ngOnInit(): void {}
 
@@ -76,12 +80,19 @@ export class AppComponent implements OnInit {
   onClick(): void {
     if (this.form.valid) {
       console.log(this.form.value);
-      this.form.get('campo1')?.hasError('required');
+      this.form.get('montoPrestamo')?.hasError('required');
 
-      this.cuota = this.CalcularCuota(this.campo1.value, this.campo2.value);
+      this.cuota = this.CalcularCuota(
+        this.montoPrestamo.value,
+        this.numeroCuotas.value
+      );
 
-      this.form.patchValue({ campo3: this.cuota });
+      this.form.patchValue({ valorCuota: this.cuota });
     }
   }
   onClickContacto(): void {}
+
+  onClickNumCuotas(e: any) {
+    this.form.patchValue({ numeroCuotas: e.value });
+  }
 }

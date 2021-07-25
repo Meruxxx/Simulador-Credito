@@ -4,7 +4,7 @@
       <h6>Tipo de credito</h6>
     </nb-layout-column>
     <nb-layout-column>
-      <div>
+      <div class="position">
         <nb-select
           type="number"
           fullWidth
@@ -12,10 +12,10 @@
           type="text"
           placeholder="Seleccione el tipo de credito"
           shape="semi-round"
-          formControlName="campo2"
+          formControlName="tipoCredito"
           status="primary"
         >
-          <nb-option *ngFor="let option of options" [value]="option">
+          <nb-option *ngFor="let option of tipoCredito" [value]="option">
             {{ option }}
           </nb-option>
         </nb-select>
@@ -36,7 +36,7 @@
               type="text"
               nbInput
               placeholder="Valor a prestar"
-              formControlName="campo1"
+              formControlName="valorPropiedad"
               mask="separator.2"
               status="primary"
             />
@@ -50,16 +50,18 @@
               shape="semi-round"
               type="text"
               nbInput
-              placeholder="Valor de la cuota"
-              formControlName="campo3"
+              placeholder="Valor a solicitar"
+              formControlName="montoPrestamo"
               mask="separator.2"
               status="primary"
             />
           </div>
 
-          <ng-container *ngIf="campo1.touched && campo1.errors">
-            <span *ngIf="campo1.errors.required"> El campo es requerido </span>
-            <span *ngIf="campo1.errors.pattern">
+          <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
+            <span *ngIf="montoPrestamo.errors.required">
+              El campo es requerido
+            </span>
+            <span *ngIf="montoPrestamo.errors.pattern">
               El campo debe ser numérico
             </span>
           </ng-container>
@@ -85,6 +87,7 @@
                   nbButtonToggle
                   *ngFor="let option of options"
                   [value]="option.value"
+                  (click)="onClickNumCuotas(option)"
                 >
                   {{ option.text }}
                 </button>
@@ -117,12 +120,12 @@
         <nb-card class="cardDatos">
           <nb-card-body class="justify-content: center;">
             <span>Valor de la cuota</span>
-            <h1>{{ campo3 }}</h1>
+            <h1>{{ valorCuota.value }}</h1>
 
             <div style="display: flex" class="margin: 100px">
               <div>
                 <span>Total</span>
-                <h6>{{ campo3 }}</h6>
+                <h6>{{ valorCuota }}</h6>
               </div>
               <div>
                 <span>Interés</span>
