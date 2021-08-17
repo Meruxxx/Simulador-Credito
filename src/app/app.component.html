@@ -1,176 +1,23 @@
-<nb-layout justify>
-  <nb-layout-header>Awesome Company</nb-layout-header>
-
-  <nb-layout-column class="layout-columContainer">
-    <form [formGroup]="form">
-      <nb-card size="large">
-        <nb-card-body class="example-items-col">
-          <nb-layout-column>
-            <span class="caption-1 text-hint">Tipo de crédito</span>
-            <div>
-              <nb-select
-                type="number"
-                fullWidth
-                shape="round"
-                type="text"
-                placeholder="Seleccione el tipo de credito"
-                shape="semi-round"
-                formControlName="campo2"
-              >
-                <nb-option *ngFor="let option of options" [value]="option">
-                  {{ option }}
-                </nb-option>
-              </nb-select>
-            </div>
-          </nb-layout-column>
-          <nb-layout-column>
-            <!-- <span class="caption-1 text-hint">Monto</span> -->
-            <div>
-              <input
-                type="number"
-                fullWidth
-                shape="semi-round"
-                type="text"
-                nbInput
-                placeholder="Valor a prestar"
-                formControlName="campo1"
-                mask="separator.2"
-              />
-            </div>
-
-            <ng-container *ngIf="campo1.touched && campo1.errors">
-              <span *ngIf="campo1.errors.required">
-                El campo es requerido
-              </span>
-              <span *ngIf="campo1.errors.pattern">
-                El campo debe ser numérico
-              </span>
-            </ng-container>
-          </nb-layout-column>
-          <nb-layout-column>
-            <div>
-              <!-- <nb-select
-                    type="number"
-                    fullWidth
-                    shape="round"
-                    type="text"
-                    placeholder="Nº Cuotas"
-                    shape="semi-round"
-                    formControlName="campo2"
-                  >
-                    <nb-option *ngFor="let option of options" [value]="option">
-                      {{ option }}
-                    </nb-option>
-                  </nb-select> -->
-              <div>
-                <nb-button-group size="giant" shape="semi-round">
-                  <button
-                    style="margin-left: 2%"
-                    nbButtonToggle
-                    *ngFor="let option of options"
-                    [value]="option.value"
-                  >
-                    {{ option.text }}
-                  </button>
-                </nb-button-group>
-              </div>
-            </div>
-          </nb-layout-column>
-          <div>
-            <input
-              type="number"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Valor de la cuota"
-              formControlName="campo3"
-              mask="separator.0"
-            />
-          </div>
-        </nb-card-body>
-        <nb-layout-column>
-          <div style="display: flex; justify-content: center">
-            <button
-              style="width: 60%"
-              nbButton
-              shape="round"
-              status="primary"
-              (click)="onClick()"
-            >
-              Simular
-            </button>
-          </div>
-        </nb-layout-column>
-      </nb-card>
-    </form>
+<nb-layout justify
+  ><nb-layout-header>
+    <nb-layout-column>
+      <h6>Tipo de credito</h6>
+    </nb-layout-column>
+    <nb-layout-column>
+      <div class="position">
+        <button
+          outline
+          nbButton
+          [nbContextMenu]="items"
+          nbContextMenuTag="context-menu"
+        >
+          Show Menu
+        </button>
+      </div>
+    </nb-layout-column>
+  </nb-layout-header>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
   </nb-layout-column>
-
-  <nb-layout-column class="layout-columContainer">
-    <nb-card size="large">
-      <nb-card-header>Información Crédito</nb-card-header>
-      <nb-card-body>
-        <div style="background-color: #1c85e8; color: white; height: 50%">
-          <span>hola</span>
-        </div>
-        <nb-layout-column>
-          <div>
-            <input
-              type="text"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Nombre Contacto"
-              formControlName="campo3"
-              mask="separator.0"
-            />
-          </div>
-        </nb-layout-column>
-        <nb-layout-column>
-          <div>
-            <input
-              type="text"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Contacto@email.com"
-              formControlName="campo3"
-              mask="separator.0"
-            />
-          </div>
-        </nb-layout-column>
-        <nb-layout-column>
-          <div>
-            <input
-              type="text"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Telefono-Celular"
-              formControlName="campo3"
-              mask="separator.0"
-            />
-          </div>
-        </nb-layout-column>
-        <nb-layout-column>
-          <div style="display: flex; justify-content: center">
-            <button
-              style="width: 60%"
-              nbButton
-              shape="round"
-              status="primary"
-              (click)="onClickContacto()"
-            >
-              Contáctecnos
-            </button>
-          </div>
-        </nb-layout-column>
-      </nb-card-body>
-    </nb-card>
-  </nb-layout-column>
-
   <nb-layout-footer>Contact us</nb-layout-footer>
 </nb-layout>
