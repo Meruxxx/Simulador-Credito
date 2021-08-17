@@ -1,0 +1,82 @@
+<nb-card>
+  <nb-card-header>Información Crédito</nb-card-header>
+  <nb-card-body>
+    <nb-card class="cardDatos">
+      <nb-card-body class="justify-content: center;">
+        <span>Valor de la cuota</span>
+        <h1>{{ valorCuota }}</h1>
+
+        <div style="display: flex" class="margin: 100px">
+          <div>
+            <span>Total</span>
+            <h6>{{ valorCuota }}</h6>
+          </div>
+          <div>
+            <span>Interés</span>
+            <h6>{{ _Tem + "%" }}</h6>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <!-- <div style="background-color: #1c85e8; color: white; height: 50%">
+        <span>hola</span>
+      </div> -->
+    <div>
+      <h6>Datos de contacto</h6>
+      <input
+        type="text"
+        fullWidth
+        shape="semi-round"
+        type="text"
+        nbInput
+        placeholder="Nombre Contacto"
+        formControlName="campo3"
+        mask="separator.0"
+        status="primary"
+      />
+    </div>
+    <div>
+      <div>
+        <input
+          type="text"
+          fullWidth
+          shape="semi-round"
+          type="text"
+          nbInput
+          placeholder="Contacto@email.com"
+          formControlName="campo3"
+          mask="separator.0"
+          status="primary"
+        />
+      </div>
+    </div>
+    <div>
+      <div>
+        <input
+          type="text"
+          fullWidth
+          shape="semi-round"
+          type="text"
+          nbInput
+          placeholder="Telefono-Celular"
+          formControlName="campo3"
+          mask="separator.0"
+          status="primary"
+        />
+      </div>
+    </div>
+    <div>
+      <div style="display: flex; justify-content: center">
+        <button
+          style="width: 60%"
+          nbButton
+          shape="round"
+          status="primary"
+          (click)="onClickContacto()"
+        >
+          Contáctecnos
+        </button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

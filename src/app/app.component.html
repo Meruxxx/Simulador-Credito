@@ -1,202 +1,23 @@
-<nb-layout justify>
-  <nb-layout-header>
+<nb-layout justify
+  ><nb-layout-header>
     <nb-layout-column>
       <h6>Tipo de credito</h6>
     </nb-layout-column>
     <nb-layout-column>
       <div class="position">
-        <nb-select
-          type="number"
-          fullWidth
-          shape="round"
-          type="text"
-          placeholder="Seleccione el tipo de credito"
-          shape="semi-round"
-          formControlName="tipoCredito"
-          status="primary"
+        <button
+          outline
+          nbButton
+          [nbContextMenu]="items"
+          nbContextMenuTag="context-menu"
         >
-          <nb-option *ngFor="let option of tipoCredito" [value]="option">
-            {{ option }}
-          </nb-option>
-        </nb-select>
+          Show Menu
+        </button>
       </div>
     </nb-layout-column>
   </nb-layout-header>
-
   <nb-layout-column>
-    <form [formGroup]="form">
-      <nb-card size="large">
-        <nb-card-body class="example-items-col">
-          <div>
-            <h6>Valor de la propiedad</h6>
-            <input
-              type="number"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Valor a prestar"
-              formControlName="valorPropiedad"
-              mask="separator.2"
-              status="primary"
-            />
-          </div>
-
-          <div>
-            <h6>Monto del prestamo</h6>
-            <input
-              type="number"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Valor a solicitar"
-              formControlName="montoPrestamo"
-              mask="separator.2"
-              status="primary"
-            />
-          </div>
-
-          <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
-            <span *ngIf="montoPrestamo.errors.required">
-              El campo es requerido
-            </span>
-            <span *ngIf="montoPrestamo.errors.pattern">
-              El campo debe ser numérico
-            </span>
-          </ng-container>
-          <div>
-            <h6>Plazo del credito</h6>
-            <!-- <nb-select
-                    type="number"
-                    fullWidth
-                    shape="round"
-                    type="text"
-                    placeholder="Nº Cuotas"
-                    shape="semi-round"
-                    formControlName="campo2"
-                  >
-                    <nb-option *ngFor="let option of options" [value]="option">
-                      {{ option }}
-                    </nb-option>
-                  </nb-select> -->
-            <div class="containerGrup">
-              <nb-button-group outline size="medium">
-                <button
-                  style="margin-right: 1%"
-                  nbButtonToggle
-                  *ngFor="let option of options"
-                  [value]="option.value"
-                  (click)="onClickNumCuotas(option)"
-                >
-                  {{ option.text }}
-                </button>
-              </nb-button-group>
-            </div>
-          </div>
-
-          <nb-layout-column>
-            <div style="display: flex; justify-content: center">
-              <button
-                style="width: 60%"
-                nbButton
-                shape="round"
-                status="primary"
-                (click)="onClick()"
-              >
-                Simular
-              </button>
-            </div>
-          </nb-layout-column>
-        </nb-card-body>
-      </nb-card>
-    </form>
+    <router-outlet></router-outlet>
   </nb-layout-column>
-
-  <nb-layout-column>
-    <nb-card>
-      <nb-card-header>Información Crédito</nb-card-header>
-      <nb-card-body>
-        <nb-card class="cardDatos">
-          <nb-card-body class="justify-content: center;">
-            <span>Valor de la cuota</span>
-            <h1>{{ valorCuota.value }}</h1>
-
-            <div style="display: flex" class="margin: 100px">
-              <div>
-                <span>Total</span>
-                <h6>{{ valorCuota }}</h6>
-              </div>
-              <div>
-                <span>Interés</span>
-                <h6>{{ _Tem + "%" }}</h6>
-              </div>
-            </div>
-          </nb-card-body>
-        </nb-card>
-        <!-- <div style="background-color: #1c85e8; color: white; height: 50%">
-          <span>hola</span>
-        </div> -->
-        <div>
-          <h6>Datos de contacto</h6>
-          <input
-            type="text"
-            fullWidth
-            shape="semi-round"
-            type="text"
-            nbInput
-            placeholder="Nombre Contacto"
-            formControlName="campo3"
-            mask="separator.0"
-            status="primary"
-          />
-        </div>
-        <nb-layout-column>
-          <div>
-            <input
-              type="text"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Contacto@email.com"
-              formControlName="campo3"
-              mask="separator.0"
-              status="primary"
-            />
-          </div>
-        </nb-layout-column>
-        <nb-layout-column>
-          <div>
-            <input
-              type="text"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Telefono-Celular"
-              formControlName="campo3"
-              mask="separator.0"
-              status="primary"
-            />
-          </div>
-        </nb-layout-column>
-        <nb-layout-column>
-          <div style="display: flex; justify-content: center">
-            <button
-              style="width: 60%"
-              nbButton
-              shape="round"
-              status="primary"
-              (click)="onClickContacto()"
-            >
-              Contáctecnos
-            </button>
-          </div>
-        </nb-layout-column>
-      </nb-card-body>
-    </nb-card>
-  </nb-layout-column>
-
   <nb-layout-footer>Contact us</nb-layout-footer>
 </nb-layout>
