@@ -1,56 +1,20 @@
-<nb-layout center>
-  <nb-layout-header>Awesome Company</nb-layout-header>
-
-  <nb-layout-column>
-    <span class="caption-2 text-hint">Valor a prestar</span>
-  </nb-layout-column>
-
-  test:
-  <pre>
-    {{ form.value | json }}
-  </pre>
-
-  <nb-layout-column>
-    <form [formGroup]="form">
-      <div>
-        <input
-          type="text"
-          nbInput
-          placeholder="Monto"
-          formControlName="campo1"
-          mask="separator.2"
-        />
-        <ng-container *ngIf="campo1.touched && campo1.errors">
-          <span *ngIf="campo1.errors.required"> El campo es requerido </span>
-          <span *ngIf="campo1.errors.pattern">
-            El campo debe ser numérico
-          </span>
-        </ng-container>
+<nb-layout justify
+  ><nb-layout-header>
+    <nb-layout-column>
+      <div class="position">
+        <button
+          outline
+          nbButton
+          [nbContextMenu]="items"
+          nbContextMenuTag="context-menu"
+        >
+          Tipo de credito
+        </button>
       </div>
-
-      <nb-select
-        placeholder="Nº Cuotas"
-        shape="semi-round"
-        formControlName="campo2"
-      >
-        <nb-option *ngFor="let option of options" [value]="option">
-          {{ option }}
-        </nb-option>
-      </nb-select>
-
-      <input
-        type="text"
-        nbInput
-        placeholder="Valor de la cuota"
-        formControlName="campo3"
-        mask="separator.0"
-      />
-
-      <nb-layout-column>
-        <button nbButton status="primary" (click)="onClick()">Simular</button>
-      </nb-layout-column>
-    </form>
+    </nb-layout-column>
+  </nb-layout-header>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
   </nb-layout-column>
-
   <nb-layout-footer>Contact us</nb-layout-footer>
 </nb-layout>

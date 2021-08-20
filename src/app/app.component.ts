@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NbMenuService } from '@nebular/theme';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,50 +9,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'simulador-credito';
-  cuota: number = 0;
-  _Tem: number = 1;
-  selectedItemNgModel: any;
+  items = [{ title: 'Crédito' }, { title: 'Comercio' }, { title: 'Vivienda' }];
 
-  form!: FormGroup;
+  constructor(private nbMenuService: NbMenuService, private router: Router) {}
 
-  options: number[] = [12, 24, 36, 48, 60, 72];
+  ngOnInit(): void {
+    this.nbMenuService
+      .onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === 'context-menu'),
+        map(({ item: { title } }) => title)
+      )
+      .subscribe((title) => {
+        const routes: Record<string, string> = {
+          Crédito: '/credito',
+          Comercio: '/comercio',
+          Vivienda: '/vivienda',
+        };
 
-  constructor(private formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      campo1: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
-      campo2: ['', Validators.required],
-      campo3: [''],
-    });
-  }
-
-  get campo1() {
-    return this.form.controls['campo1'];
-  }
-  get campo2() {
-    return this.form.controls['campo2'];
-  }
-  ngOnInit(): void {}
-
-  CalcularCuota(Monto: number, Plazo: number): number {
-    let tinteres: number = this._Tem / 100;
-    let tplazo: number = parseFloat(
-      Math.pow(1 + tinteres, -Plazo).toPrecision(2)
-    );
-    let tdivision: number = 1 - tplazo;
-    console.log(tdivision);
-    let vc: number = (tinteres * Monto) / tdivision;
-    return vc;
-  }
-
-  onClick(): void {
-    if (this.form.valid) {
-      console.log(this.form.value);
-      this.form.get('campo1')?.hasError('required');
-
-      this.cuota = this.CalcularCuota(this.campo1.value, this.campo2.value);
-
-      this.form.patchValue({ campo3: this.cuota });
-    }
+        this.router.navigate([routes[title]]);
+      });
   }
 }
