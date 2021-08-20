@@ -1,1 +1,98 @@
-<p>vivienda works!</p>
+<div class="container grid gap-12 grid-col-1 lg:grid-cols-2">
+  <nb-card>
+    <nb-card-header>Información Crédito</nb-card-header>
+    <nb-card-body>
+      <form [formGroup]="form">
+        <div class="flex flex-col space-y-6">
+          <div>
+            <h6>Valor de la propiedad</h6>
+            <input
+              type="number"
+              fullWidth
+              shape="semi-round"
+              type="text"
+              nbInput
+              placeholder="Valor a prestar"
+              formControlName="valorPropiedad"
+              mask="separator.2"
+              status="primary"
+            />
+          </div>
+
+          <div>
+            <h6>Monto del prestamo</h6>
+            <input
+              type="number"
+              fullWidth
+              shape="semi-round"
+              type="text"
+              nbInput
+              placeholder="Valor a solicitar"
+              formControlName="montoPrestamo"
+              mask="separator.2"
+              status="primary"
+            />
+          </div>
+
+          <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
+            <span *ngIf="montoPrestamo.errors.required">
+              El campo es requerido
+            </span>
+            <span *ngIf="montoPrestamo.errors.pattern">
+              El campo debe ser numérico
+            </span>
+          </ng-container>
+          <div>
+            <h6>Plazo del credito</h6>
+            <!-- <nb-select
+                    type="number"
+                    fullWidth
+                    shape="round"
+                    type="text"
+                    placeholder="Nº Cuotas"
+                    shape="semi-round"
+                    formControlName="campo2"
+                  >
+                    <nb-option *ngFor="let option of options" [value]="option">
+                      {{ option }}
+                    </nb-option>
+                  </nb-select> -->
+            <div class="containerGrup">
+              <nb-button-group
+                outline
+                size="medium"
+                class="flex-wrap space-x-2"
+              >
+                <button
+                  class="mt-2"
+                  nbButtonToggle
+                  *ngFor="let option of options"
+                  [value]="option.value"
+                  (click)="onClickNumCuotas(option)"
+                >
+                  {{ option.text }}
+                </button>
+              </nb-button-group>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: center">
+              <button
+                style="width: 60%"
+                nbButton
+                shape="round"
+                status="primary"
+                (click)="onClick()"
+              >
+                Simular
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+
+  <app-informacion-credito></app-informacion-credito>
+</div>
