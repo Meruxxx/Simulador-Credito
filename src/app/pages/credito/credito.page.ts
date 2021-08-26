@@ -19,8 +19,6 @@ export class CreditoPage {
 
   form!: FormGroup;
 
-  tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
-
   options: any = [
     {
       text: '1 año',
