@@ -14,6 +14,11 @@ export const tasaInteresVivienda: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
+  12: { tasaMensual: 1.1, tasaEA: 14.03 },
+  24: { tasaMensual: 1.1, tasaEA: 14.03 },
+  36: { tasaMensual: 1.1, tasaEA: 14.03 },
+  60: { tasaMensual: 1.1, tasaEA: 14.03 },
+  72: { tasaMensual: 1.1, tasaEA: 14.03 },
   84: { tasaMensual: 1.1, tasaEA: 14.03 },
 };
 export const tasaInteresComercio: Record<
@@ -100,15 +105,17 @@ export const CALCULOS_UTILS = {
         break;
       case 'VIVIENDA':
         parametros = parametrosVivienda['NINGUNA'];
-
+        console.log(parametros);
         if (
           parametros.plazoMaximo < numeroCuotas ||
           parametros.montoMaximo < monto
         ) {
+          console.log('validacion de datos incorrecta');
           return null;
         }
         tasaMensual = tasaInteresVivienda[numeroCuotas].tasaMensual;
         tasaEA = tasaInteresVivienda[numeroCuotas].tasaEA;
+        console.log('la variables de tasa son' + tasaMensual + tasaEA);
         break;
       case 'COMERCIO':
         parametros = parametrosComercio[tipoDeuda];

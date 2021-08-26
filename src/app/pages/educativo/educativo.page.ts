@@ -26,31 +26,11 @@ export class EducativoPage {
       text: '1 año',
       value: 12,
     },
-    {
-      text: '2 años',
-      value: 24,
-    },
-    {
-      text: '3 años',
-      value: 36,
-    },
-    {
-      text: '5 años',
-      value: 60,
-    },
-    {
-      text: '10 años',
-      value: 120,
-    },
-    {
-      text: '20 años',
-      value: 240,
-    },
   ];
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      tipoDeuda: [null, [Validators.required]],
+      tipoDeuda: ['ninguna', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
@@ -89,7 +69,7 @@ export class EducativoPage {
       };
 
       const valorCuota = CALCULOS_UTILS.calcularValorCuota(
-        'LIBRE_INVERSION',
+        'EDUCATIVO',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.numeroCuotas.value
