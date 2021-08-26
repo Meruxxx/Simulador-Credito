@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TipoDeuda } from 'src/app/core/types/credito.types';
+import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './comercio.page.html',
   styleUrls: ['./comercio.page.css'],
 })
 export class ComercioPage {
-  // isBold = false;
-  // isItalic = true;
-  // isUnderline = false;
-  // title = 'simulador-credito';
+  isBold = false;
+  isItalic = true;
+  isUnderline = false;
+  title = 'simulador-credito';
   cuota: number = 0;
   _Tem: number = 1;
-  // selectedItemNgModel: any;
+  selectedItemNgModel: any;
+  valorCuota = 0;
 
   form!: FormGroup;
-
-  tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
 
   options: any = [
     {
@@ -28,7 +29,7 @@ export class ComercioPage {
       value: 24,
     },
     {
-      text: '3                                                                       años',
+      text: '3 años',
       value: 36,
     },
     {
@@ -47,7 +48,7 @@ export class ComercioPage {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      valorPropiedad: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
+      tipoDeuda: [null, [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
@@ -57,21 +58,50 @@ export class ComercioPage {
   get montoPrestamo() {
     return this.form.controls['montoPrestamo'];
   }
+
   get numeroCuotas() {
     return this.form.controls['numeroCuotas'];
   }
-  get valorCuota() {
-    return this.form.controls['valorCuota'];
-  }
 
-  trackByButtons(index: number, option: any): any {
-    return option.value;
+  CalcularCuota(Monto: number, Plazo: number): number {
+    let tinteres: number = this._Tem / 100;
+    let tplazo: number = parseFloat(
+      Math.pow(1 + tinteres, -Plazo).toPrecision(2)
+    );
+    let tdivision: number = 1 - tplazo;
+    console.log(tdivision);
+    let vc: number = (tinteres * Monto) / tdivision;
+    return vc;
   }
 
   onClick(): void {
+    console.log(this.form.value);
+
     if (this.form.valid) {
+      this.form.get('montoPrestamo')?.hasError('required');
+
+      const tipoDeuda: Record<string, TipoDeuda> = {
+        hipoteca: 'HIPOTECA',
+        deudorSolidario: 'DEUDOR_SOLIDARIO',
+        ninguna: 'NINGUNA',
+      };
+
+      const valorCuota = CALCULOS_UTILS.calcularValorCuota(
+        'COMERCIO',
+        tipoDeuda[this.form.get('tipoDeuda')?.value],
+        this.montoPrestamo.value,
+        this.numeroCuotas.value
+      );
+
+      if (valorCuota) {
+        this.valorCuota = valorCuota;
+        console.log(valorCuota);
+      } else {
+        alert('error');
+      }
     }
   }
+  onClickContacto(): void {}
 
   onClickNumCuotas(e: any) {
     this.form.patchValue({ numeroCuotas: e.value });
