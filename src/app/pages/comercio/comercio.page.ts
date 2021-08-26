@@ -6,13 +6,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./comercio.page.css'],
 })
 export class ComercioPage {
-  isBold = false;
-  isItalic = true;
-  isUnderline = false;
-  title = 'simulador-credito';
+  // isBold = false;
+  // isItalic = true;
+  // isUnderline = false;
+  // title = 'simulador-credito';
   cuota: number = 0;
   _Tem: number = 1;
-  selectedItemNgModel: any;
+  // selectedItemNgModel: any;
 
   form!: FormGroup;
 
@@ -64,31 +64,14 @@ export class ComercioPage {
     return this.form.controls['valorCuota'];
   }
 
-  CalcularCuota(Monto: number, Plazo: number): number {
-    let tinteres: number = this._Tem / 100;
-    let tplazo: number = parseFloat(
-      Math.pow(1 + tinteres, -Plazo).toPrecision(2)
-    );
-    let tdivision: number = 1 - tplazo;
-    console.log(tdivision);
-    let vc: number = (tinteres * Monto) / tdivision;
-    return vc;
+  trackByButtons(index: number, option: any): any {
+    return option.value;
   }
 
   onClick(): void {
     if (this.form.valid) {
-      console.log(this.form.value);
-      this.form.get('montoPrestamo')?.hasError('required');
-
-      this.cuota = this.CalcularCuota(
-        this.montoPrestamo.value,
-        this.numeroCuotas.value
-      );
-
-      this.form.patchValue({ valorCuota: this.cuota });
     }
   }
-  onClickContacto(): void {}
 
   onClickNumCuotas(e: any) {
     this.form.patchValue({ numeroCuotas: e.value });

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TipoDeuda } from 'src/app/core/types/credito.types';
+import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './credito.page.html',
@@ -13,6 +15,7 @@ export class CreditoPage {
   cuota: number = 0;
   _Tem: number = 1;
   selectedItemNgModel: any;
+  valorCuota = 0;
 
   form!: FormGroup;
 
@@ -28,7 +31,7 @@ export class CreditoPage {
       value: 24,
     },
     {
-      text: '3                                                                       años',
+      text: '3 años',
       value: 36,
     },
     {
@@ -47,7 +50,7 @@ export class CreditoPage {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      valorPropiedad: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
+      tipoDeuda: [null, [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
@@ -57,11 +60,9 @@ export class CreditoPage {
   get montoPrestamo() {
     return this.form.controls['montoPrestamo'];
   }
+
   get numeroCuotas() {
     return this.form.controls['numeroCuotas'];
-  }
-  get valorCuota() {
-    return this.form.controls['valorCuota'];
   }
 
   CalcularCuota(Monto: number, Plazo: number): number {
@@ -76,16 +77,30 @@ export class CreditoPage {
   }
 
   onClick(): void {
+    console.log(this.form.value);
+
     if (this.form.valid) {
-      console.log(this.form.value);
       this.form.get('montoPrestamo')?.hasError('required');
 
-      this.cuota = this.CalcularCuota(
+      const tipoDeuda: Record<string, TipoDeuda> = {
+        hipoteca: 'HIPOTECA',
+        deudorSolidario: 'DEUDOR_SOLIDARIO',
+        ninguna: 'NINGUNA',
+      };
+
+      const valorCuota = CALCULOS_UTILS.calcularValorCuota(
+        'LIBRE_INVERSION',
+        tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.numeroCuotas.value
       );
 
-      this.form.patchValue({ valorCuota: this.cuota });
+      if (valorCuota) {
+        this.valorCuota = valorCuota;
+        console.log(valorCuota);
+      } else {
+        alert('error');
+      }
     }
   }
   onClickContacto(): void {}

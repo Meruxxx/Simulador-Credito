@@ -65,8 +65,8 @@
               >
                 <button
                   class="mt-2"
-                  nbButtonToggle
-                  *ngFor="let option of options"
+                  nbButton
+                  *ngFor="let option of options; trackBy: trackByButtons"
                   [value]="option.value"
                   (click)="onClickNumCuotas(option)"
                 >
@@ -94,5 +94,5 @@
     </nb-card-body>
   </nb-card>
 
-  <app-informacion-credito></app-informacion-credito>
+  <!-- <app-informacion-credito></app-informacion-credito> -->
 </div>
