@@ -86,7 +86,7 @@ export class ViviendaPage {
       };
 
       const valorCuota = CALCULOS_UTILS.calcularValorCuota(
-        'LIBRE_INVERSION',
+        'VIVIENDA',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.numeroCuotas.value
