@@ -34,23 +34,11 @@ export class CredifacilPage {
       text: '3 años',
       value: 36,
     },
-    {
-      text: '5 años',
-      value: 60,
-    },
-    {
-      text: '10 años',
-      value: 120,
-    },
-    {
-      text: '20 años',
-      value: 240,
-    },
   ];
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      tipoDeuda: [null, [Validators.required]],
+      tipoDeuda: ['ninguna', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
@@ -89,7 +77,7 @@ export class CredifacilPage {
       };
 
       const valorCuota = CALCULOS_UTILS.calcularValorCuota(
-        'LIBRE_INVERSION',
+        'CREDIFACIL',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.numeroCuotas.value

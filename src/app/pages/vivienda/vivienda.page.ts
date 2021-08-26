@@ -36,18 +36,18 @@ export class ViviendaPage {
       value: 60,
     },
     {
-      text: '10 años',
-      value: 120,
+      text: '6 años',
+      value: 72,
     },
     {
-      text: '20 años',
-      value: 240,
+      text: '7 años',
+      value: 84,
     },
   ];
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      tipoDeuda: [null, [Validators.required]],
+      tipoDeuda: ['ninguna', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
