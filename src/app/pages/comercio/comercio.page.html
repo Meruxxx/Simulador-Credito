@@ -5,20 +5,12 @@
       <form [formGroup]="form">
         <div class="flex flex-col space-y-6">
           <div>
-            <h6>Valor de la propiedad</h6>
-            <input
-              type="number"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Valor a prestar"
-              formControlName="valorPropiedad"
-              mask="separator.2"
-              status="primary"
-            />
+            <nb-radio-group formControlName="tipoDeuda">
+              <nb-radio value="hipoteca">Hipoteca</nb-radio>
+              <nb-radio value="deudorSolidario">Deudor solidario</nb-radio>
+              <nb-radio value="ninguna">Ninguna</nb-radio>
+            </nb-radio-group>
           </div>
-
           <div>
             <h6>Monto del prestamo</h6>
             <input
@@ -33,7 +25,6 @@
               status="primary"
             />
           </div>
-
           <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
             <span *ngIf="montoPrestamo.errors.required">
               El campo es requerido
@@ -44,29 +35,16 @@
           </ng-container>
           <div>
             <h6>Plazo del credito</h6>
-            <!-- <nb-select
-                    type="number"
-                    fullWidth
-                    shape="round"
-                    type="text"
-                    placeholder="Nº Cuotas"
-                    shape="semi-round"
-                    formControlName="campo2"
-                  >
-                    <nb-option *ngFor="let option of options" [value]="option">
-                      {{ option }}
-                    </nb-option>
-                  </nb-select> -->
             <div class="containerGrup">
               <nb-button-group
                 outline
                 size="medium"
-                class="flex-wrap space-x-2"
+                class="flex-wrap space-x-1"
               >
                 <button
-                  class="mt-2"
-                  nbButton
-                  *ngFor="let option of options; trackBy: trackByButtons"
+                  class="mt-1"
+                  nbButtonToggle
+                  *ngFor="let option of options"
                   [value]="option.value"
                   (click)="onClickNumCuotas(option)"
                 >
@@ -75,24 +53,23 @@
               </nb-button-group>
             </div>
           </div>
-
-          <div>
-            <div style="display: flex; justify-content: center">
-              <button
-                style="width: 60%"
-                nbButton
-                shape="round"
-                status="primary"
-                (click)="onClick()"
-              >
-                Simular
-              </button>
-            </div>
-          </div>
         </div>
       </form>
     </nb-card-body>
+    <nb-card-footer>
+      <div class="flex justify-center">
+        <button
+          style="width: 60%"
+          nbButton
+          shape="round"
+          status="primary"
+          (click)="onClick()"
+        >
+          Simular
+        </button>
+      </div>
+    </nb-card-footer>
   </nb-card>
 
-  <!-- <app-informacion-credito></app-informacion-credito> -->
+  <app-informacion-credito [valorCuota]="valorCuota"></app-informacion-credito>
 </div>

@@ -7,6 +7,7 @@ import {
   NbCardModule,
   NbInputModule,
   NbLayoutModule,
+  NbRadioModule,
   NbSelectModule,
 } from '@nebular/theme';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
@@ -31,6 +32,7 @@ const maskConfig: Partial<IConfig> = {
     NbButtonGroupModule,
     NbCardModule,
     InformacionCreditoModule,
+    NbRadioModule,
   ],
 })
 export class ComercioModule {}

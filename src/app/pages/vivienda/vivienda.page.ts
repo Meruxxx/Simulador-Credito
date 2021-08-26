@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { TipoDeuda } from 'src/app/core/types/credito.types';
+import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 @Component({
   templateUrl: './vivienda.page.html',
   styleUrls: ['./vivienda.page.css'],
@@ -13,10 +14,9 @@ export class ViviendaPage {
   cuota: number = 0;
   _Tem: number = 1;
   selectedItemNgModel: any;
+  valorCuota = 0;
 
   form!: FormGroup;
-
-  tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
 
   options: any = [
     {
@@ -47,7 +47,7 @@ export class ViviendaPage {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      valorPropiedad: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
+      tipoDeuda: [null, [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
@@ -57,11 +57,9 @@ export class ViviendaPage {
   get montoPrestamo() {
     return this.form.controls['montoPrestamo'];
   }
+
   get numeroCuotas() {
     return this.form.controls['numeroCuotas'];
-  }
-  get valorCuota() {
-    return this.form.controls['valorCuota'];
   }
 
   CalcularCuota(Monto: number, Plazo: number): number {
@@ -76,16 +74,30 @@ export class ViviendaPage {
   }
 
   onClick(): void {
+    console.log(this.form.value);
+
     if (this.form.valid) {
-      console.log(this.form.value);
       this.form.get('montoPrestamo')?.hasError('required');
 
-      this.cuota = this.CalcularCuota(
+      const tipoDeuda: Record<string, TipoDeuda> = {
+        hipoteca: 'HIPOTECA',
+        deudorSolidario: 'DEUDOR_SOLIDARIO',
+        ninguna: 'NINGUNA',
+      };
+
+      const valorCuota = CALCULOS_UTILS.calcularValorCuota(
+        'VIVIENDA',
+        tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.numeroCuotas.value
       );
 
-      this.form.patchValue({ valorCuota: this.cuota });
+      if (valorCuota) {
+        this.valorCuota = valorCuota;
+        console.log(valorCuota);
+      } else {
+        alert('error');
+      }
     }
   }
   onClickContacto(): void {}
