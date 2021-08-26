@@ -4,10 +4,10 @@ import { TipoDeuda } from 'src/app/core/types/credito.types';
 import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
-  templateUrl: './comercio.page.html',
-  styleUrls: ['./comercio.page.css'],
+  templateUrl: './contractuales.page.html',
+  styleUrls: ['./contractuales.page.css'],
 })
-export class ComercioPage {
+export class ContractualesPage {
   isBold = false;
   isItalic = true;
   isUnderline = false;
@@ -18,6 +18,8 @@ export class ComercioPage {
   valorCuota = 0;
 
   form!: FormGroup;
+
+  tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
 
   options: any = [
     {
@@ -37,8 +39,12 @@ export class ComercioPage {
       value: 60,
     },
     {
-      text: '6 años',
-      value: 72,
+      text: '10 años',
+      value: 120,
+    },
+    {
+      text: '20 años',
+      value: 240,
     },
   ];
 
@@ -83,7 +89,7 @@ export class ComercioPage {
       };
 
       const valorCuota = CALCULOS_UTILS.calcularValorCuota(
-        'COMERCIO',
+        'LIBRE_INVERSION',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.numeroCuotas.value

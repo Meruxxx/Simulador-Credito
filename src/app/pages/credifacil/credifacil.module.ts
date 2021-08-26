@@ -12,17 +12,18 @@ import {
 } from '@nebular/theme';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { InformacionCreditoModule } from 'src/app/components/informacion-credito/informacion-credito.module';
-import { ComercioRoutingModule } from './comercio-routing.module';
-import { ComercioPage } from './comercio.page';
+import { CredifacilRoutingModule } from './credifacil-routing.module';
+import { CredifacilPage } from './credifacil.page';
+
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
 
 @NgModule({
-  declarations: [ComercioPage],
+  declarations: [CredifacilPage],
   imports: [
     CommonModule,
-    ComercioRoutingModule,
+    CredifacilRoutingModule,
     ReactiveFormsModule,
     NbButtonModule,
     NbInputModule,
@@ -31,8 +32,8 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig),
     NbButtonGroupModule,
     NbCardModule,
-    InformacionCreditoModule,
     NbRadioModule,
+    InformacionCreditoModule,
   ],
 })
-export class ComercioModule {}
+export class CredifacilModule {}

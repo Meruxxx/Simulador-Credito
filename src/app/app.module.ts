@@ -10,6 +10,8 @@ import {
 } from '@nebular/theme';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CdatModule } from './pages/cdat/cdat.module';
+import { ContractualesModule } from './pages/contractuales/contractuales.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +24,8 @@ import { AppComponent } from './app.component';
     NbMenuModule.forRoot(),
     NbButtonModule,
     NbContextMenuModule,
+    CdatModule,
+    ContractualesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -5,13 +5,6 @@
       <form [formGroup]="form">
         <div class="flex flex-col space-y-6">
           <div>
-            <nb-radio-group formControlName="tipoDeuda">
-              <nb-radio value="hipoteca">Hipoteca</nb-radio>
-              <nb-radio value="deudorSolidario">Deudor solidario</nb-radio>
-              <nb-radio value="ninguna">Ninguna</nb-radio>
-            </nb-radio-group>
-          </div>
-          <div>
             <h6>Monto del prestamo</h6>
             <input
               type="number"
@@ -25,6 +18,7 @@
               status="primary"
             />
           </div>
+
           <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
             <span *ngIf="montoPrestamo.errors.required">
               El campo es requerido
@@ -35,6 +29,19 @@
           </ng-container>
           <div>
             <h6>Plazo del credito</h6>
+            <!-- <nb-select
+                    type="number"
+                    fullWidth
+                    shape="round"
+                    type="text"
+                    placeholder="Nº Cuotas"
+                    shape="semi-round"
+                    formControlName="campo2"
+                  >
+                    <nb-option *ngFor="let option of options" [value]="option">
+                      {{ option }}
+                    </nb-option>
+                  </nb-select> -->
             <div class="containerGrup">
               <nb-button-group
                 outline

@@ -4,10 +4,10 @@ import { TipoDeuda } from 'src/app/core/types/credito.types';
 import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
-  templateUrl: './comercio.page.html',
-  styleUrls: ['./comercio.page.css'],
+  templateUrl: './educativo.page.html',
+  styleUrls: ['./educativo.page.css'],
 })
-export class ComercioPage {
+export class EducativoPage {
   isBold = false;
   isItalic = true;
   isUnderline = false;
@@ -19,32 +19,18 @@ export class ComercioPage {
 
   form!: FormGroup;
 
+  tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
+
   options: any = [
     {
       text: '1 año',
       value: 12,
     },
-    {
-      text: '2 años',
-      value: 24,
-    },
-    {
-      text: '3 años',
-      value: 36,
-    },
-    {
-      text: '5 años',
-      value: 60,
-    },
-    {
-      text: '6 años',
-      value: 72,
-    },
   ];
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      tipoDeuda: [null, [Validators.required]],
+      tipoDeuda: ['ninguna', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
@@ -83,7 +69,7 @@ export class ComercioPage {
       };
 
       const valorCuota = CALCULOS_UTILS.calcularValorCuota(
-        'COMERCIO',
+        'EDUCATIVO',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.numeroCuotas.value

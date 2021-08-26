@@ -9,7 +9,14 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  items = [{ title: 'Crédito' }, { title: 'Comercio' }, { title: 'Vivienda' }];
+  items = [
+    { title: 'Crédito' },
+    { title: 'Comercio' },
+    { title: 'Vivienda' },
+    { title: 'Educativo' },
+    { title: 'CrediFacil' },
+  ];
+  itemsAhorros = [{ title: 'CDAT' }, { title: 'Contractuales' }];
 
   constructor(private nbMenuService: NbMenuService, private router: Router) {}
 
@@ -25,6 +32,10 @@ export class AppComponent implements OnInit {
           Crédito: '/credito',
           Comercio: '/comercio',
           Vivienda: '/vivienda',
+          Educativo: '/educativo',
+          CrediFacil: '/credifacil',
+          CDAT: '/cdat',
+          Contractuales: '/contractuales',
         };
 
         this.router.navigate([routes[title]]);
