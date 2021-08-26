@@ -1,7 +1,7 @@
 <nb-layout justify
   ><nb-layout-header>
     <nb-layout-column>
-      <div class="position">
+      <div class="flex-wrap space-x-3 position">
         <button
           outline
           nbButton
@@ -9,6 +9,14 @@
           nbContextMenuTag="context-menu"
         >
           Tipo de credito
+        </button>
+        <button
+          outline
+          nbButton
+          [nbContextMenu]="itemsAhorros"
+          nbContextMenuTag="context-menu"
+        >
+          Ahorros
         </button>
       </div>
     </nb-layout-column>
