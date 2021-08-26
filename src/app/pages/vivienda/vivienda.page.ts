@@ -28,7 +28,7 @@ export class ViviendaPage {
       value: 24,
     },
     {
-      text: '3                                                                       años',
+      text: '3 años',
       value: 36,
     },
     {

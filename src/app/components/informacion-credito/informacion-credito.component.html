@@ -1,25 +1,27 @@
 <nb-card>
   <nb-card-header>Información Crédito</nb-card-header>
   <nb-card-body>
-    <form>
+    <form [formGroup]="form">
       <div class="flex flex-col space-y-6">
-        <nb-card class="cardDatos">
-          <nb-card-body class="justify-content: center;">
-            <span>Valor de la cuota</span>
-            <h1>{{ valorCuota }}</h1>
+        <div class="bg-blue-600 text-white rounded-lg p-6">
+          <span class="uppercase text-xs text-blue-300">Valor de la cuota</span>
+          <h1
+            class="block text-center text-6xl text-white py-16 font-extrabold"
+          >
+            {{ valorCuota | currency }}
+          </h1>
 
-            <div style="display: flex" class="margin: 100px">
-              <div>
-                <span>Total</span>
-                <h6>{{ valorCuota }}</h6>
-              </div>
-              <div>
-                <span>Interés</span>
-                <h6>{{ _Tem + "%" }}</h6>
-              </div>
+          <div class="flex space-x-12">
+            <div>
+              <span class="uppercase text-xs text-blue-300">Total</span>
+              <h6 class="block text-white">{{ valorCuota | currency }}</h6>
             </div>
-          </nb-card-body>
-        </nb-card>
+            <div>
+              <span class="uppercase text-xs text-blue-300">Interés</span>
+              <h6 class="block text-white">{{ _Tem + "%" }}</h6>
+            </div>
+          </div>
+        </div>
         <!-- <div style="background-color: #1c85e8; color: white; height: 50%">
         <span>hola</span>
       </div> -->
@@ -32,7 +34,7 @@
             type="text"
             nbInput
             placeholder="Nombre Contacto"
-            formControlName="campo3"
+            formControlName="NombreCliente"
             mask="separator.0"
             status="primary"
           />
@@ -46,7 +48,7 @@
               type="text"
               nbInput
               placeholder="Contacto@email.com"
-              formControlName="campo3"
+              formControlName="emailCliente"
               mask="separator.0"
               status="primary"
             />
@@ -61,7 +63,7 @@
               type="text"
               nbInput
               placeholder="Telefono-Celular"
-              formControlName="campo3"
+              formControlName="TelCel"
               mask="separator.0"
               status="primary"
             />
@@ -70,6 +72,7 @@
         <div>
           <div style="display: flex; justify-content: center">
             <button
+              type="button"
               style="width: 60%"
               nbButton
               shape="round"
