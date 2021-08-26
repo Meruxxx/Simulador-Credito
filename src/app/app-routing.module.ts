@@ -36,6 +36,18 @@ const routes: Routes = [
         (m) => m.CredifacilModule
       ),
   },
+  {
+    path: 'cdat',
+    loadChildren: () =>
+      import('./pages/cdat/cdat.module').then((m) => m.CdatModule),
+  },
+  {
+    path: 'contractuales',
+    loadChildren: () =>
+      import('./pages/contractuales/contractuales.module').then(
+        (m) => m.ContractualesModule
+      ),
+  },
 ];
 
 @NgModule({

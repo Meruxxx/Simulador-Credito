@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     { title: 'Educativo' },
     { title: 'CrediFacil' },
   ];
+  itemsAhorros = [{ title: 'CDAT' }, { title: 'Contractuales' }];
 
   constructor(private nbMenuService: NbMenuService, private router: Router) {}
 
@@ -33,6 +34,8 @@ export class AppComponent implements OnInit {
           Vivienda: '/vivienda',
           Educativo: '/educativo',
           CrediFacil: '/credifacil',
+          CDAT: '/cdat',
+          Contractuales: '/contractuales',
         };
 
         this.router.navigate([routes[title]]);
