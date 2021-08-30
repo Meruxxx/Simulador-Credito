@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TipoDeuda } from 'src/app/core/types/credito.types';
 import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
@@ -23,28 +22,44 @@ export class CdatPage {
 
   options: any = [
     {
-      text: '1 año',
-      value: 12,
+      text: '30 DÍAS',
+      value: 30,
     },
     {
-      text: '2 años',
-      value: 24,
-    },
-    {
-      text: '3 años',
-      value: 36,
-    },
-    {
-      text: '5 años',
+      text: '60 DÍAS',
       value: 60,
     },
     {
-      text: '10 años',
+      text: '90 DÍAS',
+      value: 90,
+    },
+    {
+      text: '120 DÍAS',
       value: 120,
     },
     {
-      text: '20 años',
-      value: 240,
+      text: '180 DÍAS',
+      value: 180,
+    },
+    {
+      text: '270 DÍAS',
+      value: 270,
+    },
+    {
+      text: '360 DÍAS',
+      value: 360,
+    },
+    {
+      text: '450 DÍAS',
+      value: 450,
+    },
+    {
+      text: '540 DÍAS',
+      value: 540,
+    },
+    {
+      text: '720 DÍAS',
+      value: 720,
     },
   ];
 
@@ -82,15 +97,8 @@ export class CdatPage {
     if (this.form.valid) {
       this.form.get('montoPrestamo')?.hasError('required');
 
-      const tipoDeuda: Record<string, TipoDeuda> = {
-        hipoteca: 'HIPOTECA',
-        deudorSolidario: 'DEUDOR_SOLIDARIO',
-        ninguna: 'NINGUNA',
-      };
-
-      const valorCuota = CALCULOS_UTILS.calcularValorCuota(
-        'LIBRE_INVERSION',
-        tipoDeuda[this.form.get('tipoDeuda')?.value],
+      const valorCuota = CALCULOS_UTILS.calcularInteresAhorro(
+        'CDAT',
         this.montoPrestamo.value,
         this.numeroCuotas.value
       );

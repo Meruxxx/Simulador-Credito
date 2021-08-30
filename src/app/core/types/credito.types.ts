@@ -4,5 +4,8 @@ export type TipoCredito =
   | 'COMERCIO'
   | 'EDUCATIVO'
   | 'CREDIFACIL';
+export type TipoAhorro =
+  | 'CDAT'
+  | 'CONTRACTUALES';
 
 export type TipoDeuda = 'HIPOTECA' | 'DEUDOR_SOLIDARIO' | 'NINGUNA';

@@ -1,4 +1,5 @@
 import { TipoCredito, TipoDeuda } from '../types/credito.types';
+import { TipoAhorro } from './../types/credito.types';
 
 export const tasaInteresLibreInversion: Record<
   number,
@@ -79,6 +80,22 @@ export const parametrosCrediFacil: Record<
   { plazoMaximo: number; montoMaximo: number }
 > = {
   NINGUNA: { plazoMaximo: 36, montoMaximo: 4000000 },
+};
+
+export const parametrosAhorro: Record<'NINGUNA', { montoMinimo: number }> = {
+  NINGUNA: { montoMinimo: 272557 },
+};
+export const tasaInteresAhorro: Record<number, { tasaEA: number }> = {
+  30: { tasaEA: 0.5 },
+  60: { tasaEA: 0.7 },
+  90: { tasaEA: 3 },
+  120: { tasaEA: 3.1 },
+  180: { tasaEA: 4.1 },
+  270: { tasaEA: 4.4 },
+  360: { tasaEA: 5.2 },
+  450: { tasaEA: 5.2 },
+  540: { tasaEA: 5.2 },
+  720: { tasaEA: 5.2 },
 };
 export const CALCULOS_UTILS = {
   calcularValorCuota(
@@ -162,5 +179,30 @@ export const CALCULOS_UTILS = {
     const division = 1 - tasaPlazo;
     const valorCuota = (interes * monto) / division;
     return valorCuota;
+  },
+  calcularInteresAhorro(
+    tipoAhorro: TipoAhorro,
+    monto: number,
+    plazo: number
+  ): number | null {
+    let parametros;
+    let tasaEA = 0;
+    let interestotal = 0;
+    switch (tipoAhorro) {
+      case 'CDAT':
+        parametros = parametrosAhorro['NINGUNA'];
+
+        if (parametros.montoMinimo > monto) {
+          return null;
+        }
+        tasaEA = tasaInteresLibreInversion[plazo].tasaEA;
+        break;
+    }
+    //todo al momento de guardar se debe verificar que los parentesis persistan ya que si el autoformateo los quita puede generar error en los calculos
+    var TeaT = 1 + (tasaEA / 100);
+    var plazoT = (plazo / 365) - 1;
+    var Tea = TeaT ^ plazoT;
+    interestotal = monto * Tea;
+    return interestotal;
   },
 };
