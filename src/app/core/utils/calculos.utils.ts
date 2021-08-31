@@ -203,13 +203,13 @@ export const CALCULOS_UTILS = {
     }
     //todo al momento de guardar se debe verificar que los parentesis persistan ya que si el autoformateo los quita puede generar error en los calculos
     var TeaT = 1 + (tasaEA / 100);
-    console.log('TeaT '+' '+TeaT)
+
     var plazoT = (plazo / 365);
-    console.log('plazoT '+' '+plazoT)
+
     var Tea = Math.pow(TeaT , plazoT) - 1;
-    console.log('Tea '+' '+Tea)
+
     interestotal = monto * Tea;
-    console.log('interestotal '+' '+interestotal);
+
     return interestotal;
   },
 };
