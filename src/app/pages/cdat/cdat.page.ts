@@ -15,7 +15,8 @@ export class CdatPage {
   _Tem: number = 1;
   selectedItemNgModel: any;
   valorCuota = 0;
-
+  interes = 0;
+  totalahorrado = 0;
   form!: FormGroup;
 
   tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
@@ -103,8 +104,12 @@ export class CdatPage {
       );
 
       if (valorCuota) {
-        this.valorCuota = valorCuota;
+        this.valorCuota = valorCuota[0];
+        this.interes = valorCuota[1];
+        this.totalahorrado=parseFloat(this.montoPrestamo.value)+valorCuota[0];
         console.log(valorCuota);
+        console.log(this.interes);
+        console.log(this.totalahorrado);
       } else {
         alert('error');
       }

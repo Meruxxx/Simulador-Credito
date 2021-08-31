@@ -12,13 +12,15 @@
           </h1>
 
           <div class="flex space-x-12">
-            <div>
-              <span class="uppercase text-xs text-blue-300">Total</span>
-              <h6 class="block text-white">{{ valorCuota | currency }}</h6>
+            <div >
+              <span class="uppercase text-xs text-blue-300" >Total</span>
+              <!-- <h6 class="block text-white">{{ valorCuota | currency }}</h6> -->
+              <h6 *ngIf="title==='Informción Ahorro'" class="block text-white" >{{ TotalAhorro | currency }}</h6>
+              <h6 *ngIf="title==='Informción Crédito'" class="block text-white" >{{ valorCuota | currency }}</h6>
             </div>
             <div>
               <span class="uppercase text-xs text-blue-300">Interés</span>
-              <h6 class="block text-white">{{ _Tem + "%" }}</h6>
+              <h6 class="block text-white">{{ intereses + "%" }}</h6>
             </div>
           </div>
         </div>
