@@ -6,7 +6,7 @@ import {
   NbContextMenuModule,
   NbLayoutModule,
   NbMenuModule,
-  NbThemeModule,
+  NbThemeModule
 } from '@nebular/theme';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

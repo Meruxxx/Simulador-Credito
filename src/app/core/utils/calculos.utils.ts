@@ -109,6 +109,9 @@ export const tasaInteresAhorroContractuales: Record<number, { tasaEA: number }> 
   24: { tasaEA: 5.50 }
 };
 export const CALCULOS_UTILS = {
+  //TODO: Se debe retornar el valor de la Tasa de interes, tasa EA para ser mostrado en el componente de información
+  //TODO: Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
+
   calcularValorCuota(
     tipoCredito: TipoCredito,
     tipoDeuda: TipoDeuda,
@@ -191,8 +194,8 @@ export const CALCULOS_UTILS = {
     const valorCuota = (interes * monto) / division;
     return valorCuota;
   },
-  //todo Se debe retornar el valor de la tasa EA para ser mostrado en el componente de información
-  //todo Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
+  //TODO: Se debe retornar el valor de la tasa EA para ser mostrado en el componente de información
+  //TODO: Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
   calcularInteresAhorro(
     tipoAhorro: TipoAhorro,
     monto: number,

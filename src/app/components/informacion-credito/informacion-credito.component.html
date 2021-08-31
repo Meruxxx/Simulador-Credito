@@ -1,7 +1,7 @@
 <nb-card>
-  <nb-card-header>Información Crédito</nb-card-header>
+  <nb-card-header>{{title}}</nb-card-header>
   <nb-card-body>
-    <form [formGroup]="form">
+    <form>
       <div class="flex flex-col space-y-6">
         <div class="bg-blue-600 text-white rounded-lg p-6">
           <span class="uppercase text-xs text-blue-300">Valor de la cuota</span>
@@ -25,50 +25,7 @@
         <!-- <div style="background-color: #1c85e8; color: white; height: 50%">
         <span>hola</span>
       </div> -->
-        <div>
-          <h6>Datos de contacto</h6>
-          <input
-            type="text"
-            fullWidth
-            shape="semi-round"
-            type="text"
-            nbInput
-            placeholder="Nombre Contacto"
-            formControlName="NombreCliente"
-            mask="separator.0"
-            status="primary"
-          />
-        </div>
-        <div>
-          <div>
-            <input
-              type="text"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Contacto@email.com"
-              formControlName="emailCliente"
-              mask="separator.0"
-              status="primary"
-            />
-          </div>
-        </div>
-        <div>
-          <div>
-            <input
-              type="text"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Telefono-Celular"
-              formControlName="TelCel"
-              mask="separator.0"
-              status="primary"
-            />
-          </div>
-        </div>
+
         <div>
           <div style="display: flex; justify-content: center">
             <button
@@ -77,8 +34,9 @@
               nbButton
               shape="round"
               status="primary"
-              (click)="onClickContacto()"
-            >
+              (click)="open()"
+              >
+              <!-- (click)="onClickContacto()" -->
               Contáctecnos
             </button>
           </div>
@@ -87,3 +45,4 @@
     </form>
   </nb-card-body>
 </nb-card>
+

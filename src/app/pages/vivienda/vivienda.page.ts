@@ -10,7 +10,7 @@ export class ViviendaPage {
   isBold = false;
   isItalic = true;
   isUnderline = false;
-  title = 'simulador-credito';
+  title = 'Informción Crédito';
   cuota: number = 0;
   _Tem: number = 1;
   selectedItemNgModel: any;
