@@ -188,21 +188,28 @@ export const CALCULOS_UTILS = {
     let parametros;
     let tasaEA = 0;
     let interestotal = 0;
+    // console.log(tipoAhorro);
     switch (tipoAhorro) {
       case 'CDAT':
         parametros = parametrosAhorro['NINGUNA'];
-
+        // console.log('Validacion del monto'+' '+monto+' '+parametros.montoMinimo);
         if (parametros.montoMinimo > monto) {
           return null;
         }
-        tasaEA = tasaInteresLibreInversion[plazo].tasaEA;
+        // console.log(plazo);
+        tasaEA = tasaInteresAhorro[plazo].tasaEA;
+        console.log(tasaEA);
         break;
     }
     //todo al momento de guardar se debe verificar que los parentesis persistan ya que si el autoformateo los quita puede generar error en los calculos
     var TeaT = 1 + (tasaEA / 100);
-    var plazoT = (plazo / 365) - 1;
-    var Tea = TeaT ^ plazoT;
+    console.log('TeaT '+' '+TeaT)
+    var plazoT = (plazo / 365);
+    console.log('plazoT '+' '+plazoT)
+    var Tea = Math.pow(TeaT , plazoT) - 1;
+    console.log('Tea '+' '+Tea)
     interestotal = monto * Tea;
+    console.log('interestotal '+' '+interestotal);
     return interestotal;
   },
 };

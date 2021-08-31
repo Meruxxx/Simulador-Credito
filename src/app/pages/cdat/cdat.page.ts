@@ -65,7 +65,6 @@ export class CdatPage {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      tipoDeuda: [null, [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
       valorCuota: [''],
