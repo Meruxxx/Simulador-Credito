@@ -117,7 +117,7 @@ export const CALCULOS_UTILS = {
     tipoDeuda: TipoDeuda,
     monto: number,
     numeroCuotas: number
-  ): number | null {
+  ): [valor:number,interes:number] | null {
     let parametros;
     let tasaMensual;
     let tasaEA;
@@ -192,7 +192,7 @@ export const CALCULOS_UTILS = {
     );
     const division = 1 - tasaPlazo;
     const valorCuota = (interes * monto) / division;
-    return valorCuota;
+    return [valorCuota,tasaMensual];
   },
   //TODO: Se debe retornar el valor de la tasa EA para ser mostrado en el componente de información
   //TODO: Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
@@ -200,7 +200,7 @@ export const CALCULOS_UTILS = {
     tipoAhorro: TipoAhorro,
     monto: number,
     plazo: number
-  ): number | null {
+  ): [valor:number,interes:number] | null {
     let parametros;
     let tasaEA = 0;
     let interestotal = 0;
@@ -237,6 +237,6 @@ export const CALCULOS_UTILS = {
 
     interestotal = monto * Tea;
 
-    return interestotal;
+    return [interestotal,tasaEA];
   },
 };

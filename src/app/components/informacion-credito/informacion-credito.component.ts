@@ -12,6 +12,8 @@ import { EnviarCorreoPage } from './../../components/enviar-correo/enviar-correo
 export class InformacionCreditoComponent {
   @Input() valorCuota!: number;
   @Input() title!: any;
+  @Input() intereses!: any;
+  @Input() TotalAhorro!: any;
   _Tem: number = 1;
 
   // form!: FormGroup;

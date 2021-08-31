@@ -10,7 +10,7 @@ import { filter, map } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   items = [
-    { title: 'Crédito' },
+    { title: 'Libre Inversión' },
     { title: 'Comercio' },
     { title: 'Vivienda' },
     { title: 'Educativo' },
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       )
       .subscribe((title) => {
         const routes: Record<string, string> = {
-          Crédito: '/credito',
+          'Libre Inversión': '/credito',
           Comercio: '/comercio',
           Vivienda: '/vivienda',
           Educativo: '/educativo',
