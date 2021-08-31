@@ -85,6 +85,9 @@ export const parametrosCrediFacil: Record<
 export const parametrosAhorro: Record<'NINGUNA', { montoMinimo: number }> = {
   NINGUNA: { montoMinimo: 272557 },
 };
+export const parametrosAhorroContractuales: Record<'NINGUNA', { montoMinimo: number }> = {
+  NINGUNA: { montoMinimo: 10000 },
+};
 export const tasaInteresAhorro: Record<number, { tasaEA: number }> = {
   30: { tasaEA: 0.5 },
   60: { tasaEA: 0.7 },
@@ -96,6 +99,14 @@ export const tasaInteresAhorro: Record<number, { tasaEA: number }> = {
   450: { tasaEA: 5.2 },
   540: { tasaEA: 5.2 },
   720: { tasaEA: 5.2 },
+};
+export const tasaInteresAhorroContractuales: Record<number, { tasaEA: number }> = {
+  6: { tasaEA: 4.00 },
+  9: { tasaEA: 4.50 },
+  12: { tasaEA: 5.00 },
+  15: { tasaEA: 5.50 },
+  18: { tasaEA: 5.50 },
+  24: { tasaEA: 5.50 }
 };
 export const CALCULOS_UTILS = {
   calcularValorCuota(
@@ -200,6 +211,17 @@ export const CALCULOS_UTILS = {
         tasaEA = tasaInteresAhorro[plazo].tasaEA;
         console.log(tasaEA);
         break;
+        case 'CONTRACTUALES':
+          parametros = parametrosAhorroContractuales['NINGUNA'];
+          // console.log('Validacion del monto'+' '+monto+' '+parametros.montoMinimo);
+          if (parametros.montoMinimo > monto) {
+            return null;
+          }
+          // console.log(plazo);
+        tasaEA = tasaInteresAhorroContractuales[plazo].tasaEA;
+        plazo = plazo * 30;
+          console.log(tasaEA);
+          break;
     }
     //todo al momento de guardar se debe verificar que los parentesis persistan ya que si el autoformateo los quita puede generar error en los calculos
     var TeaT = 1 + (tasaEA / 100);

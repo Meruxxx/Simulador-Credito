@@ -1,32 +1,11 @@
 <div class="container grid gap-12 grid-col-1 lg:grid-cols-2">
   <nb-card>
-    <nb-card-header>Información Crédito</nb-card-header>
+    <nb-card-header>Información Ahorro</nb-card-header>
     <nb-card-body>
       <form [formGroup]="form">
         <div class="flex flex-col space-y-6">
-          <div>
-            <!-- <h6>Valor de la propiedad</h6>
-            <input
-              type="number"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Valor a prestar"
-              formControlName="valorPropiedad"
-              mask="separator.2"
-              status="primary"
-            /> -->
-
-            <nb-radio-group formControlName="tipoDeuda">
-              <nb-radio value="hipoteca">Hipoteca</nb-radio>
-              <nb-radio value="deudorSolidario">Deudor solidario</nb-radio>
-              <nb-radio value="ninguna">Ninguna</nb-radio>
-            </nb-radio-group>
-          </div>
-
-          <div>
-            <h6>Monto del prestamo</h6>
+                    <div>
+            <h6>¿Cuánto dinero quieres invertir?</h6>
             <input
               type="number"
               fullWidth
@@ -49,7 +28,7 @@
             </span>
           </ng-container>
           <div>
-            <h6>Plazo del credito</h6>
+            <h6>Plazo de la inversión</h6>
             <!-- <nb-select
                     type="number"
                     fullWidth
