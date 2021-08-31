@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
   ];
   itemsAhorros = [{ title: 'CDAT' }, { title: 'Contractuales' }];
 
-  constructor(private nbMenuService: NbMenuService, private router: Router) {}
+  constructor(private nbMenuService: NbMenuService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.nbMenuService
@@ -37,7 +38,6 @@ export class AppComponent implements OnInit {
           CDAT: '/cdat',
           Contractuales: '/contractuales',
         };
-
         this.router.navigate([routes[title]]);
       });
   }

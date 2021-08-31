@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbDialogModule, NbInputModule } from '@nebular/theme';
+import { EnviarCorreoModule } from '../enviar-correo/enviar-correo.module';
 import { InformacionCreditoComponent } from './informacion-credito.component';
 @NgModule({
   declarations: [InformacionCreditoComponent],
@@ -11,6 +12,8 @@ import { InformacionCreditoComponent } from './informacion-credito.component';
     NbButtonModule,
     NbInputModule,
     ReactiveFormsModule,
+    EnviarCorreoModule,
+    NbDialogModule.forRoot(),
   ],
   exports: [InformacionCreditoComponent],
 })

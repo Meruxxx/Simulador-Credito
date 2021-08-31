@@ -10,7 +10,7 @@ export class ContractualesPage {
   isBold = false;
   isItalic = true;
   isUnderline = false;
-  title = 'simulador-credito';
+  title = 'Informción Ahorro';
   cuota: number = 0;
   _Tem: number = 1;
   selectedItemNgModel: any;
@@ -89,8 +89,10 @@ export class ContractualesPage {
       if (valorCuota) {
         this.valorCuota = valorCuota;
         console.log(valorCuota);
+
       } else {
         alert('error');
+
       }
     }
   }
