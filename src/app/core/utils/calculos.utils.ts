@@ -191,6 +191,8 @@ export const CALCULOS_UTILS = {
     const valorCuota = (interes * monto) / division;
     return valorCuota;
   },
+  //todo Se debe retornar el valor de la tasa EA para ser mostrado en el componente de información
+  //todo Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
   calcularInteresAhorro(
     tipoAhorro: TipoAhorro,
     monto: number,

@@ -89,8 +89,10 @@ export class ContractualesPage {
       if (valorCuota) {
         this.valorCuota = valorCuota;
         console.log(valorCuota);
+
       } else {
         alert('error');
+
       }
     }
   }
