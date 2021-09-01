@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NbToastrService } from '@nebular/theme';
 import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
@@ -48,7 +49,7 @@ export class ContractualesPage {
     }
   ];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private toastrService: NbToastrService) {
     this.form = formBuilder.group({
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
@@ -91,11 +92,13 @@ export class ContractualesPage {
         this.valorCuota = valorCuota[0];
         this.interes = valorCuota[1];
         this.totalahorrado=parseFloat(this.montoPrestamo.value)+valorCuota[0];
-        console.log(valorCuota);
 
       } else {
-        alert('error');
-
+        this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
+                {
+                  status: 'warning'
+                }
+              );
       }
     }
   }

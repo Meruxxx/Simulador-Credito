@@ -4,9 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {
   NbButtonModule,
   NbCardModule,
-  NbCheckboxModule,
-  NbInputModule,
-  NbToastrModule,
+  NbCheckboxModule, NbInputModule
 } from '@nebular/theme';
 import { EnviarCorreoPage } from './enviar-correo.page';
 
@@ -19,7 +17,6 @@ import { EnviarCorreoPage } from './enviar-correo.page';
     NbInputModule,
     ReactiveFormsModule,
     NbCheckboxModule,
-    NbToastrModule.forRoot(),
   ],
   exports: [EnviarCorreoPage],
 })
