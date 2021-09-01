@@ -44,7 +44,8 @@ export class InformacionCreditoComponent {
   // }
 
   open(): void {
-    this.dialogService.open(EnviarCorreoPage)
+    this.dialogService.open(EnviarCorreoPage, {
+      autoFocus: true,
+    });
   }
-
 }
