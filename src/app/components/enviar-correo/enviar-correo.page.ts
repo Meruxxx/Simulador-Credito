@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailService } from 'src/app/core/services/email.service';
 
@@ -8,8 +8,8 @@ import { EmailService } from 'src/app/core/services/email.service';
   styleUrls: ['./enviar-correo.page.css'],
 })
 export class EnviarCorreoPage {
-  @Input() visible = false;
-  @Input() title: any;
+  tipo_contacto: string="";
+  tipo_solicitud: string="";
   buttonVisible = true;
   checked = false;
   form: FormGroup;
@@ -39,12 +39,12 @@ export class EnviarCorreoPage {
       } = this.form.value;
       this.emailService
         .send({
-          to: 'diegoma.04@gmail.com;  e.alexisceballos@gmail.com',
+          to: 'diegoma.04@gmail.com;e.alexisceballos@gmail.com;shapes.studiografico@gmail.com',
           params: {
-            tipo_contacto: '',
+            tipo_contacto: this.tipo_contacto,
             nombre_contacto: NombreCliente,
             apellido_contacto: apellidoCliente,
-            tipo_solicitud: '',
+            tipo_solicitud: this.tipo_solicitud,
             numero_identificacion: identificacion,
             telefono_contacto: tel,
             celular_contacto: cel,

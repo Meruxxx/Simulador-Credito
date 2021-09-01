@@ -14,6 +14,8 @@ export class InformacionCreditoComponent {
   @Input() title!: any;
   @Input() intereses!: any;
   @Input() TotalAhorro!: any;
+  @Input() tipoSolicitud!: any;
+
   _Tem: number = 1;
 
   // form!: FormGroup;
@@ -44,8 +46,12 @@ export class InformacionCreditoComponent {
   // }
 
   open(): void {
-    this.dialogService.open(EnviarCorreoPage, {
+        this.dialogService.open(EnviarCorreoPage, {
       autoFocus: true,
+      context: {
+        tipo_contacto:this.title,
+        tipo_solicitud:this.tipoSolicitud
+      }
     });
   }
 }
