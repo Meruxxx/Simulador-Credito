@@ -11,11 +11,14 @@ import {
   NbThemeModule,
   NbToastrModule
 } from '@nebular/theme';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CdatModule } from './pages/cdat/cdat.module';
 import { ContractualesModule } from './pages/contractuales/contractuales.module';
-
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -35,7 +38,8 @@ import { ContractualesModule } from './pages/contractuales/contractuales.module'
       limit: 3,
       position: NbGlobalLogicalPosition.BOTTOM_END,
       destroyByClick:true
-    })
+    }),
+    NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [],
   bootstrap: [AppComponent],
