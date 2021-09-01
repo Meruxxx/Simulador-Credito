@@ -1,93 +1,91 @@
 <nb-card>
   <nb-card-header>Datos de contacto</nb-card-header>
   <nb-card-body>
-<div class="w-full max-w-3xl rounded-lg ">
-  <form [formGroup]="form">
-    <div class="flex-col space-y-6">
-      <input
-        type="text"
-        fullWidth
-        shape="semi-round"
-        type="text"
-        nbInput
-        placeholder="Nombres"
-        formControlName="NombreCliente"
-        mask="separator.0"
-        status="primary"
-      />
-      <input
-        type="text"
-        fullWidth
-        shape="semi-round"
-        type="text"
-        nbInput
-        placeholder="Apellidos"
-        formControlName="NombreCliente"
-        mask="separator.0"
-        status="primary"
-      />
-      <input
-        type="text"
-        fullWidth
-        shape="semi-round"
-        type="text"
-        nbInput
-        placeholder="Número de identificación"
-        formControlName="NombreCliente"
-        mask="separator.0"
-        status="primary"
-      />
-      <input
-        type="text"
-        fullWidth
-        shape="semi-round"
-        type="text"
-        nbInput
-        placeholder="Teléfono"
-        formControlName="NombreCliente"
-        mask="separator.0"
-        status="primary"
-      />
-      <input
-        type="text"
-        fullWidth
-        shape="semi-round"
-        type="text"
-        nbInput
-        placeholder="Celular"
-        formControlName="NombreCliente"
-        mask="separator.0"
-        status="primary"
-      />
-      <input
-        type="text"
-        fullWidth
-        shape="semi-round"
-        type="text"
-        nbInput
-        placeholder="Contacto@email.com"
-        formControlName="emailCliente"
-        mask="separator.0"
-        status="primary"
-      />
-    <div class="space-top1">
-      <nb-checkbox status="primary" (checkedChange)="toggle($event)">Primary</nb-checkbox>
+    <div class="w-full max-w-3xl rounded-lg">
+      <form [formGroup]="form">
+        <div class="flex-col space-y-6">
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Nombres"
+            formControlName="NombreCliente"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Apellidos"
+            formControlName="NombreCliente"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            type="text"
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Número de identificación"
+            formControlName="NombreCliente"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Teléfono"
+            formControlName="NombreCliente"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Celular"
+            formControlName="NombreCliente"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Contacto@email.com"
+            formControlName="emailCliente"
+            mask="separator.0"
+            status="primary"
+          />
+          <div class="space-top1">
+            <nb-checkbox status="primary" (checkedChange)="toggle($event)"
+              >Aceptación informada, expresa y libre de los presentes Términos y
+              Condiciones:</nb-checkbox
+            >
+          </div>
+          <div style="display: flex; justify-content: center">
+            <button
+              type="button"
+              style="width: 60%"
+              nbButton
+              shape="round"
+              status="primary"
+              [disabled]="buttonVisible"
+              (click)="onClickContacto()"
+            >
+              Enviar
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-      <div style="display: flex; justify-content: center">
-        <button
-          type="button"
-          style="width: 60%"
-          nbButton
-          shape="round"
-          status="primary"
-          (click)="onClickContacto()"
-        >
-          Enviar {{checked}}
-
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
-</nb-card-body>
+  </nb-card-body>
 </nb-card>
