@@ -1,9 +1,9 @@
-<!-- <nb-card>
+<nb-card>
   <nb-card-header>Datos de contacto</nb-card-header>
-  <nb-card-body> -->
-<div class="w-full max-w-4xl rounded-lg shadow-xl">
+  <nb-card-body>
+<div class="w-full max-w-3xl rounded-lg ">
   <form [formGroup]="form">
-    <div class="flex flex-col space-y-6 flex-row-2">
+    <div class="flex-col space-y-6">
       <input
         type="text"
         fullWidth
@@ -54,7 +54,7 @@
         shape="semi-round"
         type="text"
         nbInput
-        placeholder="celular"
+        placeholder="Celular"
         formControlName="NombreCliente"
         mask="separator.0"
         status="primary"
@@ -70,16 +70,9 @@
         mask="separator.0"
         status="primary"
       />
-      <input
-        type="checkbox"
-        fullWidth
-        shape="semi-round"
-        nbInput
-        placeholder="Contacto@email.com"
-        formControlName="emailCliente"
-        mask="separator.0"
-        status="primary"
-      />
+    <div class="space-top1">
+      <nb-checkbox status="primary">Primary</nb-checkbox>
+    </div>
       <div style="display: flex; justify-content: center">
         <button
           type="button"
@@ -95,5 +88,5 @@
     </div>
   </form>
 </div>
-<!-- </nb-card-body>
-</nb-card> -->
+</nb-card-body>
+</nb-card>

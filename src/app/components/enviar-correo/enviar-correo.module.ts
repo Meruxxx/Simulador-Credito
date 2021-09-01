@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbCheckboxModule, NbInputModule } from '@nebular/theme';
 import { EnviarCorreoPage } from './enviar-correo.page';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { EnviarCorreoPage } from './enviar-correo.page';
     NbCardModule,
     NbButtonModule,
     NbInputModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,NbCheckboxModule
   ],
   exports: [EnviarCorreoPage]
 })
