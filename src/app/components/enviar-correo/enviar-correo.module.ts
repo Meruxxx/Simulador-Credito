@@ -1,20 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NbButtonModule, NbCardModule, NbCheckboxModule, NbInputModule } from '@nebular/theme';
+import {
+  NbButtonModule,
+  NbCardModule,
+  NbCheckboxModule,
+  NbInputModule,
+  NbToastrModule,
+} from '@nebular/theme';
 import { EnviarCorreoPage } from './enviar-correo.page';
 
 @NgModule({
-  declarations: [
-    EnviarCorreoPage
-  ],
+  declarations: [EnviarCorreoPage],
   imports: [
     CommonModule,
     NbCardModule,
     NbButtonModule,
     NbInputModule,
-    ReactiveFormsModule,NbCheckboxModule
+    ReactiveFormsModule,
+    NbCheckboxModule,
+    NbToastrModule.forRoot(),
   ],
-  exports: [EnviarCorreoPage]
+  exports: [EnviarCorreoPage],
 })
-export class EnviarCorreoModule { }
+export class EnviarCorreoModule {}
