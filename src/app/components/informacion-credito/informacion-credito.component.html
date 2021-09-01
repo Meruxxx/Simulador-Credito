@@ -4,7 +4,8 @@
     <form>
       <div class="flex flex-col space-y-6">
         <div class="bg-blue-600 text-white rounded-lg p-6">
-          <span class="uppercase text-xs text-blue-300">Valor de la cuota</span>
+          <span *ngIf="title==='Informción Crédito'" class="uppercase text-xs text-blue-300">Valor de la cuota</span>
+          <span *ngIf="title==='Informción Ahorro'"  class="uppercase text-xs text-blue-300">Valor de la ganacia</span>
           <h1
             class="block text-center text-6xl text-white py-16 font-extrabold"
           >
