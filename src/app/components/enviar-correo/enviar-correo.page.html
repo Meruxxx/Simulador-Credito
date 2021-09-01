@@ -11,7 +11,6 @@
             nbInput
             placeholder="Nombres"
             formControlName="NombreCliente"
-            mask="separator.0"
             status="primary"
           />
           <input
@@ -20,38 +19,36 @@
             type="text"
             nbInput
             placeholder="Apellidos"
-            formControlName="NombreCliente"
-            mask="separator.0"
+            formControlName="apellidoCliente"
             status="primary"
           />
           <input
-            type="text"
             fullWidth
             shape="semi-round"
-            type="text"
+            type="number"
             nbInput
             placeholder="Número de identificación"
-            formControlName="NombreCliente"
+            formControlName="identificacion"
             mask="separator.0"
             status="primary"
           />
           <input
             fullWidth
             shape="semi-round"
-            type="text"
+            type="number"
             nbInput
             placeholder="Teléfono"
-            formControlName="NombreCliente"
+            formControlName="tel"
             mask="separator.0"
             status="primary"
           />
           <input
             fullWidth
             shape="semi-round"
-            type="text"
+            type="number"
             nbInput
             placeholder="Celular"
-            formControlName="NombreCliente"
+            formControlName="cel"
             mask="separator.0"
             status="primary"
           />
@@ -62,13 +59,16 @@
             nbInput
             placeholder="Contacto@email.com"
             formControlName="emailCliente"
-            mask="separator.0"
             status="primary"
           />
           <div class="space-top1">
             <nb-checkbox status="primary" (checkedChange)="toggle($event)"
-              >Aceptación informada, expresa y libre de los presentes Términos y
-              Condiciones:</nb-checkbox
+              >Acepta
+              <a
+                href="https://www.mintic.gov.co/portal/inicio/Secciones-auxiliares/Politicas/2627:Politicas-de-Privacidad-y-Condiciones-de-Uso"
+                target="_blank"
+                >política de privacidad.</a
+              ></nb-checkbox
             >
           </div>
           <div style="display: flex; justify-content: center">

@@ -19,27 +19,51 @@ export class EnviarCorreoPage {
   ) {
     this.form = this.formBuilder.group({
       NombreCliente: ['', [Validators.required]],
+      apellidoCliente: ['', [Validators.required]],
+      identificacion: ['', [Validators.required, Validators.maxLength(256)]],
+      tel: ['', [Validators.required, Validators.maxLength(256)]],
+      cel: ['', [Validators.required, Validators.maxLength(256)]],
       emailCliente: ['', [Validators.required, Validators.email]],
-      TelCel: ['', [Validators.required, Validators.maxLength(256)]],
     });
   }
 
   onClickContacto(): void {
-    const { NombreCliente, emailCliente, TelCel } = this.form.value;
-    this.emailService
-      .send({
-        to: 'diegoma.04@gmail.com',
-        params: {
-          nombre_contacto: NombreCliente,
-          email_contacto: emailCliente,
-          telefono_contacto: TelCel,
-        },
-      })
-      .then(console.log);
+    if (this.form.valid) {
+      const {
+        NombreCliente,
+        apellidoCliente,
+        identificacion,
+        tel,
+        cel,
+        emailCliente,
+      } = this.form.value;
+      this.emailService
+        .send({
+          to: 'diegoma.04@gmail.com;  e.alexisceballos@gmail.com',
+          params: {
+            tipo_contacto: '',
+            nombre_contacto: NombreCliente,
+            apellido_contacto: apellidoCliente,
+            tipo_solicitud: '',
+            numero_identificacion: identificacion,
+            telefono_contacto: tel,
+            celular_contacto: cel,
+            email_contacto: emailCliente,
+          },
+        })
+        .then((x) =>
+          x.status > 0
+            ? alert('Envio correcto.')
+            : alert('No se puedo enviar la información.')
+        );
+    }
   }
 
   toggle(checked: boolean) {
-    this.buttonVisible = false;
-    this.checked = checked;
+    if (checked === true) {
+      this.buttonVisible = false;
+    } else {
+      this.buttonVisible = true;
+    }
   }
 }
