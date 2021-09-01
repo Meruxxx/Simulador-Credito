@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NbGlobalLogicalPosition, NbToastrService } from '@nebular/theme';
 import { EmailService } from 'src/app/core/services/email.service';
 
 @Component({
@@ -8,14 +9,15 @@ import { EmailService } from 'src/app/core/services/email.service';
   styleUrls: ['./enviar-correo.page.css'],
 })
 export class EnviarCorreoPage {
-  tipo_contacto: string="";
-  tipo_solicitud: string="";
+  tipo_contacto: string = '';
+  tipo_solicitud: string = '';
   buttonVisible = true;
   checked = false;
   form: FormGroup;
   constructor(
     private emailService: EmailService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastrService: NbToastrService
   ) {
     this.form = this.formBuilder.group({
       NombreCliente: ['', [Validators.required]],
@@ -37,25 +39,41 @@ export class EnviarCorreoPage {
         cel,
         emailCliente,
       } = this.form.value;
-      this.emailService
-        .send({
-          to: 'diegoma.04@gmail.com;e.alexisceballos@gmail.com;shapes.studiografico@gmail.com',
-          params: {
-            tipo_contacto: this.tipo_contacto,
-            nombre_contacto: NombreCliente,
-            apellido_contacto: apellidoCliente,
-            tipo_solicitud: this.tipo_solicitud,
-            numero_identificacion: identificacion,
-            telefono_contacto: tel,
-            celular_contacto: cel,
-            email_contacto: emailCliente,
-          },
-        })
-        .then((x) =>
-          x.status > 0
-            ? alert('Envio correcto.')
-            : alert('No se puedo enviar la información.')
-        );
+      // this.emailService
+      //   .send({
+      //     to: 'diegoma.04@gmail.com;e.alexisceballos@gmail.com',
+      //     params: {
+      //       tipo_contacto: this.tipo_contacto,
+      //       nombre_contacto: NombreCliente,
+      //       apellido_contacto: apellidoCliente,
+      //       tipo_solicitud: this.tipo_solicitud,
+      //       numero_identificacion: identificacion,
+      //       telefono_contacto: tel,
+      //       celular_contacto: cel,
+      //       email_contacto: emailCliente,
+      //     },
+      //   })
+      //   .then((x) =>
+      //     x.status > 0
+      //       ? this.toastrService.show('Envio correcto', '', {
+      //           position: NbGlobalLogicalPosition.BOTTOM_END,
+      //         })
+      //       : // alert('Envio correcto.')
+      //         this.toastrService.show(
+      //           'No se puedo enviar la información.',
+      //           '',
+      //           {
+      //             position: NbGlobalLogicalPosition.BOTTOM_END,
+      //           }
+      //         )
+      //   );
+      this.toastrService.show('', 'Envio correcto', {
+        duration: 3000,
+        status: 'primary',
+        limit: 3,
+        position: NbGlobalLogicalPosition.BOTTOM_END,
+        // preventDuplicates: false,
+      });
     }
   }
 
