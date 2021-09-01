@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
 import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
@@ -36,7 +37,7 @@ export class CredifacilPage {
     },
   ];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private toastrService: NbToastrService) {
     this.form = formBuilder.group({
       tipoDeuda: ['ninguna', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
@@ -88,7 +89,11 @@ export class CredifacilPage {
         this.interes = valorCuota[1];
         console.log(valorCuota);
       } else {
-        alert('error');
+        this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
+                {
+                  status: 'warning'
+                }
+              );
       }
     }
   }

@@ -8,15 +8,12 @@ import {
   NbInputModule,
   NbLayoutModule,
   NbRadioModule,
-  NbSelectModule,
+  NbSelectModule
 } from '@nebular/theme';
-import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { InformacionCreditoModule } from 'src/app/components/informacion-credito/informacion-credito.module';
 import { ComercioRoutingModule } from './comercio-routing.module';
 import { ComercioPage } from './comercio.page';
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
+
 
 @NgModule({
   declarations: [ComercioPage],
@@ -28,7 +25,6 @@ const maskConfig: Partial<IConfig> = {
     NbInputModule,
     NbSelectModule,
     NbLayoutModule,
-    NgxMaskModule.forRoot(maskConfig),
     NbButtonGroupModule,
     NbCardModule,
     InformacionCreditoModule,

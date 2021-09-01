@@ -1,54 +1,91 @@
 <nb-card>
-  <nb-card-header>Datos de contacto</nb-card-header>
+  <nb-card-header>Datos de contacto tipo_contacto</nb-card-header>
   <nb-card-body>
-    <form [formGroup]="form">
-      <div class="flex flex-col space-y-6">
-        <input
-          type="text"
-          fullWidth
-          shape="semi-round"
-          type="text"
-          nbInput
-          placeholder="Nombre Contacto"
-          formControlName="NombreCliente"
-          mask="separator.0"
-          status="primary"
-        />
-        <input
-          type="text"
-          fullWidth
-          shape="semi-round"
-          type="text"
-          nbInput
-          placeholder="Contacto@email.com"
-          formControlName="emailCliente"
-          mask="separator.0"
-          status="primary"
-        />
-        <input
-          type="text"
-          fullWidth
-          shape="semi-round"
-          type="text"
-          nbInput
-          placeholder="Telefono-Celular"
-          formControlName="TelCel"
-          mask="separator.0"
-          status="primary"
-        />
-        <div style="display: flex; justify-content: center">
-          <button
-          type="button"
-          style="width: 60%"
-          nbButton
-          shape="round"
-          status="primary"
-          (click)="onClickContacto()"
-          >
-          Enviar
-        </button>
-      </div>
-      </div>
-    </form>
+    <div class="w-full max-w-3xl rounded-lg">
+      <form [formGroup]="form">
+        <div class="flex-col space-y-6">
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Nombres"
+            formControlName="NombreCliente"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Apellidos"
+            formControlName="apellidoCliente"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="number"
+            nbInput
+            placeholder="Número de identificación"
+            formControlName="identificacion"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="number"
+            nbInput
+            placeholder="Teléfono"
+            formControlName="tel"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="number"
+            nbInput
+            placeholder="Celular"
+            formControlName="cel"
+            mask="separator.0"
+            status="primary"
+          />
+          <input
+            fullWidth
+            shape="semi-round"
+            type="text"
+            nbInput
+            placeholder="Contacto@email.com"
+            formControlName="emailCliente"
+            status="primary"
+          />
+          <div class="space-top1">
+            <nb-checkbox status="primary" (checkedChange)="toggle($event)"
+              >Acepta
+              <a
+                href="https://www.coosanluis.coop/images/1._Pol%C3%ADtica_de_Protecci%C3%B3n_de_Datos_Personales.pdf"
+                target="_blank"
+                >política de privacidad.</a
+              ></nb-checkbox
+            >
+          </div>
+          <div style="display: flex; justify-content: center">
+            <button
+              type="button"
+              style="width: 60%"
+              nbButton
+              shape="round"
+              status="primary"
+              [disabled]="buttonVisible"
+              (click)="onClickContacto()"
+            >
+              Enviar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </nb-card-body>
 </nb-card>
