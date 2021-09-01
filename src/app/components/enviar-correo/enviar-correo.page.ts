@@ -36,4 +36,9 @@ export class EnviarCorreoPage implements OnInit {
       })
       .then(console.log);
   }
+  checked = false;
+
+  toggle(checked: boolean) {
+    this.checked = checked;
+  }
 }

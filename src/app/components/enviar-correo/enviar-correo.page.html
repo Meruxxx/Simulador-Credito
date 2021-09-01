@@ -71,7 +71,7 @@
         status="primary"
       />
     <div class="space-top1">
-      <nb-checkbox status="primary">Primary</nb-checkbox>
+      <nb-checkbox status="primary" (checkedChange)="toggle($event)">Primary</nb-checkbox>
     </div>
       <div style="display: flex; justify-content: center">
         <button
@@ -82,7 +82,8 @@
           status="primary"
           (click)="onClickContacto()"
         >
-          Enviar
+          Enviar {{checked}}
+
         </button>
       </div>
     </div>
