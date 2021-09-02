@@ -37,6 +37,15 @@
   nb-radio{
     border-color: theme('colors.brand-blue.100') !important;
   }
+  nb-radio.status-basic .native-input:enabled:checked+.outer-circle{
+    border-color: theme('colors.brand-blue.100') !important;
+  }
+  nb-radio.status-basic:hover .native-input+.outer-circle {
+    border-color: theme('colors.brand-blue.100') !important;
+  }
+  nb-radio.status-basic .native-input:enabled:checked ~ .inner-circle{
+    background: theme('colors.brand-blue.100') !important;
+  }
   nb-radio:hover{
     border-color: theme('colors.brand-blue.100') !important;
   }
