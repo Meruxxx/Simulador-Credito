@@ -21,27 +21,27 @@ $nb-themes: nb-register-theme((
 
 
 
-// @layer base {
-//   html,
-//   body {
-//     @apply font-body #{!important};
-//   }
+@layer base {
+  html,
+  body {
+    @apply font-body #{!important};
+  }
 
-//   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
-//     @apply font-display #{!important};
-//   }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
+    @apply font-display #{!important};
+  }
 
-//   .nb-theme-default * {
-//     @apply font-body #{!important};
-//   }
+  .nb-theme-default * {
+    @apply font-body #{!important};
+  }
 
-//   .nb-theme-default .text {
-//     font-size: 1rem !important ;
-//   }
+  .nb-theme-default .text {
+    font-size: 1rem !important ;
+  }
 
-//   input::placeholder {
-//     @apply font-body #{!important};
-//   }
+  input::placeholder {
+    @apply font-body #{!important};
+  }
 
 //   input {
 //     border-color: theme('colors.brand-blue.100') !important;
@@ -118,7 +118,7 @@ $nb-themes: nb-register-theme((
 //     color: theme('colors.brand-blue.100') !important;
 //   }
   
-// }
+}
 
 @layer components {
   .btn {
