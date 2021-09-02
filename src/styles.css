@@ -20,11 +20,11 @@
   .nb-theme-default .text {
     font-size: 1rem !important;
   }
-  
+
   input::placeholder {
     @apply font-body !important;
-  }  
-  
+  }
+
   input {
     border-color: theme('colors.brand-blue.100') !important;
   }
@@ -32,13 +32,13 @@
   .nb-theme-default nb-checkbox.status-primary .custom-checkbox {
     border-color: theme('colors.brand-blue.100') !important;
   }
-  
+
   .nb-theme-default nb-checkbox.status-primary .custom-checkbox.checked {
     background: theme('colors.brand-blue.100') !important;
   }
-  
+
   .nb-theme-default nb-radio.status-basic .native-input:enabled:checked+.outer-circle {
-    border-color: theme('colors.brand-blue.100') !important;    
+    border-color: theme('colors.brand-blue.100') !important;
   }
 
   .nb-theme-default nb-radio.status-basic:hover .native-input+.outer-circle {
@@ -52,7 +52,11 @@
   .nb-theme-default [nbButton].appearance-outline.status-primary, .nb-theme-default .appearance-outline.status-primary[nbButtonToggle] {
     border-color: theme('colors.brand-blue.100') !important;
     color: theme('colors.brand-blue.100') !important;
-  }  
+  }
+  .nb-theme-default .appearance-outline.status-primary[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary{
+    border-color: theme('colors.brand-blue.100') !important;
+    color: theme('colors.brand-blue.100') !important;
+  }
 }
 
 @layer components {
