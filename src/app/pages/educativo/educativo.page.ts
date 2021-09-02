@@ -18,6 +18,8 @@ export class EducativoPage {
   selectedItemNgModel: any;
   valorCuota = 0;
   interes = 0;
+  interesEA = 0;
+  totalCredito = 0;
   form!: FormGroup;
 
   tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
@@ -79,6 +81,8 @@ export class EducativoPage {
       if (valorCuota) {
         this.valorCuota = valorCuota[0];
         this.interes = valorCuota[1];
+        this.interesEA = valorCuota[2];
+        this.totalCredito= this.valorCuota * parseFloat(this.numeroCuotas.value)
         console.log(valorCuota);
       } else {
         this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
