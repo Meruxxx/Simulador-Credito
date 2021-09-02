@@ -57,6 +57,15 @@
     border-color: theme('colors.brand-blue.100') !important;
     color: theme('colors.brand-blue.100') !important;
   }
+  .nb-theme-default .appearance-outline.status-primary:hover[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary:hover{
+    border-color: theme('colors.brand-blue.100') !important;
+    color: theme('colors.brand-blue.100') !important;
+  }
+  .nb-theme-default .appearance-outline.status-primary:focus[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary:focus{
+    border-color: theme('colors.brand-blue.100') !important;
+    color: theme('colors.brand-blue.100') !important;
+  }
+  
 }
 
 @layer components {
