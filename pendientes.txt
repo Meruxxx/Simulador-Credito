@@ -1,0 +1,37 @@
+agregar titulos con estilos me los pasa jorge luis
+
+cambiar funcionalida plazo de 1 hasta 13 una tarifa 13 hasta 24 otra tarifa ,vivienda 1 a 84 fijo , solo libre 72 en adelante y  72 en adelante comercio
+
+
+=====realizado======
+
+boton de seleccion al seleccionar colocar color y que esten centrados y de tamaño mas grande y el padding tambien
+logo al lado izquierdo ok
+
+agregar titulo grande que diga simular de credito o simulador de ahorro grander h1 Azul claro: #019ee0 ok
+y debajo cuota fija y tasa fija ok
+
+y la informacion de credito y ahorro en h2 o h3 ok
+
+agregar titulo que diga Tipo de garantias y checks valor del texto mas grande ok
+
+en ves de informacion credito cambiar a resultado de simulacion ok
+
+Azul claro: #019ee0 ok 
+Azul oscuro:#00618a ok
+
+
+card azul valor de la cuota mensual font mas grande ok
+ 
+intreres mensual   tasa EA   Esto es lo que habras pagado al final del credito ok
+
+   %	   		%	cuota * plazo + monto     ok
+
+
+fuente es DIDAC gothic ok
+
+para el ahorro cambiar tasa efectiva anual el valor de la cuo y el total subirlo como principal    ok
+
+
+
+cambiar de color al momento de de cambiar plazo el boton de simular y lo valores en 0 ok

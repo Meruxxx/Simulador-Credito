@@ -39,7 +39,7 @@ export class InformacionCreditoComponent {
         footerFirstLabel: 'Interés mensuales' ,
         footerFirstValue:  `${this.intereses}%`,
         footerSecondLabel: 'Tasa efectiva anual',
-        footerSecondValue: this.interesesEA,
+        footerSecondValue: `${this.interesesEA}%`,
         footerThirdLabel: 'Pago total del crédito',
         footerThirdValue: this.toCurrency(this.TotalCredito),
       }
@@ -56,7 +56,7 @@ export class InformacionCreditoComponent {
     }
   }
 
-  
+
   open(): void {
         this.dialogService.open(EnviarCorreoPage, {
       autoFocus: true,
