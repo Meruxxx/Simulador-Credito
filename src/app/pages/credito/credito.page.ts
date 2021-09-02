@@ -48,6 +48,7 @@ export class CreditoPage {
       tipoDeuda: [null, [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: ['', Validators.required],
+      plazo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       valorCuota: [''],
     });
   }

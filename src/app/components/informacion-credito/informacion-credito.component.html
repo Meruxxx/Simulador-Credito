@@ -1,33 +1,32 @@
-<nb-card>
-  <nb-card-header>{{title}}</nb-card-header>
+<nb-card class="h-full">
+  <nb-card-header>
+    <h3 class="h4">Resultado de simulación</h3>
+  </nb-card-header>
   <nb-card-body>
     <form>
       <div class="flex flex-col space-y-6">
-        <div class="bg-blue-600 text-white rounded-lg p-6">
-          <span *ngIf="title==='Informción Crédito'" class="uppercase text-xs text-blue-300">Valor de la cuota</span>
-          <span *ngIf="title==='Informción Ahorro'"  class="uppercase text-xs text-blue-300">Valor de la ganacia</span>
-          <h1
-            class="block text-center text-6xl text-white py-16 font-extrabold"
-          >
-            {{ valorCuota| currency}} <!-- | mask:'separator':'.' -->
+        <div class="bg-brand-blue-200 text-white rounded-lg p-6">
+          <span class="uppercase  text-white">{{informacion.titleLabel}}</span>
+          
+          <h1 class="block text-center text-6xl text-white py-16 font-extrabold">
+            {{ informacion.title | currency}} <!-- | mask:'separator':'.' -->
           </h1>
 
           <div class="flex space-x-12">
             <div >
-              <span class="uppercase text-xs text-blue-300" >Total</span>
-              <!-- <h6 class="block text-white">{{ valorCuota | currency }}</h6> -->
-              <h6 *ngIf="title==='Informción Ahorro'" class="block text-white" >{{ TotalAhorro | currency }}</h6>
-              <h6 *ngIf="title==='Informción Crédito'" class="block text-white" >{{ valorCuota | currency }}</h6>
+              <span class="uppercase text-white" >{{ informacion.footerFirstLabel}} </span>
+              <h6 class="block text-white" >{{ informacion.footerFirstValue }}</h6>
             </div>
             <div>
-              <span class="uppercase text-xs text-blue-300">Interés</span>
-              <h6 class="block text-white">{{ intereses + "%" }}</h6>
+              <span class="uppercase text-white" >{{ informacion.footerSecondLabel}} </span>
+              <h6 class="block text-white" >{{ informacion.footerSecondValue }}</h6>
+            </div>
+            <div *ngIf="this.title === 'Informción Crédito'">
+              <span class="uppercase text-white" >{{ informacion.footerThirdLabel}} </span>
+              <h6 class="block text-white" >{{ informacion.footerThirdValue }}</h6>
             </div>
           </div>
         </div>
-        <!-- <div style="background-color: #1c85e8; color: white; height: 50%">
-        <span>hola</span>
-      </div> -->
       </div>
     </form>
   </nb-card-body>
@@ -39,7 +38,7 @@
           style="width: 60%"
           nbButton
           shape="round"
-          status="primary"
+          class="btn"
           (click)="open()"
           >
           <!-- (click)="onClickContacto()" -->

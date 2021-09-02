@@ -16,9 +16,32 @@ export class AppComponent implements OnInit {
     { title: 'Educativo' },
     { title: 'CrediFacil' },
   ];
+
   itemsAhorros = [{ title: 'CDAT' }, { title: 'Contractuales' }];
 
-  constructor(private nbMenuService: NbMenuService, private router: Router) {
+  rutasCredito: string[] = [
+    'credito',
+    'comercio',
+    'vivienda',
+    'educativo',
+    'credifacil',
+  ];
+  rutasAhorros: string[] = ['cdat', 'contractuales'];
+
+  constructor(private nbMenuService: NbMenuService, private router: Router) {}
+
+  get lastRoute(): string {
+    const routes = window.location.pathname.split('/');
+    const lastRoute = routes[routes.length - 1];
+    return lastRoute;
+  }
+
+  get esCredito(): boolean {
+    return this.rutasCredito.includes(this.lastRoute);
+  }
+
+  get esAhorros(): boolean {
+    return this.rutasAhorros.includes(this.lastRoute);
   }
 
   ngOnInit(): void {
