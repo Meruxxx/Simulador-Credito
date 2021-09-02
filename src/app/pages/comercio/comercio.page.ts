@@ -6,7 +6,7 @@ import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './comercio.page.html',
-  styleUrls: ['./comercio.page.css'],
+  styleUrls: ['./comercio.page.scss'],
 })
 export class ComercioPage {
   isBold = false;

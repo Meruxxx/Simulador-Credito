@@ -5,7 +5,7 @@ import { TipoDeuda } from 'src/app/core/types/credito.types';
 import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 @Component({
   templateUrl: './vivienda.page.html',
-  styleUrls: ['./vivienda.page.css'],
+  styleUrls: ['./vivienda.page.scss'],
 })
 export class ViviendaPage {
   isBold = false;

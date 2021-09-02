@@ -6,7 +6,7 @@ import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './educativo.page.html',
-  styleUrls: ['./educativo.page.css'],
+  styleUrls: ['./educativo.page.scss'],
 })
 export class EducativoPage {
   isBold = false;

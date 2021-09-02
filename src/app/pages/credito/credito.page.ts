@@ -6,7 +6,7 @@ import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './credito.page.html',
-  styleUrls: ['./credito.page.css'],
+  styleUrls: ['./credito.page.scss'],
 })
 export class CreditoPage {
   isBold = false;

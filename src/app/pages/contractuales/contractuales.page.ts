@@ -5,7 +5,7 @@ import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './contractuales.page.html',
-  styleUrls: ['./contractuales.page.css'],
+  styleUrls: ['./contractuales.page.scss'],
 })
 export class ContractualesPage {
   isBold = false;

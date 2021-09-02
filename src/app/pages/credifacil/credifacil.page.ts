@@ -6,7 +6,7 @@ import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './credifacil.page.html',
-  styleUrls: ['./credifacil.page.css'],
+  styleUrls: ['./credifacil.page.scss'],
 })
 export class CredifacilPage {
   isBold = false;
