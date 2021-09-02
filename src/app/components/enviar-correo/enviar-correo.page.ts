@@ -6,7 +6,7 @@ import { EmailService } from 'src/app/core/services/email.service';
 @Component({
   selector: 'app-enviar-correo',
   templateUrl: './enviar-correo.page.html',
-  styleUrls: ['./enviar-correo.page.css'],
+  styleUrls: ['./enviar-correo.page.scss'],
 })
 export class EnviarCorreoPage {
   tipo_contacto: string = '';

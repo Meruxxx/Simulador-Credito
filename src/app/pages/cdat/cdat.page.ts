@@ -5,7 +5,7 @@ import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './cdat.page.html',
-  styleUrls: ['./cdat.page.css'],
+  styleUrls: ['./cdat.page.scss'],
 })
 export class CdatPage {
   isBold = false;
