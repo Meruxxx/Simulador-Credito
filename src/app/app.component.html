@@ -1,17 +1,19 @@
-<nb-layout justify>
+<nb-layout justify class="flex justify-center">
   <nb-layout-header>
     <div class="flex w-full justify-center space-x-6">
-      <button outline nbButton [nbContextMenu]="items" nbContextMenuTag="context-menu" [ngClass]="{ 'btn' : esCredito }">
+      <button outline nbButton [nbContextMenu]="items" nbContextMenuTag="context-menu" size="large" [ngClass]="{ 'btn' : esCredito }">
         Créditos
       </button>
-      <button outline nbButton [nbContextMenu]="itemsAhorros" nbContextMenuTag="context-menu" [ngClass]="{ 'btn' : esAhorros }">
+      <button outline nbButton [nbContextMenu]="itemsAhorros" nbContextMenuTag="context-menu" size="large" [ngClass]="{ 'btn' : esAhorros }">
         Ahorros
       </button>
     </div>
   </nb-layout-header>
 
-  <nb-layout-column>
+  <nb-layout-column class="flex w-full  justify-center" >
+
     <router-outlet></router-outlet>
+
   </nb-layout-column>
 
   <nb-layout-footer class="text-center text-xs">

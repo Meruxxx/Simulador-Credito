@@ -1,6 +1,6 @@
-<div class="mb-12 text-center">
-  <h1 class="text-brand-blue-100">SIMULADOR DE CRÉDITO</h1>
-  <h2>cuota fija y tasa fija</h2>
+<div class="flex flex-col mb-12 text-center">
+  <h1 class="h2 text-brand-blue-100">SIMULADOR DE CRÉDITO</h1>
+  <h2 class="h3" >cuota fija y tasa fija</h2>
   </div>
 <div class="container grid gap-12 grid-col-1 lg:grid-cols-2">
   <nb-card class="h-full">
@@ -18,15 +18,15 @@
           <div>
             <h6>Monto del prestamo</h6>
             <input
+              mask="separator.2"
+              thousandSeparator="."
               type="number"
+              type="text"
               fullWidth
               shape="semi-round"
-              type="text"
               nbInput
               placeholder="Valor a solicitar"
               formControlName="montoPrestamo"
-              mask="separator.2"
-              thousandSeparator="."
               status="primary"
             />
           </div>

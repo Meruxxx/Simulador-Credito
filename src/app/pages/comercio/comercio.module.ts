@@ -10,11 +10,14 @@ import {
   NbRadioModule,
   NbSelectModule
 } from '@nebular/theme';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { InformacionCreditoModule } from 'src/app/components/informacion-credito/informacion-credito.module';
 import { ComercioRoutingModule } from './comercio-routing.module';
 import { ComercioPage } from './comercio.page';
 
-
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [ComercioPage],
   imports: [
@@ -29,6 +32,7 @@ import { ComercioPage } from './comercio.page';
     NbCardModule,
     InformacionCreditoModule,
     NbRadioModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
 })
 export class ComercioModule {}
