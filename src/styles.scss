@@ -7,10 +7,10 @@
 @import '~@nebular/theme/styles/themes/corporate';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 $nb-enabled-css-custom-propierties:true;
-// $nb-themes: nb-register-theme((
-//   font-family-primary: 'Didact Gothic',
-//   font-family-secondary: font-family-primary,
-// ),default, corporate); 
+$nb-themes: nb-register-theme((
+  font-family-primary: 'Didact Gothic',
+  font-family-secondary: font-family-primary,
+),default, default); 
 @import 'themes';
 // framework component styles
 @import '~@nebular/theme/styles/globals';
