@@ -91,7 +91,7 @@ export class CreditoPage {
         'LIBRE_INVERSION',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
-        this.numeroCuotas.value
+        this.plazo.value
       );
 
       if (valorCuota) {
