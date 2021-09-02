@@ -19,6 +19,7 @@ export class ViviendaPage {
   interes = 0;
   interesEA = 0;
   totalCredito = 0;
+  haSimulado = false;
   form!: FormGroup;
 
   options: any = [
@@ -99,7 +100,8 @@ export class ViviendaPage {
         this.valorCuota = valorCuota[0];
         this.interes = valorCuota[1];
         this.interesEA = valorCuota[2];
-        this.totalCredito= this.valorCuota * parseFloat(this.numeroCuotas.value)
+        this.totalCredito = this.valorCuota * parseFloat(this.numeroCuotas.value)
+        this.haSimulado = true;
         console.log(valorCuota);
       } else {
         this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
@@ -113,6 +115,14 @@ export class ViviendaPage {
   onClickContacto(): void {}
 
   onClickNumCuotas(e: any) {
+    this.resetValues()
     this.form.patchValue({ numeroCuotas: e.value });
+    this.haSimulado = false;
+  }
+
+  private resetValues(): void {
+    this.valorCuota = 0;
+    this.interes = 0;
+    this.totalCredito = 0;
   }
 }
