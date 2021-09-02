@@ -1,28 +1,26 @@
-<nb-layout justify
-  ><nb-layout-header>
-    <nb-layout-column>
-      <div class="flex-wrap space-x-3 position">
-        <button
-          outline
-          nbButton
-          [nbContextMenu]="items"
-          nbContextMenuTag="context-menu"
-        >
-          Créditos
-        </button>
-        <button
-          outline
-          nbButton
-          [nbContextMenu]="itemsAhorros"
-          nbContextMenuTag="context-menu"
-        >
-          Ahorros
-        </button>
-      </div>
-    </nb-layout-column>
+<nb-layout justify>
+  <nb-layout-header>
+    <div class="flex w-full justify-center space-x-6">
+      <button outline nbButton [nbContextMenu]="items" nbContextMenuTag="context-menu" [ngClass]="{ 'btn' : esCredito }">
+        Créditos
+      </button>
+      <button outline nbButton [nbContextMenu]="itemsAhorros" nbContextMenuTag="context-menu" [ngClass]="{ 'btn' : esAhorros }">
+        Ahorros
+      </button>
+    </div>
   </nb-layout-header>
+
   <nb-layout-column>
     <router-outlet></router-outlet>
   </nb-layout-column>
-  <nb-layout-footer>Contact us</nb-layout-footer>
+
+  <nb-layout-footer class="text-center text-xs">
+    AVISO LEGAL. El servicio que ofrece la COOPERATIVA para efectos de simulación de ahorro y créditos
+    es de carácter eminentemente ilustrativo e informativo, brindando a sus asociados la posibilidad de formarse una
+    idea cercana de las condiciones a las que podría acceder a nuestros servicios de ahorro y crédito, sin embargo,
+    tanto el efectivo otorgamiento de un crédito como las reales y definitivas condiciones del mismo, dependerán
+    enteramente de las políticas de otorgamiento de crédito que tiene vigente la COOPERATIVA, por lo que los resultados
+    de la simulación no son vinculantes para ésta en cuanto tener que otorgar un crédito o mantener los resultados que
+    arroje la simulación
+  </nb-layout-footer>
 </nb-layout>

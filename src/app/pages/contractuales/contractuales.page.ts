@@ -18,6 +18,7 @@ export class ContractualesPage {
   valorCuota = 0;
   interes = 0;
   totalahorrado = 0;
+  haSimulado = false;
   form!: FormGroup;
 
   tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
@@ -92,7 +93,7 @@ export class ContractualesPage {
         this.valorCuota = valorCuota[0];
         this.interes = valorCuota[1];
         this.totalahorrado=parseFloat(this.montoPrestamo.value)+valorCuota[0];
-
+        this.haSimulado = true;
       } else {
         this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
                 {
@@ -105,6 +106,14 @@ export class ContractualesPage {
   onClickContacto(): void {}
 
   onClickNumCuotas(e: any) {
+    this.resetValues()
     this.form.patchValue({ numeroCuotas: e.value });
+    this.haSimulado = false;
+  }
+
+  private resetValues(): void {
+    this.valorCuota = 0;
+    this.interes = 0;
+    this.totalahorrado = 0;
   }
 }

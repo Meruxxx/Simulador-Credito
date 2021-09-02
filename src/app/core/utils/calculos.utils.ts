@@ -116,7 +116,7 @@ export const CALCULOS_UTILS = {
     tipoDeuda: TipoDeuda,
     monto: number,
     numeroCuotas: number
-  ): [valor:number,interes:number] | null {
+  ): [valor:number,interes:number,interesesEA:number] | null {
     let parametros;
     let tasaMensual;
     let tasaEA;
@@ -130,6 +130,7 @@ export const CALCULOS_UTILS = {
         ) {
           return null;
         }
+
         tasaMensual = tasaInteresLibreInversion[numeroCuotas].tasaMensual;
         tasaEA = tasaInteresLibreInversion[numeroCuotas].tasaEA;
         break;
@@ -191,7 +192,7 @@ export const CALCULOS_UTILS = {
     );
     const division = 1 - tasaPlazo;
     const valorCuota = (interes * monto) / division;
-    return [valorCuota,tasaMensual];
+    return [valorCuota,tasaMensual,tasaEA];
   },
   //TODO: Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
   calcularInteresAhorro(
