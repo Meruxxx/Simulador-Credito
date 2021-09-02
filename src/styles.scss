@@ -7,10 +7,10 @@
 @import '~@nebular/theme/styles/themes/corporate';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 $nb-enabled-css-custom-propierties:true;
-$nb-themes: nb-register-theme((
-  font-family-primary: 'Didact Gothic',
-  font-family-secondary: font-family-primary,
-),default, corporate); 
+// $nb-themes: nb-register-theme((
+//   font-family-primary: 'Didact Gothic',
+//   font-family-secondary: font-family-primary,
+// ),default, corporate); 
 @import 'themes';
 // framework component styles
 @import '~@nebular/theme/styles/globals';
@@ -21,104 +21,104 @@ $nb-themes: nb-register-theme((
 
 
 
-@layer base {
-  html,
-  body {
-    @apply font-body #{!important};
-  }
+// @layer base {
+//   html,
+//   body {
+//     @apply font-body #{!important};
+//   }
 
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
-    @apply font-display #{!important};
-  }
+//   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
+//     @apply font-display #{!important};
+//   }
 
-  .nb-theme-default * {
-    @apply font-body #{!important};
-  }
+//   .nb-theme-default * {
+//     @apply font-body #{!important};
+//   }
 
-  .nb-theme-default .text {
-    font-size: 1rem !important ;
-  }
+//   .nb-theme-default .text {
+//     font-size: 1rem !important ;
+//   }
 
-  input::placeholder {
-    @apply font-body #{!important};
-  }
+//   input::placeholder {
+//     @apply font-body #{!important};
+//   }
 
-  input {
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  span.custom-checkbox{
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  span.custom-checkbox.checked{
-    background: theme('colors.brand-blue.100') !important;
-  }
-  nb-radio{
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  nb-radio.status-basic .native-input:enabled:checked+.outer-circle{
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  nb-radio.status-basic:hover .native-input+.outer-circle {
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  nb-radio.status-basic .native-input:enabled:checked ~ .inner-circle{
-    background: theme('colors.brand-blue.100') !important;
-  }
-  nb-radio:hover{
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  nb-radio:enabled:checked{
-    background: theme('colors.brand-blue.100') !important;
-  }
-  Button.appearance-outline.status-primary{
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
-  Button.appearance-outline.status-primary[nbButtonToggle]{
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
-  Button.appearance-outline.status-primary:hover[nbButtonToggle].appearance-outline.status-primary:hover{
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
-  Button.appearance-outline.status-primary:focus[nbButtonToggle].appearance-outline.status-primary:focus{
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default nb-checkbox.status-primary .custom-checkbox {
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default nb-checkbox.status-primary .custom-checkbox.checked {
-    background: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default nb-radio.status-basic .native-input:enabled:checked+.outer-circle {
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default nb-radio.status-basic:hover .native-input+.outer-circle {
-    border-color: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default nb-radio.status-basic .native-input:enabled:checked ~ .inner-circle {
-    background: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default [nbButton].appearance-outline.status-primary, .nb-theme-default .appearance-outline.status-primary[nbButtonToggle] {
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default .appearance-outline.status-primary[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary{
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default .appearance-outline.status-primary:hover[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary:hover{
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
-  .nb-theme-default .appearance-outline.status-primary:focus[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary:focus{
-    border-color: theme('colors.brand-blue.100') !important;
-    color: theme('colors.brand-blue.100') !important;
-  }
+//   input {
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   span.custom-checkbox{
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   span.custom-checkbox.checked{
+//     background: theme('colors.brand-blue.100') !important;
+//   }
+//   nb-radio{
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   nb-radio.status-basic .native-input:enabled:checked+.outer-circle{
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   nb-radio.status-basic:hover .native-input+.outer-circle {
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   nb-radio.status-basic .native-input:enabled:checked ~ .inner-circle{
+//     background: theme('colors.brand-blue.100') !important;
+//   }
+//   nb-radio:hover{
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   nb-radio:enabled:checked{
+//     background: theme('colors.brand-blue.100') !important;
+//   }
+//   Button.appearance-outline.status-primary{
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
+//   Button.appearance-outline.status-primary[nbButtonToggle]{
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
+//   Button.appearance-outline.status-primary:hover[nbButtonToggle].appearance-outline.status-primary:hover{
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
+//   Button.appearance-outline.status-primary:focus[nbButtonToggle].appearance-outline.status-primary:focus{
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default nb-checkbox.status-primary .custom-checkbox {
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default nb-checkbox.status-primary .custom-checkbox.checked {
+//     background: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default nb-radio.status-basic .native-input:enabled:checked+.outer-circle {
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default nb-radio.status-basic:hover .native-input+.outer-circle {
+//     border-color: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default nb-radio.status-basic .native-input:enabled:checked ~ .inner-circle {
+//     background: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default [nbButton].appearance-outline.status-primary, .nb-theme-default .appearance-outline.status-primary[nbButtonToggle] {
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default .appearance-outline.status-primary[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary{
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default .appearance-outline.status-primary:hover[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary:hover{
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
+//   .nb-theme-default .appearance-outline.status-primary:focus[nbButtonToggle], .nb-theme-default [nbButton].appearance-outline.status-primary:focus{
+//     border-color: theme('colors.brand-blue.100') !important;
+//     color: theme('colors.brand-blue.100') !important;
+//   }
   
-}
+// }
 
 @layer components {
   .btn {
