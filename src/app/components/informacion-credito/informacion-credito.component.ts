@@ -8,7 +8,7 @@ import { EnviarCorreoPage } from './../../components/enviar-correo/enviar-correo
 @Component({
   selector: 'app-informacion-credito',
   templateUrl: './informacion-credito.component.html',
-  styleUrls: ['./informacion-credito.component.css'],
+  styleUrls: ['./informacion-credito.component.scss'],
   providers: [CurrencyPipe]
 })
 export class InformacionCreditoComponent {

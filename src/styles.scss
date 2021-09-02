@@ -3,26 +3,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/corporate';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+$nb-themes: nb-register-theme((
+  font-family-primary: 'Didact Gothic',
+  font-family-secondary: font-family-primary,
+),default, corporate); 
+@import 'themes';
+// framework component styles
+@import '~@nebular/theme/styles/globals';
+// install the framework styles
+@include nb-install() {
+  @include nb-theme-global();
+};
+
+
+
 @layer base {
   html,
   body {
-    @apply font-body !important;
+    @apply font-body #{!important};
   }
 
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
-    @apply font-display !important;
+    @apply font-display #{!important};
   }
 
   .nb-theme-default * {
-    @apply font-body !important;
+    @apply font-body #{!important};
   }
 
   .nb-theme-default .text {
-    font-size: 1rem !important;
+    font-size: 1rem !important ;
   }
 
   input::placeholder {
-    @apply font-body !important;
+    @apply font-body #{!important};
   }
 
   input {
@@ -104,11 +121,11 @@
 
 @layer components {
   .btn {
-    @apply bg-brand-blue-100 !important;
-    @apply text-white !important;
+    @apply bg-brand-blue-100 #{!important};
+    @apply text-white #{!important};
   }
 
   .btn:hover {
-    @apply opacity-90;
+    opacity:90 ;
   }
 }
