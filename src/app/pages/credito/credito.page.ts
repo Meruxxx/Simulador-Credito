@@ -53,7 +53,7 @@ export class CreditoPage {
     this.form = formBuilder.group({
       tipoDeuda: [null, [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
-      numeroCuotas: ['', Validators.required],
+      numeroCuotas: [''],
       plazo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       valorCuota: [''],
     });
@@ -65,6 +65,9 @@ export class CreditoPage {
 
   get numeroCuotas() {
     return this.form.controls['numeroCuotas'];
+  }
+  get plazo() {
+    return this.form.controls['plazo'];
   }
 
   CalcularCuota(Monto: number, Plazo: number): number {
@@ -103,6 +106,7 @@ export class CreditoPage {
         this.interesEA = valorCuota[2];
         this.totalCredito =
           this.valorCuota * parseFloat(this.numeroCuotas.value);
+        this.totalCredito = this.valorCuota * parseFloat(this.plazo.value);
         this.haSimulado = true;
         console.log(valorCuota);
       } else {
@@ -124,5 +128,10 @@ export class CreditoPage {
     this.valorCuota = 0;
     this.interes = 0;
     this.totalCredito = 0;
+  }
+
+  onEnter(event: any) {
+    this.resetValues();
+    this.haSimulado = false;
   }
 }
