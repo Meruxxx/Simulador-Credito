@@ -7,10 +7,6 @@
 @import '~@nebular/theme/styles/themes/corporate';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 $nb-enabled-css-custom-propierties:true;
-$nb-themes: nb-register-theme((
-  font-family-primary: 'Didact Gothic',
-  font-family-secondary: font-family-primary,
-),default, default); 
 @import 'themes';
 // framework component styles
 @import '~@nebular/theme/styles/globals';
@@ -41,6 +37,12 @@ $nb-themes: nb-register-theme((
 
   input::placeholder {
     @apply font-body #{!important};
+  }
+  span{
+    @apply font-display #{!important};
+  }
+  label{
+    @apply font-display #{!important};
   }
 
 //   input {
@@ -117,7 +119,7 @@ $nb-themes: nb-register-theme((
 //     border-color: theme('colors.brand-blue.100') !important;
 //     color: theme('colors.brand-blue.100') !important;
 //   }
-  
+
 }
 
 @layer components {
