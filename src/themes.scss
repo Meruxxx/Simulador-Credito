@@ -7,6 +7,8 @@
 
 $nb-themes: nb-register-theme((
 
+  font-family-primary: 'Didact Gothic',
+  font-family-secondary: font-family-primary,
   color-primary-100: #CAFCFD,
   color-primary-200: #97F2FB,
   color-primary-300: #62DDF5,
@@ -81,6 +83,6 @@ $nb-themes: nb-register-theme((
   color-danger-transparent-300: rgba(255, 43, 35, 0.24),
   color-danger-transparent-400: rgba(255, 43, 35, 0.32),
   color-danger-transparent-500: rgba(255, 43, 35, 0.4),
-  color-danger-transparent-600: rgba(255, 43, 35, 0.48)
+  color-danger-transparent-600: rgba(255, 43, 35, 0.48),
 
 ), default, default);
