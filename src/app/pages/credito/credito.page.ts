@@ -46,7 +46,10 @@ export class CreditoPage {
     },
   ];
 
-  constructor(private formBuilder: FormBuilder, private toastrService: NbToastrService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private toastrService: NbToastrService
+  ) {
     this.form = formBuilder.group({
       tipoDeuda: [null, [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
@@ -57,7 +60,7 @@ export class CreditoPage {
   }
 
   get montoPrestamo() {
-    return this.form.controls['montoPrestamo'];
+    return this.form.controls['montoPrestamo'];//
   }
 
   get numeroCuotas() {
@@ -101,22 +104,22 @@ export class CreditoPage {
         this.valorCuota = valorCuota[0];
         this.interes = valorCuota[1];
         this.interesEA = valorCuota[2];
-        this.totalCredito = this.valorCuota * parseFloat(this.plazo.value)
+        this.totalCredito =
+          this.valorCuota * parseFloat(this.numeroCuotas.value);
+        this.totalCredito = this.valorCuota * parseFloat(this.plazo.value);
         this.haSimulado = true;
         console.log(valorCuota);
       } else {
-        this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
-                {
-                  status: 'warning'
-                }
-              );
+        this.toastrService.show('', `'Error '${this.montoPrestamo.value}`, {
+          status: 'warning',
+        });
       }
     }
   }
   onClickContacto(): void {}
 
   onClickNumCuotas(e: any) {
-    this.resetValues()
+    this.resetValues();
     this.form.patchValue({ numeroCuotas: e.value });
     this.haSimulado = false;
   }
@@ -128,8 +131,7 @@ export class CreditoPage {
   }
 
   onEnter(event: any) {
-    this.resetValues()
+    this.resetValues();
     this.haSimulado = false;
   }
-
 }

@@ -1,4 +1,4 @@
-h6{
+h6 {
   margin: 5% !important;
 }
 
@@ -16,17 +16,30 @@ line-height: nb-theme(text-subtitle-line-height); */
   text-decoration: underline;
 }
 
-.cardDatos{
+.cardDatos {
   background-color: #1c85e8;
-   color: white;
-   height: 50%;
-  }
+  color: white;
+  height: 50%;
+}
 
-  .containerGrup{
-    display:flex;
+.containerGrup {
+  display: flex;
+}
 
-  }
+.position {
+  display: flex-end;
+}
 
-  .position{
-    display: flex-end;
-  }
+.header {
+  margin-top: 2%;
+}
+
+.contain {
+  margin-top: 10%;
+}
+
+img {
+  width: 30%;
+  padding-top: 1%;
+  min-width: 10%;
+}

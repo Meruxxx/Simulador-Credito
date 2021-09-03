@@ -1,26 +1,33 @@
 <nb-layout container class="flex">
-  <nb-layout-header>
-    <div class="flex justify-center w-full space-x-6">
-      <button
-        outline
-        nbButton
-        [nbContextMenu]="items"
-        nbContextMenuTag="context-menu"
-        size="large"
-        [ngClass]="{ btn: esCredito }"
-      >
-        Créditos
-      </button>
-      <button
-        outline
-        nbButton
-        [nbContextMenu]="itemsAhorros"
-        nbContextMenuTag="context-menu"
-        size="large"
-        [ngClass]="{ btn: esAhorros }"
-      >
-        Ahorros
-      </button>
+  <nb-layout-header subheader class="header">
+    <div class="grid w-full grid-cols-3" style="flex-direction: row">
+      <div class="flex w-full">
+        <img src="./assets/img/logo-coosanluis.svg" />
+      </div>
+      <div class="contain">
+        <div class="flex space-x-6" style="justify-content: center">
+          <button
+            outline
+            nbButton
+            [nbContextMenu]="items"
+            nbContextMenuTag="context-menu"
+            size="large"
+            [ngClass]="{ btn: esCredito }"
+          >
+            Créditos
+          </button>
+          <button
+            outline
+            nbButton
+            [nbContextMenu]="itemsAhorros"
+            nbContextMenuTag="context-menu"
+            size="large"
+            [ngClass]="{ btn: esAhorros }"
+          >
+            Ahorros
+          </button>
+        </div>
+      </div>
     </div>
   </nb-layout-header>
 
