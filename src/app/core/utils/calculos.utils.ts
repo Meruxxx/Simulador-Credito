@@ -199,6 +199,7 @@ export const CALCULOS_UTILS = {
     let tasaMensual;
     let tasaEA;
     let intervalocuota;
+    intervalocuota = this.getintervalo(tipoCredito, numeroCuotas);
     switch (tipoCredito) {
       case 'LIBRE_INVERSION':
         parametros = parametrosLibreInversion[tipoDeuda];
@@ -210,8 +211,8 @@ export const CALCULOS_UTILS = {
           return null;
         }
 
-        tasaMensual = tasaInteresLibreInversion[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresLibreInversion[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresLibreInversion[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresLibreInversion[intervalocuota].tasaEA;
         break;
       case 'VIVIENDA':
         parametros = parametrosVivienda['NINGUNA'];
@@ -223,8 +224,8 @@ export const CALCULOS_UTILS = {
           console.log('validacion de datos incorrecta');
           return null;
         }
-        tasaMensual = tasaInteresVivienda[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresVivienda[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresVivienda[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresVivienda[intervalocuota].tasaEA;
         console.log('la variables de tasa son' + tasaMensual + tasaEA);
         break;
       case 'COMERCIO':
@@ -236,8 +237,8 @@ export const CALCULOS_UTILS = {
         ) {
           return null;
         }
-        tasaMensual = tasaInteresComercio[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresComercio[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresComercio[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresComercio[intervalocuota].tasaEA;
         break;
       case 'EDUCATIVO':
         parametros = parametrosEducativo['NINGUNA'];
@@ -248,8 +249,8 @@ export const CALCULOS_UTILS = {
         ) {
           return null;
         }
-        tasaMensual = tasaInteresEducativo[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresEducativo[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresEducativo[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresEducativo[intervalocuota].tasaEA;
         break;
       case 'CREDIFACIL':
         parametros = parametrosCrediFacil['NINGUNA'];
@@ -260,8 +261,8 @@ export const CALCULOS_UTILS = {
         ) {
           return null;
         }
-        tasaMensual = tasaInteresCrediFacil[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresCrediFacil[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresCrediFacil[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresCrediFacil[intervalocuota].tasaEA;
         break;
     }
 
