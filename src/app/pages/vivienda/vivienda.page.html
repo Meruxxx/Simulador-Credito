@@ -1,4 +1,4 @@
-<div class="mb-12 text-center">
+<div class="m-0 mb-12 text-center ">
   <h1 class="text-brand-blue-100">SIMULADOR DE CRÉDITO</h1>
   <h2>cuota fija y tasa fija</h2>
   </div>
@@ -7,7 +7,7 @@
     <nb-card-header><h3 class="h4">Información Crédito De Vivienda</h3></nb-card-header>
     <nb-card-body>
       <form [formGroup]="form">
-        <div class="flex flex-col space-y-6">
+        <div class="flex flex-col space-y-6 flex-wrap space-x-0 space-x-12 space-y-4">
           <!-- <div>
             <nb-radio-group formControlName="tipoDeuda">
               <nb-radio value="hipoteca">Hipoteca</nb-radio>
@@ -15,7 +15,7 @@
               <nb-radio value="ninguna">Ninguna</nb-radio>
             </nb-radio-group>
           </div> -->
-          <div>
+          <div class="flex flex-wrap space-x-0 space-x-12 space-y-4 justify-center">
             <h6>Monto del prestamo</h6>
             <input
               type="number"
@@ -39,23 +39,19 @@
             </span>
           </ng-container>
           <div>
-            <h6>Plazo del credito</h6>
+            <label class="text-lg font-semibold">Plazo del credito (Meses)</label>
             <div class="containerGrup">
-              <nb-button-group
-                outline
-                size="medium"
-                class="flex-wrap space-x-1"
-              >
-                <button
-                  class="mt-1"
-                  nbButtonToggle
-                  *ngFor="let option of options"
-                  [value]="option.value"
-                  (click)="onClickNumCuotas(option)"
-                >
-                  {{ option.text }}
-                </button>
-              </nb-button-group>
+              <input
+              type="number"
+              fullWidth
+              shape="semi-round"
+              type="text"
+              nbInput
+              placeholder="Meses"
+              formControlName="plazo"
+              status="primary"
+              (keyup)="onEnter($event)"
+            />
             </div>
           </div>
         </div>

@@ -28,6 +28,7 @@
               placeholder="Valor a solicitar"
               formControlName="montoPrestamo"
               status="primary"
+
             />
           </div>
           <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
@@ -39,23 +40,19 @@
             </span>
           </ng-container>
           <div>
-            <h6>Plazo del credito</h6>
+            <label class="text-lg font-semibold">Plazo del credito (Meses)</label>
             <div class="containerGrup">
-              <nb-button-group
-                outline
-                size="medium"
-                class="flex-wrap space-x-1"
-              >
-                <button
-                  class="mt-1"
-                  nbButtonToggle
-                  *ngFor="let option of options"
-                  [value]="option.value"
-                  (click)="onClickNumCuotas(option)"
-                >
-                  {{ option.text }}
-                </button>
-              </nb-button-group>
+              <input
+              type="number"
+              fullWidth
+              shape="semi-round"
+              type="text"
+              nbInput
+              placeholder="Meses"
+              formControlName="plazo"
+              status="primary"
+              (keyup)="onEnter($event)"
+            />
             </div>
           </div>
         </div>

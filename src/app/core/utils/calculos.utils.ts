@@ -10,16 +10,12 @@ export const tasaInteresLibreInversion: Record<
   36: { tasaMensual: 1.75, tasaEA: 23.14 },
   60: { tasaMensual: 1.85, tasaEA: 24.6 },
   72: { tasaMensual: 1.73, tasaEA: 22.85 },
+  73: { tasaMensual: 1.63, tasaEA: 21.41 },
 };
 export const tasaInteresVivienda: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.1, tasaEA: 14.03 },
-  24: { tasaMensual: 1.1, tasaEA: 14.03 },
-  36: { tasaMensual: 1.1, tasaEA: 14.03 },
-  60: { tasaMensual: 1.1, tasaEA: 14.03 },
-  72: { tasaMensual: 1.1, tasaEA: 14.03 },
   84: { tasaMensual: 1.1, tasaEA: 14.03 },
 };
 export const tasaInteresComercio: Record<
@@ -31,6 +27,7 @@ export const tasaInteresComercio: Record<
   36: { tasaMensual: 1.64, tasaEA: 21.56 },
   60: { tasaMensual: 1.85, tasaEA: 24.6 },
   72: { tasaMensual: 1.7, tasaEA: 22.42 },
+  73: { tasaMensual: 1.6, tasaEA: 20.98 },
 };
 export const tasaInteresEducativo: Record<
   number,
@@ -108,9 +105,90 @@ export const tasaInteresAhorroContractuales: Record<number, { tasaEA: number }> 
   18: { tasaEA: 5.50 },
   24: { tasaEA: 5.50 }
 };
+
 export const CALCULOS_UTILS = {
   //TODO: Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
+  getintervalo(tipoCredito: TipoCredito, numerocuota: number): number {
+    let intervalocuota:number=0;
+    switch (tipoCredito) {
+      case 'LIBRE_INVERSION':
+        if (numerocuota < 13) {
+          intervalocuota = 12;
+        }
+        else if (numerocuota < 25) {
+          intervalocuota = 24;
+        }
+        else if (numerocuota <37){
+          intervalocuota = 36;
+        }
 
+          else if (numerocuota <61){
+            intervalocuota = 60;
+          }
+
+          else if (numerocuota <73){
+            intervalocuota = 72;
+          }
+
+          else if (numerocuota >72){
+            intervalocuota = 73;
+          }
+        break;
+        case 'VIVIENDA':
+          intervalocuota = 84;
+          break;
+      case 'COMERCIO':
+        if (numerocuota < 13) {
+          intervalocuota = 12;
+        }
+        else if (numerocuota < 25) {
+          intervalocuota = 24;
+        }
+        else if (numerocuota <37){
+          intervalocuota = 36;
+        }
+
+          else if (numerocuota <61){
+            intervalocuota = 60;
+          }
+
+          else if (numerocuota <73){
+            intervalocuota = 72;
+          }
+
+          else if (numerocuota >72){
+            intervalocuota = 73;
+          }
+        break;
+      case 'EDUCATIVO':
+        intervalocuota = 12;
+        break;
+      case 'CREDIFACIL':
+        if (numerocuota < 13) {
+          intervalocuota = 12;
+        }
+        else if (numerocuota < 25) {
+          intervalocuota = 24;
+        }
+        else if (numerocuota <37){
+          intervalocuota = 36;
+        }
+
+          else if (numerocuota <61){
+            intervalocuota = 60;
+          }
+
+          else if (numerocuota <73){
+            intervalocuota = 72;
+          }
+
+          else if (numerocuota >72){
+            intervalocuota = 73;
+          }
+        break;
+    }
+    return intervalocuota;
+  },
   calcularValorCuota(
     tipoCredito: TipoCredito,
     tipoDeuda: TipoDeuda,
@@ -120,6 +198,8 @@ export const CALCULOS_UTILS = {
     let parametros;
     let tasaMensual;
     let tasaEA;
+    let intervalocuota;
+    intervalocuota = this.getintervalo(tipoCredito, numeroCuotas);
     switch (tipoCredito) {
       case 'LIBRE_INVERSION':
         parametros = parametrosLibreInversion[tipoDeuda];
@@ -131,8 +211,8 @@ export const CALCULOS_UTILS = {
           return null;
         }
 
-        tasaMensual = tasaInteresLibreInversion[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresLibreInversion[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresLibreInversion[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresLibreInversion[intervalocuota].tasaEA;
         break;
       case 'VIVIENDA':
         parametros = parametrosVivienda['NINGUNA'];
@@ -144,8 +224,8 @@ export const CALCULOS_UTILS = {
           console.log('validacion de datos incorrecta');
           return null;
         }
-        tasaMensual = tasaInteresVivienda[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresVivienda[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresVivienda[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresVivienda[intervalocuota].tasaEA;
         console.log('la variables de tasa son' + tasaMensual + tasaEA);
         break;
       case 'COMERCIO':
@@ -157,8 +237,8 @@ export const CALCULOS_UTILS = {
         ) {
           return null;
         }
-        tasaMensual = tasaInteresComercio[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresComercio[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresComercio[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresComercio[intervalocuota].tasaEA;
         break;
       case 'EDUCATIVO':
         parametros = parametrosEducativo['NINGUNA'];
@@ -169,8 +249,8 @@ export const CALCULOS_UTILS = {
         ) {
           return null;
         }
-        tasaMensual = tasaInteresEducativo[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresEducativo[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresEducativo[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresEducativo[intervalocuota].tasaEA;
         break;
       case 'CREDIFACIL':
         parametros = parametrosCrediFacil['NINGUNA'];
@@ -181,8 +261,8 @@ export const CALCULOS_UTILS = {
         ) {
           return null;
         }
-        tasaMensual = tasaInteresCrediFacil[numeroCuotas].tasaMensual;
-        tasaEA = tasaInteresCrediFacil[numeroCuotas].tasaEA;
+        tasaMensual = tasaInteresCrediFacil[intervalocuota].tasaMensual;
+        tasaEA = tasaInteresCrediFacil[intervalocuota].tasaEA;
         break;
     }
 
