@@ -118,7 +118,7 @@ export class CreditoPage {
           console.log(valorCuota);
         }
       } else {
-        this.toastrService.show('', `'Error '${this.montoPrestamo.value}`, {
+        this.toastrService.show('No se ha generado datos para simular la cuota', `'Error '${this.montoPrestamo.value}`, {
           status: 'warning',
         });
       }

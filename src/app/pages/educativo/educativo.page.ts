@@ -84,14 +84,20 @@ export class EducativoPage {
       );
 
       if (valorCuota) {
+        if (valorCuota[3]) {
+          this.toastrService.show(`${valorCuota[3]}`,'Advertencia' , {
+            status: 'warning',
+          });
+        }
+        else {
         this.valorCuota = valorCuota[0];
         this.interes = valorCuota[1];
         this.interesEA = valorCuota[2];
         this.totalCredito = this.valorCuota * parseFloat(this.plazo.value)
         this.haSimulado = true;
         console.log(valorCuota);
-      } else {
-        this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
+      } }else {
+        this.toastrService.show('No se ha generado datos para simular la cuota',`'Error '${this.montoPrestamo.value}`,
                 {
                   status: 'warning'
                 }
