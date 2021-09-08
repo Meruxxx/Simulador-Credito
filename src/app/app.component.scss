@@ -31,15 +31,21 @@ line-height: nb-theme(text-subtitle-line-height); */
 }
 
 .header {
-  margin-top: 2%;
+  margin-top: 3%;
 }
 
 .contain {
   margin-top: 10%;
 }
+.contain-button {
+  padding-top: 2%;
+}
 
 img {
+  float: inline-start;
   width: 30%;
-  margin-top: 3%;
+  margin-top: 1%;
+  margin-left: 1%;
   min-width: 10%;
+  height: auto;
 }
