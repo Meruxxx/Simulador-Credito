@@ -34,7 +34,7 @@ const maskConfig: Partial<IConfig> = {
     CdatModule,
     ContractualesModule,
     NbToastrModule.forRoot({
-      duration: 3000,
+      duration: 5000,
       limit: 3,
       position: NbGlobalLogicalPosition.BOTTOM_END,
       destroyByClick:true
