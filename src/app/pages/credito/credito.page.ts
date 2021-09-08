@@ -21,6 +21,8 @@ export class CreditoPage {
   interesEA = 0;
   totalCredito = 0;
   haSimulado = false;
+  montomaximo = 0;
+  plazomaximo = 0;
   form!: FormGroup;
 
   options: any = [
@@ -51,14 +53,18 @@ export class CreditoPage {
     private toastrService: NbToastrService
   ) {
     this.form = formBuilder.group({
-      tipoDeuda: [null, [Validators.required]],
+      tipoDeuda: ['hipoteca', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       numeroCuotas: [''],
       plazo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
       valorCuota: [''],
     });
   }
-
+ngOnInit(): void {
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  this.OnRadioChange("");
+}
   get montoPrestamo() {
     return this.form.controls['montoPrestamo'];//
   }
@@ -149,9 +155,12 @@ export class CreditoPage {
       deudorSolidario: 'DEUDOR_SOLIDARIO',
       ninguna: 'NINGUNA',
     };
+    console.log(tipoDeuda[this.form.get('tipoDeuda')?.value]);
     parametros = parametrosLibreInversion[tipoDeuda[this.form.get('tipoDeuda')?.value]];
-    console.log(parametros);
 
-    this.form.controls.numeroCuotas.addValidators(Validators.max(parametros.plazoMaximo));
+    this.form.controls.plazo.addValidators(Validators.max(parametros.plazoMaximo));
+    this.form.controls.montoPrestamo.addValidators(Validators.max(parametros.montoMaximo));
+    this.montomaximo=parametros.montoMaximo
+    this.plazomaximo=parametros.plazoMaximo
   }
 }

@@ -40,6 +40,9 @@
             <span *ngIf="montoPrestamo.errors.pattern">
               El campo debe ser numérico
             </span>
+            <span *ngIf="montoPrestamo.errors.max">
+              El monto no debe superar el valor de {{montomaximo|currency}}
+            </span>
           </ng-container>
           <div>
             <label class="text-lg font-semibold">Plazo del credito (Meses)</label>
@@ -57,6 +60,17 @@
             />
             </div>
           </div>
+          <ng-container *ngIf="plazo.touched && plazo.errors">
+            <span *ngIf="plazo.errors.required">
+              El campo es requerido
+            </span>
+            <span *ngIf="plazo.errors.pattern">
+              El campo debe ser numérico
+            </span>
+            <span *ngIf="plazo.errors.max">
+              El número de cuotas debe ser menor o igual a {{plazomaximo}} meses
+            </span>
+          </ng-container>
         </div>
       </form>
     </nb-card-body>
