@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
-import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
+import { CALCULOS_UTILS, parametrosLibreInversion } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './credito.page.html',
@@ -141,5 +141,17 @@ export class CreditoPage {
   onEnter(event: any) {
     this.resetValues();
     this.haSimulado = false;
+  }
+  OnRadioChange(event: any) {
+    let parametros;
+    const tipoDeuda: Record<string, TipoDeuda> = {
+      hipoteca: 'HIPOTECA',
+      deudorSolidario: 'DEUDOR_SOLIDARIO',
+      ninguna: 'NINGUNA',
+    };
+    parametros = parametrosLibreInversion[tipoDeuda[this.form.get('tipoDeuda')?.value]];
+    console.log(parametros);
+
+    this.form.controls.numeroCuotas.addValidators(Validators.max(parametros.plazoMaximo));
   }
 }
