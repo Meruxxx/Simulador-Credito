@@ -20,6 +20,8 @@ export class ViviendaPage {
   interesEA = 0;
   totalCredito = 0;
   haSimulado = false;
+  montomaximo = 0;
+  plazomaximo = 0;
   form!: FormGroup;
 
   options: any = [
@@ -49,7 +51,10 @@ export class ViviendaPage {
     },
   ];
 
-  constructor(private formBuilder: FormBuilder, private toastrService: NbToastrService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private toastrService: NbToastrService
+  ) {
     this.form = formBuilder.group({
       tipoDeuda: ['ninguna', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
@@ -102,30 +107,32 @@ export class ViviendaPage {
 
       if (valorCuota) {
         if (valorCuota[3]) {
-          this.toastrService.show(`${valorCuota[3]}`,'Advertencia' , {
+          this.toastrService.show(`${valorCuota[3]}`, 'Advertencia', {
             status: 'warning',
           });
+        } else {
+          this.valorCuota = valorCuota[0];
+          this.interes = valorCuota[1];
+          this.interesEA = valorCuota[2];
+          this.totalCredito = this.valorCuota * parseFloat(this.plazo.value);
+          this.haSimulado = true;
+          console.log(valorCuota);
         }
-        else {
-        this.valorCuota = valorCuota[0];
-        this.interes = valorCuota[1];
-        this.interesEA = valorCuota[2];
-        this.totalCredito = this.valorCuota * parseFloat(this.plazo.value)
-        this.haSimulado = true;
-        console.log(valorCuota);
-      } }else {
-        this.toastrService.show('No se ha generado datos para simular la cuota',`'Error '${this.montoPrestamo.value}`,
-                {
-                  status: 'warning'
-                }
-              );
+      } else {
+        this.toastrService.show(
+          'No se ha generado datos para simular la cuota',
+          `'Error '${this.montoPrestamo.value}`,
+          {
+            status: 'warning',
+          }
+        );
       }
     }
   }
   onClickContacto(): void {}
 
   onClickNumCuotas(e: any) {
-    this.resetValues()
+    this.resetValues();
     this.form.patchValue({ numeroCuotas: e.value });
     this.haSimulado = false;
   }
@@ -136,7 +143,7 @@ export class ViviendaPage {
     this.totalCredito = 0;
   }
   onEnter(event: any) {
-    this.resetValues()
+    this.resetValues();
     this.haSimulado = false;
   }
 }
