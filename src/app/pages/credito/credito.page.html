@@ -31,9 +31,10 @@
               mask="separator.2"
               thousandSeparator="."
               status="primary"
+              (ngModelChange)="OnInputChange($event)"
             />
           </div>
-          <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
+          <ng-container *ngIf="montoPrestamo.updateOn &&montoPrestamo.touched && montoPrestamo.errors">
             <span *ngIf="montoPrestamo.errors.required">
               El campo es requerido
             </span>
