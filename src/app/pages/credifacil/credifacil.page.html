@@ -1,10 +1,12 @@
 <div class="mb-12 text-center">
   <h1 class="text-brand-blue-100">SIMULADOR DE CRÉDITO</h1>
   <h2>cuota fija y tasa fija</h2>
-  </div>
+</div>
 <div class="container grid gap-12 grid-col-1 lg:grid-cols-2">
   <nb-card class="h-full">
-    <nb-card-header><h3 class="h4">Información Crédito CrediFacil</h3></nb-card-header>
+    <nb-card-header
+      ><h3 class="h4">Información Crédito CrediFacil</h3></nb-card-header
+    >
     <nb-card-body>
       <form [formGroup]="form">
         <div class="flex flex-col space-y-6">
@@ -24,31 +26,48 @@
               (keyup)="onEnter($event)"
             />
           </div>
-
-          <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
+          <ng-container
+            *ngIf="montoPrestamo.invalid&&montoPrestamo.updateOn && (montoPrestamo.dirty||montoPrestamo.touched) && montoPrestamo.errors"
+          >
             <span *ngIf="montoPrestamo.errors.required">
               El campo es requerido
             </span>
-            <span *ngIf="montoPrestamo.errors.pattern">
+            <span *ngIf="montoPrestamo.errors?.pattern">
               El campo debe ser numérico
+            </span>
+            <span *ngIf="montoPrestamo.errors?.max">
+              El monto no debe superar el valor de {{montomaximo|currency}}
             </span>
           </ng-container>
           <div>
-            <label class="text-lg font-semibold">Plazo del credito (Meses)</label>
+            <label class="text-lg font-semibold"
+              >Plazo del credito (Meses)</label
+            >
             <div class="containerGrup">
               <input
-              type="number"
-              fullWidth
-              shape="semi-round"
-              type="text"
-              nbInput
-              placeholder="Meses"
-              formControlName="plazo"
-              status="primary"
-              (keyup)="onEnter($event)"
-            />
+                type="number"
+                fullWidth
+                shape="semi-round"
+                type="text"
+                nbInput
+                placeholder="Meses"
+                formControlName="plazo"
+                status="primary"
+                (keyup)="onEnter($event)"
+              />
             </div>
           </div>
+          <ng-container
+            *ngIf="plazo.invalid&&(montoPrestamo.dirty||plazo.touched) && plazo.errors"
+          >
+            <span *ngIf="plazo.errors.required"> El campo es requerido </span>
+            <span *ngIf="plazo.errors.pattern">
+              El campo debe ser numérico
+            </span>
+            <span *ngIf="plazo.errors.max">
+              El número de cuotas debe ser menor o igual a {{plazomaximo}} meses
+            </span>
+          </ng-container>
         </div>
       </form>
     </nb-card-body>
@@ -68,5 +87,13 @@
     </nb-card-footer>
   </nb-card>
 
-  <app-informacion-credito [valorCuota]="valorCuota"[title]="title"[intereses]="interes"[interesesEA]="interesEA"[TotalAhorro]="valorCuota"[TotalCredito]="totalCredito"[tipoSolicitud]="'Crédito'"></app-informacion-credito>
+  <app-informacion-credito
+    [valorCuota]="valorCuota"
+    [title]="title"
+    [intereses]="interes"
+    [interesesEA]="interesEA"
+    [TotalAhorro]="valorCuota"
+    [TotalCredito]="totalCredito"
+    [tipoSolicitud]="'Crédito'"
+  ></app-informacion-credito>
 </div>
