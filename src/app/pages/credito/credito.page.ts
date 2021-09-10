@@ -4,7 +4,7 @@ import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
 import {
   CALCULOS_UTILS,
-  parametrosLibreInversion,
+  parametrosLibreInversion
 } from 'src/app/core/utils/calculos.utils';
 
 @Component({
