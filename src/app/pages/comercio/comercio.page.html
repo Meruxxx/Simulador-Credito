@@ -1,4 +1,4 @@
-<div class="flex flex-col mb-12 text-center space-y-0">
+<div class="flex flex-col mb-12 space-y-0 text-center">
   <h1 class="text-brand-blue-100">SIMULADOR DE CRÉDITO</h1>
   <h2>cuota fija y tasa fija</h2>
 </div>
@@ -45,7 +45,7 @@
             <span *ngIf="montoPrestamo.errors?.pattern">
               El campo debe ser numérico
             </span>
-            <span *ngIf="montoPrestamo.errors?.max">
+            <span class="text-brand-blue-100" *ngIf="montoPrestamo.errors?.max">
               El monto no debe superar el valor de {{montomaximo|currency}}
             </span>
           </ng-container>
@@ -74,7 +74,7 @@
             <span *ngIf="plazo.errors.pattern">
               El campo debe ser numérico
             </span>
-            <span *ngIf="plazo.errors.max">
+            <span class="text-brand-blue-100" *ngIf="plazo.errors.max">
               El número de cuotas debe ser menor o igual a {{plazomaximo}} meses
             </span>
           </ng-container>
