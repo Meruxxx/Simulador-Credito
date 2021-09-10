@@ -11,7 +11,7 @@ export class CdatPage {
   isBold = false;
   isItalic = true;
   isUnderline = false;
-  title = 'Informción Ahorro';
+  title = 'Informción Ahorro CDAT';
   cuota: number = 0;
   _Tem: number = 1;
   selectedItemNgModel: any;

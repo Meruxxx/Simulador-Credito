@@ -47,8 +47,8 @@ export const parametrosLibreInversion: Record<
   { plazoMaximo: number; montoMaximo: number }
 > = {
   HIPOTECA: { plazoMaximo: 72, montoMaximo: 408836700 },
-  DEUDOR_SOLIDARIO: { plazoMaximo: 60, montoMaximo: 54511560 },
-  NINGUNA: { plazoMaximo: 60, montoMaximo: 54511560 },
+  DEUDOR_SOLIDARIO: { plazoMaximo: 72, montoMaximo: 408836700 },
+  NINGUNA: { plazoMaximo: 72, montoMaximo: 408836700 },
 };
 export const parametrosVivienda: Record<
   'NINGUNA',
@@ -61,8 +61,8 @@ export const parametrosComercio: Record<
   { plazoMaximo: number; montoMaximo: number }
 > = {
   HIPOTECA: { plazoMaximo: 72, montoMaximo: 408836700 },
-  DEUDOR_SOLIDARIO: { plazoMaximo: 60, montoMaximo: 54511560 },
-  NINGUNA: { plazoMaximo: 60, montoMaximo: 54511560 },
+  DEUDOR_SOLIDARIO: { plazoMaximo: 72, montoMaximo: 408836700 },
+  NINGUNA: { plazoMaximo: 72, montoMaximo: 408836700 },
 };
 export const parametrosEducativo: Record<
   'NINGUNA',
