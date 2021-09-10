@@ -189,12 +189,13 @@ export const CALCULOS_UTILS = {
     }
     return intervalocuota;
   },
+
   calcularValorCuota(
     tipoCredito: TipoCredito,
     tipoDeuda: TipoDeuda,
     monto: number,
     numeroCuotas: number
-  ): [valor:number,interes:number,interesesEA:number] | null {
+  ): [valor:number,interes:number,interesesEA:number,error:string]{
     let parametros;
     let tasaMensual;
     let tasaEA;
@@ -205,10 +206,13 @@ export const CALCULOS_UTILS = {
         parametros = parametrosLibreInversion[tipoDeuda];
 
         if (
-          parametros.plazoMaximo < numeroCuotas ||
-          parametros.montoMaximo < monto
+          parametros.plazoMaximo < numeroCuotas
+
         ) {
-          return null;
+          return  [0,0,0,'El número de cuotas supera el plazo maximo establecido para el crédito.'];
+        }
+        if (parametros.montoMaximo < monto) {
+          return [0,0,0,'El monto insgresado supera el monto maximo establecido para el crédito.'];
         }
 
         tasaMensual = tasaInteresLibreInversion[intervalocuota].tasaMensual;
@@ -218,11 +222,13 @@ export const CALCULOS_UTILS = {
         parametros = parametrosVivienda['NINGUNA'];
         console.log(parametros);
         if (
-          parametros.plazoMaximo < numeroCuotas ||
-          parametros.montoMaximo < monto
+          parametros.plazoMaximo < numeroCuotas
+
         ) {
-          console.log('validacion de datos incorrecta');
-          return null;
+          return  [0,0,0,'El número de cuotas supera el plazo maximo establecido para el crédito.'];
+        }
+        if (parametros.montoMaximo < monto) {
+          return [0,0,0,'El monto insgresado supera el monto maximo establecido para el crédito.'];
         }
         tasaMensual = tasaInteresVivienda[intervalocuota].tasaMensual;
         tasaEA = tasaInteresVivienda[intervalocuota].tasaEA;
@@ -232,10 +238,13 @@ export const CALCULOS_UTILS = {
         parametros = parametrosComercio[tipoDeuda];
 
         if (
-          parametros.plazoMaximo < numeroCuotas ||
-          parametros.montoMaximo < monto
+          parametros.plazoMaximo < numeroCuotas
+
         ) {
-          return null;
+          return  [0,0,0,'El número de cuotas supera el plazo maximo establecido para el crédito.'];
+        }
+        if (parametros.montoMaximo < monto) {
+          return [0,0,0,'El monto insgresado supera el monto maximo establecido para el crédito.'];
         }
         tasaMensual = tasaInteresComercio[intervalocuota].tasaMensual;
         tasaEA = tasaInteresComercio[intervalocuota].tasaEA;
@@ -244,10 +253,13 @@ export const CALCULOS_UTILS = {
         parametros = parametrosEducativo['NINGUNA'];
 
         if (
-          parametros.plazoMaximo < numeroCuotas ||
-          parametros.montoMaximo < monto
+          parametros.plazoMaximo < numeroCuotas
+
         ) {
-          return null;
+          return  [0,0,0,'El número de cuotas supera el plazo maximo establecido para el crédito.'];
+        }
+        if (parametros.montoMaximo < monto) {
+          return [0,0,0,'El monto insgresado supera el monto maximo establecido para el crédito.'];
         }
         tasaMensual = tasaInteresEducativo[intervalocuota].tasaMensual;
         tasaEA = tasaInteresEducativo[intervalocuota].tasaEA;
@@ -256,10 +268,13 @@ export const CALCULOS_UTILS = {
         parametros = parametrosCrediFacil['NINGUNA'];
 
         if (
-          parametros.plazoMaximo < numeroCuotas ||
-          parametros.montoMaximo < monto
+          parametros.plazoMaximo < numeroCuotas
+
         ) {
-          return null;
+          return  [0,0,0,'El número de cuotas supera el plazo maximo establecido para el crédito.'];
+        }
+        if (parametros.montoMaximo < monto) {
+          return [0,0,0,'El monto insgresado supera el monto maximo establecido para el crédito.'];
         }
         tasaMensual = tasaInteresCrediFacil[intervalocuota].tasaMensual;
         tasaEA = tasaInteresCrediFacil[intervalocuota].tasaEA;
@@ -272,7 +287,7 @@ export const CALCULOS_UTILS = {
     );
     const division = 1 - tasaPlazo;
     const valorCuota = (interes * monto) / division;
-    return [valorCuota,tasaMensual,tasaEA];
+    return [valorCuota,tasaMensual,tasaEA,''];
   },
   //TODO: Se debe retornar tambien la informacion del error ocurrido y mostrado en un Toast
   calcularInteresAhorro(
