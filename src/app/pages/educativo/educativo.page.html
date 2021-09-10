@@ -28,10 +28,16 @@
           <ng-container
             *ngIf="montoPrestamo.invalid&&montoPrestamo.updateOn && (montoPrestamo.dirty||montoPrestamo.touched) && montoPrestamo.errors"
           >
-            <span *ngIf="montoPrestamo.errors.required">
+            <span
+              class="text-brand-blue-100"
+              *ngIf="montoPrestamo.errors.required"
+            >
               El campo es requerido
             </span>
-            <span *ngIf="montoPrestamo.errors?.pattern">
+            <span
+              class="text-brand-blue-100"
+              *ngIf="montoPrestamo.errors?.pattern"
+            >
               El campo debe ser numérico
             </span>
             <span class="text-brand-blue-100" *ngIf="montoPrestamo.errors?.max">
@@ -59,8 +65,10 @@
           <ng-container
             *ngIf="plazo.invalid&&(montoPrestamo.dirty||plazo.touched) && plazo.errors"
           >
-            <span *ngIf="plazo.errors.required"> El campo es requerido </span>
-            <span *ngIf="plazo.errors.pattern">
+            <span class="text-brand-blue-100" *ngIf="plazo.errors.required">
+              El campo es requerido
+            </span>
+            <span class="text-brand-blue-100" *ngIf="plazo.errors.pattern">
               El campo debe ser numérico
             </span>
             <span class="text-brand-blue-100" *ngIf="plazo.errors.max">
