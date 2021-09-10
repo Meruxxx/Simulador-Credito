@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbToastrService } from '@nebular/theme';
-import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
+import { CALCULOS_UTILS, parametrosAhorro } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './cdat.page.html',
@@ -18,6 +18,7 @@ export class CdatPage {
   valorCuota = 0;
   interes = 0;
   totalahorrado = 0;
+  montominimo = 0;
   haSimulado = false;
   form!: FormGroup;
 
@@ -74,7 +75,11 @@ export class CdatPage {
       valorCuota: [''],
     });
   }
-
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.OnRadioChange('');
+  }
   get montoPrestamo() {
     return this.form.controls['montoPrestamo'];
   }
@@ -130,4 +135,25 @@ export class CdatPage {
     this.interes = 0;
     this.totalahorrado = 0;
   }
-}
+    onEnter(event: any) {
+      this.resetValues();
+      this.haSimulado = false;
+    }
+    OnRadioChange(event: any) {
+      console.log(event);
+      // this.form.get("tipoDeuda")?.valueChanges.subscribe(selectedValue => {
+      //   setTimeout(() => {
+      //     console.log(this.form.value)   //shows the latest first name
+      //   })
+      // })
+      let parametros;
+      parametros = parametrosAhorro['NINGUNA'];
+      this.form.controls.montoPrestamo.addValidators(
+        Validators.min(parametros.montoMinimo)
+      );
+      this.montominimo = parametros.montoMinimo;
+
+      this.montoPrestamo.updateOn;
+    }
+  }
+

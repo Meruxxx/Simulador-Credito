@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbToastrService } from '@nebular/theme';
-import { CALCULOS_UTILS } from 'src/app/core/utils/calculos.utils';
+import { CALCULOS_UTILS, parametrosAhorroContractuales } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './contractuales.page.html',
@@ -19,6 +19,7 @@ export class ContractualesPage {
   interes = 0;
   totalahorrado = 0;
   haSimulado = false;
+  montominimo=0
   form!: FormGroup;
 
   tipoCredito = ['Vivienda', 'Prestamo', 'Estudio'];
@@ -47,6 +48,10 @@ export class ContractualesPage {
     {
       text: '24 MESES',
       value: 24,
+    },
+    {
+      text: '36 MESES',
+      value: 36,
     }
   ];
 
@@ -57,7 +62,11 @@ export class ContractualesPage {
       valorCuota: [''],
     });
   }
-
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.OnRadioChange('');
+  }
   get montoPrestamo() {
     return this.form.controls['montoPrestamo'];
   }
@@ -115,5 +124,28 @@ export class ContractualesPage {
     this.valorCuota = 0;
     this.interes = 0;
     this.totalahorrado = 0;
+  }
+  onEnter(event: any) {
+    this.resetValues();
+    this.haSimulado = false;
+  }
+  OnRadioChange(event: any) {
+    console.log(event);
+    // this.form.get("tipoDeuda")?.valueChanges.subscribe(selectedValue => {
+    //   setTimeout(() => {
+    //     console.log(this.form.value)   //shows the latest first name
+    //   })
+    // })
+    let parametros;
+    parametros = parametrosAhorroContractuales['NINGUNA'];
+    this.form.controls.montoPrestamo.addValidators(
+      Validators.min(parametros.montoMinimo)
+    );
+    this.form.controls.montoPrestamo.addValidators(
+      Validators.max(4000000)
+    );
+    this.montominimo = parametros.montoMinimo;
+
+    this.montoPrestamo.updateOn;
   }
 }
