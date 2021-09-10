@@ -1,15 +1,13 @@
 <div class="mb-12 text-center">
   <h1 class="text-brand-blue-100">SIMULADOR DE AHORRO</h1>
   <h2>cuota fija y tasa fija</h2>
-  </div>
+</div>
 <div class="container grid gap-12 grid-col-1 lg:grid-cols-2">
   <nb-card class="h-full">
     <nb-card-header><h3 class="h4">Información Ahorro CDAT</h3></nb-card-header>
     <nb-card-body>
       <form [formGroup]="form">
         <div class="flex flex-col space-y-6">
-
-
           <div>
             <h6>¿Cuánto dinero quieres invertir?</h6>
             <input
@@ -26,11 +24,13 @@
             />
           </div>
 
-          <ng-container *ngIf="montoPrestamo.touched && montoPrestamo.errors">
+          <ng-container
+            *ngIf="montoPrestamo.invalid&&montoPrestamo.updateOn && (montoPrestamo.dirty||montoPrestamo.touched) && montoPrestamo.errors"
+          >
             <span *ngIf="montoPrestamo.errors.required">
               El campo es requerido
             </span>
-            <span *ngIf="montoPrestamo.errors.pattern">
+            <span *ngIf="montoPrestamo.errors?.pattern">
               El campo debe ser numérico
             </span>
           </ng-container>
@@ -86,5 +86,11 @@
     </nb-card-footer>
   </nb-card>
 
-  <app-informacion-credito [valorCuota]="valorCuota"[title]="title"[intereses]="interes"[TotalAhorro]="totalahorrado"[tipoSolicitud]="'Ahorro'"></app-informacion-credito>
+  <app-informacion-credito
+    [valorCuota]="valorCuota"
+    [title]="title"
+    [intereses]="interes"
+    [TotalAhorro]="totalahorrado"
+    [tipoSolicitud]="'Ahorro'"
+  ></app-informacion-credito>
 </div>
