@@ -10,7 +10,6 @@ export const tasaInteresLibreInversion: Record<
   36: { tasaMensual: 1.75, tasaEA: 23.14 },
   60: { tasaMensual: 1.85, tasaEA: 24.6 },
   72: { tasaMensual: 1.73, tasaEA: 22.85 },
-  73: { tasaMensual: 1.63, tasaEA: 21.41 },
 };
 export const tasaInteresVivienda: Record<
   number,
@@ -27,7 +26,6 @@ export const tasaInteresComercio: Record<
   36: { tasaMensual: 1.64, tasaEA: 21.56 },
   60: { tasaMensual: 1.85, tasaEA: 24.6 },
   72: { tasaMensual: 1.7, tasaEA: 22.42 },
-  73: { tasaMensual: 1.6, tasaEA: 20.98 },
 };
 export const tasaInteresEducativo: Record<
   number,
@@ -103,7 +101,8 @@ export const tasaInteresAhorroContractuales: Record<number, { tasaEA: number }> 
   12: { tasaEA: 5.00 },
   15: { tasaEA: 5.50 },
   18: { tasaEA: 5.50 },
-  24: { tasaEA: 5.50 }
+  24: { tasaEA: 5.50 },
+  36: { tasaEA: 6.50 }
 };
 
 export const CALCULOS_UTILS = {
@@ -131,7 +130,7 @@ export const CALCULOS_UTILS = {
           }
 
           else if (numerocuota >72){
-            intervalocuota = 73;
+            intervalocuota = 72;
           }
         break;
         case 'VIVIENDA':
@@ -157,7 +156,7 @@ export const CALCULOS_UTILS = {
           }
 
           else if (numerocuota >72){
-            intervalocuota = 73;
+            intervalocuota = 72;
           }
         break;
       case 'EDUCATIVO':
