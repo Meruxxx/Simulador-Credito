@@ -4,7 +4,7 @@ import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
 import {
   CALCULOS_UTILS,
-  parametrosLibreInversion
+  parametrosLibreInversion,
 } from 'src/app/core/utils/calculos.utils';
 
 @Component({
@@ -109,17 +109,17 @@ export class ViviendaPage {
         deudorSolidario: 'DEUDOR_SOLIDARIO',
         ninguna: 'NINGUNA',
       };
-this.form.get('tipoDeuda')?.valueChanges.subscribe((selectedValue) => {
-        setTimeout(() => {
-          console.log(this.form.value); //shows the latest first name
-          valorCuota = CALCULOS_UTILS.calcularValorCuota(
+      // this.form.get('tipoDeuda')?.valueChanges.subscribe((selectedValue) => {
+      //         setTimeout(() => {
+      //  });
+      //       });
+      console.log(this.form.value); //shows the latest first name
+      valorCuota = CALCULOS_UTILS.calcularValorCuota(
         'VIVIENDA',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.plazo.value
       );
- });
-      });
       if (valorCuota) {
         if (valorCuota[3]) {
           this.toastrService.show(`${valorCuota[3]}`, 'Advertencia', {

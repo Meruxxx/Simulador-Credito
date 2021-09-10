@@ -4,13 +4,13 @@ import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
 import {
   CALCULOS_UTILS,
-  parametrosLibreInversion
+  parametrosLibreInversion,
 } from 'src/app/core/utils/calculos.utils';
 
 @Component({
   templateUrl: './educativo.page.html',
   styleUrls: ['./educativo.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducativoPage {
   isBold = false;
@@ -38,7 +38,10 @@ export class EducativoPage {
     },
   ];
 
-  constructor(private formBuilder: FormBuilder, private toastrService: NbToastrService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private toastrService: NbToastrService
+  ) {
     this.form = formBuilder.group({
       tipoDeuda: ['ninguna', [Validators.required]],
       montoPrestamo: ['', [Validators.required, Validators.pattern(/[0-9]/)]],
@@ -88,36 +91,38 @@ export class EducativoPage {
         deudorSolidario: 'DEUDOR_SOLIDARIO',
         ninguna: 'NINGUNA',
       };
-      this.form.get('tipoDeuda')?.valueChanges.subscribe((selectedValue) => {
-        setTimeout(() => {
-          console.log(this.form.value); //shows the latest first name
-          valorCuota = CALCULOS_UTILS.calcularValorCuota(
+      // this.form.get('tipoDeuda')?.valueChanges.subscribe((selectedValue) => {
+      //   setTimeout(() => {
+      // });
+      //       });
+      console.log(this.form.value); //shows the latest first name
+      valorCuota = CALCULOS_UTILS.calcularValorCuota(
         'EDUCATIVO',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
         this.montoPrestamo.value,
         this.plazo.value
       );
-});
-      });
       if (valorCuota) {
         if (valorCuota[3]) {
-          this.toastrService.show(`${valorCuota[3]}`,'Advertencia' , {
+          this.toastrService.show(`${valorCuota[3]}`, 'Advertencia', {
             status: 'warning',
           });
+        } else {
+          this.valorCuota = valorCuota[0];
+          this.interes = valorCuota[1];
+          this.interesEA = valorCuota[2];
+          this.totalCredito = this.valorCuota * parseFloat(this.plazo.value);
+          this.haSimulado = true;
+          console.log(valorCuota);
         }
-        else {
-        this.valorCuota = valorCuota[0];
-        this.interes = valorCuota[1];
-        this.interesEA = valorCuota[2];
-        this.totalCredito = this.valorCuota * parseFloat(this.plazo.value)
-        this.haSimulado = true;
-        console.log(valorCuota);
-      } }else {
-        this.toastrService.show('No se ha generado datos para simular la cuota',`'Error '${this.montoPrestamo.value}`,
-                {
-                  status: 'warning'
-                }
-              );
+      } else {
+        this.toastrService.show(
+          'No se ha generado datos para simular la cuota',
+          `'Error '${this.montoPrestamo.value}`,
+          {
+            status: 'warning',
+          }
+        );
       }
     }
   }

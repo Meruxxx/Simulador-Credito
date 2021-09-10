@@ -1,29 +1,44 @@
-<nb-card class="h-full">
+<nb-card class="h-full mt-0">
   <nb-card-header>
     <h3 class="h4">Resultado de simulación</h3>
   </nb-card-header>
   <nb-card-body>
     <form>
       <div class="flex flex-col space-y-6">
-        <div class="bg-brand-blue-200 text-white rounded-lg p-6">
-          <span class="uppercase  text-white">{{informacion.titleLabel}}</span>
-          
-          <h1 class="block text-center text-6xl text-white py-16 font-extrabold">
-            {{ informacion.title | currency}} <!-- | mask:'separator':'.' -->
+        <div class="p-6 text-white rounded-lg bg-brand-blue-200">
+          <span class="text-white uppercase">{{ informacion.titleLabel }}</span>
+
+          <h1
+            class="block py-16 text-6xl font-extrabold text-center text-white"
+          >
+            {{ informacion.title | currency }}
+            <!-- | mask:'separator':'.' -->
           </h1>
 
           <div class="flex space-x-12">
-            <div >
-              <span class="uppercase text-white" >{{ informacion.footerFirstLabel}} </span>
-              <h6 class="block text-white" >{{ informacion.footerFirstValue }}</h6>
+            <div>
+              <span class="text-white uppercase"
+                >{{ informacion.footerFirstLabel }}
+              </span>
+              <h6 class="block text-white">
+                {{ informacion.footerFirstValue }}
+              </h6>
             </div>
             <div>
-              <span class="uppercase text-white" >{{ informacion.footerSecondLabel}} </span>
-              <h6 class="block text-white" >{{ informacion.footerSecondValue }}</h6>
+              <span class="text-white uppercase"
+                >{{ informacion.footerSecondLabel }}
+              </span>
+              <h6 class="block text-white">
+                {{ informacion.footerSecondValue }}
+              </h6>
             </div>
             <div *ngIf="this.title === 'Informción Crédito'">
-              <span class="uppercase text-white" >{{ informacion.footerThirdLabel}} </span>
-              <h6 class="block text-white" >{{ informacion.footerThirdValue }}</h6>
+              <span class="text-white uppercase"
+                >{{ informacion.footerThirdLabel }}
+              </span>
+              <h6 class="block text-white">
+                {{ informacion.footerThirdValue }}
+              </h6>
             </div>
           </div>
         </div>
@@ -40,7 +55,7 @@
           shape="round"
           class="btn"
           (click)="open()"
-          >
+        >
           <!-- (click)="onClickContacto()" -->
           Contáctecnos
         </button>
@@ -48,4 +63,3 @@
     </div>
   </nb-card-footer>
 </nb-card>
-
