@@ -79,7 +79,20 @@
         </div>
       </form>
     </nb-card-body>
-    <nb-card-footer>
+    <nb-card-footer
+      ><div *ngIf="haSimulado" class="flex justify-center pb-2">
+        <button
+          style="width: 60%"
+          hero
+          status="success"
+          nbButton
+          shape="round"
+          class="btn"
+          (click)="onEnterNuevo()"
+        >
+          Nuevo
+        </button>
+      </div>
       <div class="flex justify-center">
         <button
           style="width: 60%"

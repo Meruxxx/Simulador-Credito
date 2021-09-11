@@ -125,8 +125,7 @@ export class CreditoPage {
           this.valorCuota = valorCuota[0];
           this.interes = valorCuota[1];
           this.interesEA = valorCuota[2];
-          this.totalCredito =
-            this.valorCuota * parseFloat(this.numeroCuotas.value);
+          this.totalCredito =this.valorCuota * parseFloat(this.numeroCuotas.value);
           this.totalCredito = this.valorCuota * parseFloat(this.plazo.value);
           this.haSimulado = true;
           // console.log(valorCuota);
@@ -156,7 +155,6 @@ export class CreditoPage {
     this.totalCredito = 0;
     this.interesEA = 0;
   }
-
   onEnter(event: any) {
     this.resetValues();
     this.haSimulado = false;
@@ -168,7 +166,7 @@ export class CreditoPage {
     this.haSimulado = false;
   }
   OnRadioChange(event: any) {
-        // console.log(event)
+    // console.log(event);
     // this.form.get("tipoDeuda")?.valueChanges.subscribe(selectedValue => {
     //   setTimeout(() => {
     //     console.log(this.form.value)   //shows the latest first name
