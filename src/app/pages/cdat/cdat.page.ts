@@ -94,13 +94,13 @@ export class CdatPage {
       Math.pow(1 + tinteres, -Plazo).toPrecision(2)
     );
     let tdivision: number = 1 - tplazo;
-    console.log(tdivision);
+    // console.log(tdivision);
     let vc: number = (tinteres * Monto) / tdivision;
     return vc;
   }
 
   onClick(): void {
-    console.log(this.form.value);
+    // console.log(this.form.value);
 
     if (this.form.valid) {
       this.form.get('montoPrestamo')?.hasError('required');
@@ -140,7 +140,7 @@ export class CdatPage {
       this.haSimulado = false;
     }
     OnRadioChange(event: any) {
-      console.log(event);
+      // console.log(event);
       // this.form.get("tipoDeuda")?.valueChanges.subscribe(selectedValue => {
       //   setTimeout(() => {
       //     console.log(this.form.value)   //shows the latest first name

@@ -219,7 +219,7 @@ export const CALCULOS_UTILS = {
         break;
       case 'VIVIENDA':
         parametros = parametrosVivienda['NINGUNA'];
-        console.log(parametros);
+        // console.log(parametros);
         if (
           parametros.plazoMaximo < numeroCuotas
 
@@ -231,7 +231,7 @@ export const CALCULOS_UTILS = {
         }
         tasaMensual = tasaInteresVivienda[intervalocuota].tasaMensual;
         tasaEA = tasaInteresVivienda[intervalocuota].tasaEA;
-        console.log('la variables de tasa son' + tasaMensual + tasaEA);
+        // console.log('la variables de tasa son' + tasaMensual + tasaEA);
         break;
       case 'COMERCIO':
         parametros = parametrosComercio[tipoDeuda];
@@ -307,7 +307,7 @@ export const CALCULOS_UTILS = {
         }
         // console.log(plazo);
         tasaEA = tasaInteresAhorro[plazo].tasaEA;
-        console.log(tasaEA);
+        // console.log(tasaEA);
         break;
         case 'CONTRACTUALES':
           parametros = parametrosAhorroContractuales['NINGUNA'];

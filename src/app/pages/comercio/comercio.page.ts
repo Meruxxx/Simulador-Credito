@@ -4,7 +4,7 @@ import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
 import {
   CALCULOS_UTILS,
-  parametrosLibreInversion,
+  parametrosLibreInversion
 } from 'src/app/core/utils/calculos.utils';
 
 @Component({
@@ -88,7 +88,7 @@ export class ComercioPage {
       Math.pow(1 + tinteres, -Plazo).toPrecision(2)
     );
     let tdivision: number = 1 - tplazo;
-    console.log(tdivision);
+    // console.log(tdivision);
     let vc: number = (tinteres * Monto) / tdivision;
     return vc;
   }
@@ -108,7 +108,7 @@ export class ComercioPage {
       //   setTimeout(() => {
       //   });
       // });
-      console.log(this.form.value);
+      // console.log(this.form.value);
       valorCuota = CALCULOS_UTILS.calcularValorCuota(
         'COMERCIO',
         tipoDeuda[this.form.get('tipoDeuda')?.value],
@@ -126,7 +126,7 @@ export class ComercioPage {
           this.interesEA = valorCuota[2];
           this.totalCredito = this.valorCuota * parseFloat(this.plazo.value);
           this.haSimulado = true;
-          console.log(valorCuota);
+          // console.log(valorCuota);
         }
       } else {
         this.toastrService.show(
@@ -157,7 +157,7 @@ export class ComercioPage {
     this.haSimulado = false;
   }
   OnRadioChange(event: any) {
-    console.log(event);
+    // console.log(event);
     // this.form.get("tipoDeuda")?.valueChanges.subscribe(selectedValue => {
     //   setTimeout(() => {
     //     console.log(this.form.value)   //shows the latest first name
