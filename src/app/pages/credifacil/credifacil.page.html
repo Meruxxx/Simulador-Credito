@@ -1,11 +1,11 @@
-<div class="mb-12 text-center">
-  <h1 class="text-brand-blue-100">SIMULADOR DE CRÉDITO</h1>
+<div class="mb-4 text-center">
+  <h1 class="text-brand-blue-100 title">SIMULADOR DE CRÉDITO</h1>
   <h2>cuota fija y tasa fija</h2>
 </div>
 <div class="container grid gap-12 grid-col-1 lg:grid-cols-2">
   <nb-card class="h-full">
     <nb-card-header
-      ><h3 class="h4">Información Crédito CrediFacil</h3></nb-card-header
+      ><h3 class="h4 title">Información Crédito CrediFacil</h3></nb-card-header
     >
     <nb-card-body>
       <form [formGroup]="form">
@@ -79,7 +79,20 @@
         </div>
       </form>
     </nb-card-body>
-    <nb-card-footer>
+    <nb-card-footer
+      ><div *ngIf="haSimulado" class="flex justify-center pb-2">
+        <button
+          style="width: 60%"
+          hero
+          status="success"
+          nbButton
+          shape="round"
+          class="btn"
+          (click)="onEnterNuevo()"
+        >
+          Nuevo
+        </button>
+      </div>
       <div class="flex justify-center">
         <button
           style="width: 60%"

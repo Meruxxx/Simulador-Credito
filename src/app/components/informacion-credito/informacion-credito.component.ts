@@ -40,19 +40,29 @@ export class InformacionCreditoComponent {
         footerFirstValue:  `${this.intereses}%`,
         footerSecondLabel: 'Tasa efectiva anual',
         footerSecondValue: `${this.interesesEA}%`,
-        footerThirdLabel: 'Pago total del crédito',
-        footerThirdValue: this.toCurrency(this.TotalCredito),
+        footerThirdLabel: '',//'Pago total del crédito',
+        footerThirdValue: '',//this.toCurrency(this.TotalCredito),
       }
-    } else {
+    } else if(this.title === 'Informción Ahorro CDAT') {
       return {
-        titleLabel: 'Valor de la ganacia',
+        titleLabel: 'Inversión + rentabilidad',
         title: this.TotalAhorro,
         footerFirstLabel: '% Tasa EA',
         footerFirstValue: `${this.intereses}%`,
-        footerSecondLabel: 'Tasa efectiva anual',
+        footerSecondLabel: 'Rendimientos Brutos',
         footerSecondValue: this.toCurrency(this.valorCuota),
       }
 
+    }
+    else {
+      return {
+        titleLabel: 'Monto ahorrado',
+        title: this.TotalAhorro,
+        footerFirstLabel: '% Tasa EA',
+        footerFirstValue: `${this.intereses}%`,
+        footerSecondLabel: 'Rendimientos',
+        footerSecondValue: this.toCurrency(this.valorCuota),
+      }
     }
   }
 
