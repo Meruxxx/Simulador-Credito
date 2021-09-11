@@ -129,6 +129,11 @@ export class ContractualesPage {
     this.resetValues();
     this.haSimulado = false;
   }
+  onEnterNuevo() {
+    this.resetValues();
+    this.montoPrestamo.setValue(0);
+    this.haSimulado = false;
+  }
   OnRadioChange(event: any) {
     // console.log(event);
     // this.form.get("tipoDeuda")?.valueChanges.subscribe(selectedValue => {
