@@ -4,7 +4,7 @@ import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
 import {
   CALCULOS_UTILS,
-  parametrosLibreInversion,
+  parametrosLibreInversion
 } from 'src/app/core/utils/calculos.utils';
 
 @Component({
@@ -154,10 +154,17 @@ export class CreditoPage {
     this.valorCuota = 0;
     this.interes = 0;
     this.totalCredito = 0;
+    this.interesEA = 0;
   }
 
   onEnter(event: any) {
     this.resetValues();
+    this.haSimulado = false;
+  }
+  onEnterNuevo() {
+    this.resetValues();
+    this.montoPrestamo.setValue(0);
+    this.plazo.setValue(0);
     this.haSimulado = false;
   }
   OnRadioChange(event: any) {
@@ -183,7 +190,6 @@ export class CreditoPage {
     );
     this.montomaximo = parametros.montoMaximo;
     this.plazomaximo = parametros.plazoMaximo;
-
     this.montoPrestamo.updateOn;
   }
 }
