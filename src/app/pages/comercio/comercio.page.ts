@@ -4,7 +4,7 @@ import { NbToastrService } from '@nebular/theme';
 import { TipoDeuda } from 'src/app/core/types/credito.types';
 import {
   CALCULOS_UTILS,
-  parametrosLibreInversion
+  parametrosComercio
 } from 'src/app/core/utils/calculos.utils';
 
 @Component({
@@ -176,7 +176,7 @@ export class ComercioPage {
       deudorSolidario: 'DEUDOR_SOLIDARIO',
       ninguna: 'NINGUNA',
     };
-    parametros = parametrosLibreInversion[tipoDeuda[event]];
+    parametros = parametrosComercio[tipoDeuda[event]];
 
     this.form.controls.plazo.addValidators(
       Validators.max(parametros.plazoMaximo)

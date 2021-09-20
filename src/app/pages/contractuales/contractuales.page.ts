@@ -101,7 +101,7 @@ export class ContractualesPage {
       if (valorCuota) {
         this.valorCuota = valorCuota[0];
         this.interes = valorCuota[1];
-        this.totalahorrado=parseFloat(this.montoPrestamo.value)+valorCuota[0];
+        this.totalahorrado=parseFloat(this.montoPrestamo.value)*this.numeroCuotas.value+valorCuota[0];
         this.haSimulado = true;
       } else {
         this.toastrService.show('',`'Error '${this.montoPrestamo.value}`,
