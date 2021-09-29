@@ -297,9 +297,10 @@ export const CALCULOS_UTILS = {
     let parametros;
     let tasaEA = 0;
     let interestotal = 0;
-    // console.log(tipoAhorro);
+    console.log(tipoAhorro);
     switch (tipoAhorro) {
       case 'CDAT':
+        console.log('se consulta parametros de cdat');
         parametros = parametrosAhorro['NINGUNA'];
         // console.log('Validacion del monto'+' '+monto+' '+parametros.montoMinimo);
         if (parametros.montoMinimo > monto) {
@@ -308,28 +309,35 @@ export const CALCULOS_UTILS = {
         // console.log(plazo);
         tasaEA = tasaInteresAhorro[plazo].tasaEA;
         // console.log(tasaEA);
+        var TeaT = 1 + (tasaEA / 100);
+
+        var plazoT = (plazo / 365);
+
+        var Tea = Math.pow(TeaT, plazoT) - 1;
+
+        interestotal = monto * Tea;
+        console.log('interestotal cdat ' + interestotal);
+        return [interestotal, tasaEA];
         break;
-        case 'CONTRACTUALES':
-          parametros = parametrosAhorroContractuales['NINGUNA'];
-          // console.log('Validacion del monto'+' '+monto+' '+parametros.montoMinimo);
-          if (parametros.montoMinimo > monto) {
-            return null;
-          }
-          // console.log(plazo);
+      case 'CONTRACTUALES':
+        parametros = parametrosAhorroContractuales['NINGUNA'];
+        // console.log('Validacion del monto'+' '+monto+' '+parametros.montoMinimo);
+        if (parametros.montoMinimo > monto) {
+          return null;
+        }
+        // console.log(plazo);
         tasaEA = tasaInteresAhorroContractuales[plazo].tasaEA;
         plazo = plazo * 30;
-          console.log(tasaEA);
-          break;
+        var TeaT = 1 + (tasaEA / 100);
+        var plazoT = (30 / 360);
+        var Tna = Math.pow(TeaT, plazoT) - 1;
+        var valorsup = ((Math.pow(1 + Tna, plazo / 30)) - 1);
+        interestotal = (monto * (valorsup / Tna)) - (monto * plazo / 30);
+        console.log('interestotal ' + interestotal);
+        return [interestotal, tasaEA];
+        break;
     }
     //todo al momento de guardar se debe verificar que los parentesis persistan ya que si el autoformateo los quita puede generar error en los calculos
-    var TeaT = 1 + (tasaEA / 100);
 
-    var plazoT = (plazo / 365);
-
-    var Tea = Math.pow(TeaT , plazoT) - 1;
-
-    interestotal = monto * Tea;
-
-    return [interestotal,tasaEA];
   },
 };
