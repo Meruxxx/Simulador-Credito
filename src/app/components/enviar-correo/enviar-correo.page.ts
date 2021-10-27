@@ -41,7 +41,7 @@ export class EnviarCorreoPage {
       } = this.form.value;
       this.emailService
         .send({
-          to: 'diegoma.04@gmail.com;e.alexisceballos@gmail.com',
+          to: 'Jefecomercial@coosanluis.coop',
           params: {
             tipo_contacto: this.tipo_contacto,
             nombre_contacto: NombreCliente,
