@@ -86,14 +86,14 @@ export const parametrosAhorroContractuales: Record<'NINGUNA', { montoMinimo: num
 export const tasaInteresAhorro: Record<number, { tasaEA: number }> = {
   30: { tasaEA: 0.5 },
   60: { tasaEA: 0.7 },
-  90: { tasaEA: 3 },
-  120: { tasaEA: 3.1 },
-  180: { tasaEA: 4.1 },
-  270: { tasaEA: 4.4 },
-  360: { tasaEA: 5.2 },
-  450: { tasaEA: 5.2 },
-  540: { tasaEA: 5.2 },
-  720: { tasaEA: 5.2 },
+  90: { tasaEA: 4 },
+  120: { tasaEA: 4.1 },
+  180: { tasaEA: 4.9 },
+  270: { tasaEA: 5.0 },
+  360: { tasaEA: 6.2 },
+  450: { tasaEA: 6.35 },
+  540: { tasaEA: 6.45 },
+  720: { tasaEA: 6.6 },
 };
 export const tasaInteresAhorroContractuales: Record<number, { tasaEA: number }> = {
   6: { tasaEA: 4.00 },
