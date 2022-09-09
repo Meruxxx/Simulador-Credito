@@ -5,11 +5,11 @@ export const tasaInteresLibreInversion: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.76, tasaEA: 23.29 },
-  24: { tasaMensual: 1.92, tasaEA: 25.64 },
-  36: { tasaMensual: 2.00, tasaEA: 26.83 },
-  60: { tasaMensual: 2.15, tasaEA: 29.08 },
-  72: { tasaMensual: 1.95, tasaEA: 26.08 },
+  12: { tasaMensual: 2.01, tasaEA: 26.97 },
+  24: { tasaMensual: 2.17, tasaEA: 29.38 },
+  36: { tasaMensual: 2.25, tasaEA: 30.60 },
+  60: { tasaMensual: 2.40, tasaEA: 32.92 },
+  72: { tasaMensual: 2.20, tasaEA: 29.84 },
 };
 export const tasaInteresVivienda: Record<
   number,
@@ -21,25 +21,25 @@ export const tasaInteresComercio: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.66, tasaEA: 21.84 },
-  24: { tasaMensual: 1.81, tasaEA: 24.02},
-  36: { tasaMensual: 1.94, tasaEA: 25.93 },
-  60: { tasaMensual: 2.15, tasaEA: 29.08 },
-  72: { tasaMensual: 1.96, tasaEA: 26.08 },
+  12: { tasaMensual: 1.86, tasaEA: 24.75 },
+  24: { tasaMensual: 2.01, tasaEA: 26.97},
+  36: { tasaMensual: 2.14, tasaEA: 28.93 },
+  60: { tasaMensual: 2.35, tasaEA: 32.15 },
+  72: { tasaMensual: 2.15, tasaEA: 29.08 },
 };
 export const tasaInteresEducativo: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 0.5, tasaEA: 6.17 },
+  12: { tasaMensual: 0.70, tasaEA: 8.73 },
 };
 export const tasaInteresCrediFacil: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.06, tasaEA: 13.49 },
-  24: { tasaMensual: 1.27, tasaEA: 16.35 },
-  36: { tasaMensual: 1.38, tasaEA: 17.88 },
+  12: { tasaMensual: 1.20, tasaEA: 15.39 },
+  24: { tasaMensual: 1.50, tasaEA: 19.56 },
+  36: { tasaMensual: 1.60, tasaEA: 20.98 },
 };
 
 export const parametrosLibreInversion: Record<
