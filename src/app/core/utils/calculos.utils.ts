@@ -5,41 +5,41 @@ export const tasaInteresLibreInversion: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.46, tasaEA: 19.0 },
-  24: { tasaMensual: 1.62, tasaEA: 21.27 },
-  36: { tasaMensual: 1.75, tasaEA: 23.14 },
-  60: { tasaMensual: 1.85, tasaEA: 24.6 },
-  72: { tasaMensual: 1.73, tasaEA: 22.85 },
+  12: { tasaMensual: 2.01, tasaEA: 26.97 },
+  24: { tasaMensual: 2.17, tasaEA: 29.38 },
+  36: { tasaMensual: 2.25, tasaEA: 30.60 },
+  60: { tasaMensual: 2.40, tasaEA: 32.92 },
+  72: { tasaMensual: 2.20, tasaEA: 29.84 },
 };
 export const tasaInteresVivienda: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  84: { tasaMensual: 1.1, tasaEA: 14.03 },
+  84: { tasaMensual: 1.2, tasaEA: 15.39 },
 };
 export const tasaInteresComercio: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.36, tasaEA: 17.6 },
-  24: { tasaMensual: 1.51, tasaEA: 19.7 },
-  36: { tasaMensual: 1.64, tasaEA: 21.56 },
-  60: { tasaMensual: 1.85, tasaEA: 24.6 },
-  72: { tasaMensual: 1.7, tasaEA: 22.42 },
+  12: { tasaMensual: 1.86, tasaEA: 24.75 },
+  24: { tasaMensual: 2.01, tasaEA: 26.97},
+  36: { tasaMensual: 2.14, tasaEA: 28.93 },
+  60: { tasaMensual: 2.35, tasaEA: 32.15 },
+  72: { tasaMensual: 2.15, tasaEA: 29.08 },
 };
 export const tasaInteresEducativo: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 0.5, tasaEA: 6.17 },
+  12: { tasaMensual: 0.70, tasaEA: 8.73 },
 };
 export const tasaInteresCrediFacil: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.06, tasaEA: 13.49 },
-  24: { tasaMensual: 1.27, tasaEA: 16.35 },
-  36: { tasaMensual: 1.38, tasaEA: 17.88 },
+  12: { tasaMensual: 1.20, tasaEA: 15.39 },
+  24: { tasaMensual: 1.50, tasaEA: 19.56 },
+  36: { tasaMensual: 1.60, tasaEA: 20.98 },
 };
 
 export const parametrosLibreInversion: Record<
@@ -84,16 +84,16 @@ export const parametrosAhorroContractuales: Record<'NINGUNA', { montoMinimo: num
   NINGUNA: { montoMinimo: 10000 },
 };
 export const tasaInteresAhorro: Record<number, { tasaEA: number }> = {
-  30: { tasaEA: 0.5 },
-  60: { tasaEA: 0.7 },
-  90: { tasaEA: 3 },
-  120: { tasaEA: 3.1 },
-  180: { tasaEA: 4.1 },
-  270: { tasaEA: 4.4 },
-  360: { tasaEA: 5.2 },
-  450: { tasaEA: 5.2 },
-  540: { tasaEA: 5.2 },
-  720: { tasaEA: 5.2 },
+  30: { tasaEA: 1.0},
+  60: { tasaEA: 1.3 },
+  90: { tasaEA: 5 },
+  120: { tasaEA: 5.2 },
+  180: { tasaEA: 6 },
+  270: { tasaEA: 6.2 },
+  360: { tasaEA: 7.2 },
+  450: { tasaEA: 7.5 },
+  540: { tasaEA: 7.55 },
+  720: { tasaEA: 8 },
 };
 export const tasaInteresAhorroContractuales: Record<number, { tasaEA: number }> = {
   6: { tasaEA: 4.00 },
