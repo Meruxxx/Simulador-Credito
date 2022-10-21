@@ -25,6 +25,7 @@ export class EnviarCorreoPage {
       identificacion: ['', [Validators.required, Validators.maxLength(256)]],
       tel: ['', [Validators.required, Validators.maxLength(256)]],
       cel: ['', [Validators.required, Validators.maxLength(256)]],
+      ciudad: ['', [Validators.required]],
       emailCliente: ['', [Validators.required, Validators.email]],
     });
   }
@@ -37,11 +38,12 @@ export class EnviarCorreoPage {
         identificacion,
         tel,
         cel,
+        ciudad,
         emailCliente,
       } = this.form.value;
       this.emailService
         .send({
-          to: 'Jefecomercial@coosanluis.coop',
+          to: 'servicioalasociado@coosanluis.coop',
           params: {
             tipo_contacto: this.tipo_contacto,
             nombre_contacto: NombreCliente,
@@ -50,6 +52,7 @@ export class EnviarCorreoPage {
             numero_identificacion: identificacion,
             telefono_contacto: tel,
             celular_contacto: cel,
+            ciudad_contacto: ciudad,
             email_contacto: emailCliente,
           },
         })
