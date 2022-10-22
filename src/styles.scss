@@ -3,13 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/corporate';
+@import '@nebular/theme/styles/theming';
+@import '@nebular/theme/styles/themes/corporate';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 $nb-enabled-css-custom-propierties:true;
 @import 'themes';
 // framework component styles
-@import '~@nebular/theme/styles/globals';
+@import '@nebular/theme/styles/globals';
 // install the framework styles
 @include nb-install() {
   @include nb-theme-global();
