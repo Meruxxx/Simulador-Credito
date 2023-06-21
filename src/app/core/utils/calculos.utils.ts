@@ -1,15 +1,15 @@
 import { TipoCredito, TipoDeuda } from '../types/credito.types';
 import { TipoAhorro } from './../types/credito.types';
-
+ 
 export const tasaInteresLibreInversion: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 2.01, tasaEA: 26.97 },
-  24: { tasaMensual: 2.17, tasaEA: 29.38 },
-  36: { tasaMensual: 2.25, tasaEA: 30.60 },
-  60: { tasaMensual: 2.40, tasaEA: 32.92 },
-  72: { tasaMensual: 2.20, tasaEA: 29.84 },
+  12: { tasaMensual: 1.94, tasaEA: 25.97 },
+  24: { tasaMensual: 2.10, tasaEA: 28.38 },
+  36: { tasaMensual: 2.18, tasaEA: 29.60 },
+  60: { tasaMensual: 2.34, tasaEA: 31.92 },
+  72: { tasaMensual: 2.13, tasaEA: 28.84 },
 };
 export const tasaInteresVivienda: Record<
   number,
@@ -21,11 +21,11 @@ export const tasaInteresComercio: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.86, tasaEA: 24.75 },
-  24: { tasaMensual: 2.01, tasaEA: 26.97},
-  36: { tasaMensual: 2.14, tasaEA: 28.93 },
-  60: { tasaMensual: 2.35, tasaEA: 32.15 },
-  72: { tasaMensual: 2.15, tasaEA: 29.08 },
+  12: { tasaMensual: 1.79, tasaEA: 23.75 },
+  24: { tasaMensual: 1.94, tasaEA: 25.97},
+  36: { tasaMensual: 2.07, tasaEA: 27.93 },
+  60: { tasaMensual: 2.29, tasaEA: 31.15 },
+  72: { tasaMensual: 2.08, tasaEA: 28.08 },
 };
 export const tasaInteresEducativo: Record<
   number,
