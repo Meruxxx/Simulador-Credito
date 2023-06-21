@@ -1,16 +1,21 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   NbButtonModule,
-  NbInputModule,
+  NbContextMenuModule,
+  NbGlobalLogicalPosition,
   NbLayoutModule,
-  NbSelectModule,
+  NbMenuModule,
   NbThemeModule,
+  NbToastrModule
 } from '@nebular/theme';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CdatModule } from './pages/cdat/cdat.module';
+import { ContractualesModule } from './pages/contractuales/contractuales.module';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -18,13 +23,22 @@ const maskConfig: Partial<IConfig> = {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    HttpClientModule,
     NbThemeModule.forRoot(),
     NbLayoutModule,
+    NbMenuModule.forRoot(),
     NbButtonModule,
-    NbInputModule,
-    NbSelectModule,
+    NbContextMenuModule,
+    CdatModule,
+    ContractualesModule,
+    NbToastrModule.forRoot({
+      duration: 5000,
+      limit: 3,
+      position: NbGlobalLogicalPosition.BOTTOM_END,
+      destroyByClick:true
+    }),
     NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [],

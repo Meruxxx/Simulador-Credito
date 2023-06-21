@@ -1,56 +1,58 @@
-<nb-layout center>
-  <nb-layout-header>Awesome Company</nb-layout-header>
-
-  <nb-layout-column>
-    <span class="caption-2 text-hint">Valor a prestar</span>
-  </nb-layout-column>
-
-  test:
-  <pre>
-    {{ form.value | json }}
-  </pre>
-
-  <nb-layout-column>
-    <form [formGroup]="form">
-      <div>
-        <input
-          type="text"
-          nbInput
-          placeholder="Monto"
-          formControlName="campo1"
-          mask="separator.2"
-        />
-        <ng-container *ngIf="campo1.touched && campo1.errors">
-          <span *ngIf="campo1.errors.required"> El campo es requerido </span>
-          <span *ngIf="campo1.errors.pattern">
-            El campo debe ser numérico
-          </span>
-        </ng-container>
+<nb-layout container class="flex toolbard">
+  <nb-layout-header subheader class="header">
+    <div class="grid w-full grid-cols-3" style="flex-direction: row">
+      <div class="flex w-full" fixed>
+        <img src="./assets/img/logo-coosanluis.svg" />
       </div>
+      <div class="contain">
+        <div
+          class="flex space-x-6 contain-button"
+          style="justify-content: center"
+        >
+          <button
+            outline
+            nbButton
+            [nbContextMenu]="items"
+            nbContextMenuTag="context-menu"
+            size="large"
+            [ngClass]="{ btn: esCredito }"
+          >
+            Créditos
+          </button>
+          <button
+            outline
+            nbButton
+            [nbContextMenu]="itemsAhorros"
+            nbContextMenuTag="context-menu"
+            size="large"
+            [ngClass]="{ btn: esAhorros }"
+          >
+            Ahorros
+          </button>
+        </div>
+      </div>
+    </div>
+  </nb-layout-header>
 
-      <nb-select
-        placeholder="Nº Cuotas"
-        shape="semi-round"
-        formControlName="campo2"
-      >
-        <nb-option *ngFor="let option of options" [value]="option">
-          {{ option }}
-        </nb-option>
-      </nb-select>
-
-      <input
-        type="text"
-        nbInput
-        placeholder="Valor de la cuota"
-        formControlName="campo3"
-        mask="separator.0"
-      />
-
-      <nb-layout-column>
-        <button nbButton status="primary" (click)="onClick()">Simular</button>
-      </nb-layout-column>
-    </form>
+  <nb-layout-column style="justify-content: center" class="flex pt-0">
+    <!-- class="flex w-full pt-0" -->
+    <router-outlet></router-outlet>
   </nb-layout-column>
 
-  <nb-layout-footer>Contact us</nb-layout-footer>
+  <nb-layout-footer>
+    <div class="text-xs">
+      <span>
+        AVISO LEGAL. El servicio que ofrece la COOPERATIVA para efectos de
+        simulación de ahorro y créditos es de carácter eminentemente ilustrativo
+        e informativo, brindando a sus asociados la posibilidad de formarse una
+        idea cercana de las condiciones a las que podría acceder a nuestros
+        servicios de ahorro y crédito, sin embargo, tanto el efectivo
+        otorgamiento de un crédito como las reales y definitivas condiciones del
+        mismo, dependerán enteramente de las políticas de otorgamiento de
+        crédito que tiene vigente la COOPERATIVA, por lo que los resultados de
+        la simulación no son vinculantes para ésta en cuanto tener que otorgar
+        un crédito o mantener los resultados que arroje la simulación</span
+      >
+    </div>
+  </nb-layout-footer>
 </nb-layout>

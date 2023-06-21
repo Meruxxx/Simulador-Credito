@@ -1,0 +1,128 @@
+<div class="mb-4 text-center">
+  <h1 class="text-brand-blue-100 title">SIMULADOR DE AHORRO</h1>
+  <h2>cuota fija y tasa fija</h2>
+</div>
+<div class="container grid gap-12 grid-col-1 lg:grid-cols-2">
+  <nb-card class="h-full">
+    <nb-card-header>
+      <h3 class="h4 title">Información Ahorro Contractual</h3></nb-card-header
+    >
+    <nb-card-body>
+      <form [formGroup]="form">
+        <div class="flex flex-col space-y-6">
+          <div>
+            <h6>Valor de la cuota mensual</h6>
+            <input
+              type="number"
+              fullWidth
+              shape="semi-round"
+              type="text"
+              nbInput
+              placeholder="Ingresar valor"
+              formControlName="montoPrestamo"
+              mask="separator.2"
+              thousandSeparator="."
+              status="primary"
+            />
+          </div>
+          <ng-container
+            *ngIf="montoPrestamo.invalid&&montoPrestamo.updateOn && (montoPrestamo.dirty||montoPrestamo.touched) && montoPrestamo.errors"
+          >
+            <span
+              class="text-brand-blue-100"
+              *ngIf="montoPrestamo.errors.required"
+            >
+              El campo es requerido
+            </span>
+            <span
+              class="text-brand-blue-100"
+              *ngIf="montoPrestamo.errors?.pattern"
+            >
+              El campo debe ser numérico
+            </span>
+            <span class="text-brand-blue-100" *ngIf="montoPrestamo.errors?.min">
+              El monto mínimo debe superar el valor de {{montominimo|currency}}
+            </span>
+            <span class="text-brand-blue-100" *ngIf="montoPrestamo.errors?.max">
+              El monto no debe superar el valor de {{4000000|currency}}
+            </span>
+          </ng-container>
+          <div>
+            <h6>Plazo de la inversión</h6>
+            <!-- <nb-select
+                    type="number"
+                    fullWidth
+                    shape="round"
+                    type="text"
+                    placeholder="Nº Cuotas"
+                    shape="semi-round"
+                    formControlName="campo2"
+                  >
+                    <nb-option *ngFor="let option of options" [value]="option">
+                      {{ option }}
+                    </nb-option>
+                  </nb-select> -->
+            <div class="containerGrup">
+              <nb-button-group
+                outline
+                size="medium"
+                class="flex-wrap space-x-1"
+              >
+                <button
+                  class="mt-1"
+                  nbButtonToggle
+                  *ngFor="let option of options"
+                  [value]="option.value"
+                  (click)="onClickNumCuotas(option)"
+                >
+                  {{ option.text }}
+                </button>
+              </nb-button-group>
+            </div>
+            <div class="text-sm mt-2">
+              <span>
+                NOTA: Recuerda consultar los plazos mínimos de acuerdo al
+                producto que estás interesado.</span
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+    <nb-card-footer>
+      <div *ngIf="haSimulado" class="flex justify-center pb-2">
+        <button
+          style="width: 60%"
+          hero
+          status="success"
+          nbButton
+          shape="round"
+          class="btn"
+          (click)="onEnterNuevo()"
+        >
+          Nuevo
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <button
+          style="width: 60%"
+          nbButton
+          shape="round"
+          class="btn"
+          [disabled]="haSimulado"
+          (click)="onClick()"
+        >
+          Simular
+        </button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+
+  <app-informacion-credito
+    [valorCuota]="valorCuota"
+    [title]="title"
+    [intereses]="interes"
+    [TotalAhorro]="totalahorrado"
+    [tipoSolicitud]="'Ahorro'"
+  ></app-informacion-credito>
+</div>
