@@ -1,5 +1,5 @@
 import { TipoCredito, TipoDeuda } from '../types/credito.types';
-import { TipoAhorro } from './../types/credito.types';
+import { TipoAhorro } from './../types/credito.types'; 
 
 export const tasaInteresLibreInversion: Record<
   number,
