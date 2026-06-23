@@ -162,7 +162,15 @@ export const CALCULOS_UTILS = {
           }
         break;
       case 'EDUCATIVO':
-        intervalocuota = 12;
+        if (numerocuota < 13) {
+          intervalocuota = 12;
+        }
+        else if (numerocuota < 25) {
+          intervalocuota = 24;
+        }
+        else if (numerocuota <37){
+          intervalocuota = 36;
+        }
         break;
       case 'CREDIFACIL':
         if (numerocuota < 13) {
