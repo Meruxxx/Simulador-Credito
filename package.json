@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "name": "simulador-credito",
   "version": "0.0.0",
