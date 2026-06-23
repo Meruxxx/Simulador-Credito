@@ -5,17 +5,17 @@ export const tasaInteresLibreInversion: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.94, tasaEA: 25.97 },
-  24: { tasaMensual: 2.10, tasaEA: 28.38 },
-  36: { tasaMensual: 2.18, tasaEA: 29.60 },
-  60: { tasaMensual: 2.34, tasaEA: 31.92 },
-  72: { tasaMensual: 2.13, tasaEA: 28.84 },
+  12: { tasaMensual: 1.85, tasaEA: 24.61 },
+  24: { tasaMensual: 1.83, tasaEA: 24.32 },
+  36: { tasaMensual: 1.80, tasaEA: 23.88 },
+  60: { tasaMensual: 1.78, tasaEA: 23.54 },
+  72: { tasaMensual: 2.13, tasaEA: 28.84 }, // Pendiente 23 jun 2026
 };
 export const tasaInteresVivienda: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  84: { tasaMensual: 1.2, tasaEA: 15.39 },
+  84: { tasaMensual: 1.15, tasaEA: 14.70 },
 };
 export const tasaInteresComercio: Record<
   number,
