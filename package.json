@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "14.x"
+  },
   "name": "simulador-credito",
   "version": "0.0.0",
   "scripts": {
