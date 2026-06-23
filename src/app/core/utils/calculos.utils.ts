@@ -19,7 +19,7 @@ export const tasaInteresVivienda: Record<
   84: { tasaMensual: 1.15, tasaEA: 14.70 },
 };
 
-export const tasaInteresComercio: Record< // Pendiente 23 jun 2026. Cambiar nombre Crédito Popular Productivo
+export const tasaInteresComercio: Record< // Cambiar nombre Crédito Popular Productivo
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
@@ -30,7 +30,7 @@ export const tasaInteresComercio: Record< // Pendiente 23 jun 2026. Cambiar nomb
   72: { tasaMensual: 2.08, tasaEA: 28.08 }, // quitar
 };
 
-export const tasaInteresEducativo: Record< // Hay más meses. Falta adicionar para cálculo
+export const tasaInteresEducativo: Record< // Se agregaron 24 y 36 meses
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
