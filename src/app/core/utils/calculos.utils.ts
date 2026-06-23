@@ -48,7 +48,7 @@ export const parametrosLibreInversion: Record<
   TipoDeuda,
   { plazoMaximo: number; montoMaximo: number }
 > = {
-  HIPOTECA: { plazoMaximo: 60, montoMaximo: 408836700 }, // Se pasaron todos de 72 a 36 el 23jun2026
+  HIPOTECA: { plazoMaximo: 60, montoMaximo: 408836700 }, // Se pasaron todos de 72 a 60 el 23jun2026
   DEUDOR_SOLIDARIO: { plazoMaximo: 60, montoMaximo: 408836700 },
   NINGUNA: { plazoMaximo: 60, montoMaximo: 408836700 },
 };
