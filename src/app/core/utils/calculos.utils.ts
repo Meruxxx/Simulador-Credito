@@ -17,38 +17,40 @@ export const tasaInteresVivienda: Record<
 > = {
   84: { tasaMensual: 1.15, tasaEA: 14.70 },
 };
-export const tasaInteresComercio: Record<
+export const tasaInteresComercio: Record< // Pendiente 23 jun 2026. Cambiar nombre Crédito Popular Productivo
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.79, tasaEA: 23.75 },
-  24: { tasaMensual: 1.94, tasaEA: 25.97},
-  36: { tasaMensual: 2.07, tasaEA: 27.93 },
-  60: { tasaMensual: 2.29, tasaEA: 31.15 },
-  72: { tasaMensual: 2.08, tasaEA: 28.08 },
+  12: { tasaMensual: 1.99, tasaEA: 26.68 },
+  24: { tasaMensual: 1.99, tasaEA: 26.68 },
+  36: { tasaMensual: 1.99, tasaEA: 26.68 },
+  60: { tasaMensual: 2.29, tasaEA: 31.15 }, // quitar
+  72: { tasaMensual: 2.08, tasaEA: 28.08 }, // quitar
 };
-export const tasaInteresEducativo: Record<
+export const tasaInteresEducativo: Record< // Hay más meses. Falta adicionar para cálculo
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 0.70, tasaEA: 8.73 },
+  12: { tasaMensual: 1.09, tasaEA: 13.90 },
+  24: { tasaMensual: 1.19, tasaEA: 15.26 },
+  36: { tasaMensual: 1.29, tasaEA: 16.69 },
 };
 export const tasaInteresCrediFacil: Record<
   number,
   { tasaMensual: number; tasaEA: number }
 > = {
-  12: { tasaMensual: 1.20, tasaEA: 15.39 },
-  24: { tasaMensual: 1.50, tasaEA: 19.56 },
-  36: { tasaMensual: 1.60, tasaEA: 20.98 },
+  12: { tasaMensual: 1.85, tasaEA: 24.61 },
+  24: { tasaMensual: 1.85, tasaEA: 24.61 },
+  36: { tasaMensual: 1.85, tasaEA: 24.61 },
 };
 
 export const parametrosLibreInversion: Record<
   TipoDeuda,
   { plazoMaximo: number; montoMaximo: number }
 > = {
-  HIPOTECA: { plazoMaximo: 72, montoMaximo: 408836700 },
-  DEUDOR_SOLIDARIO: { plazoMaximo: 72, montoMaximo: 408836700 },
-  NINGUNA: { plazoMaximo: 72, montoMaximo: 408836700 },
+  HIPOTECA: { plazoMaximo: 60, montoMaximo: 408836700 }, // Se pasaron todos de 72 a 36 el 23jun2026
+  DEUDOR_SOLIDARIO: { plazoMaximo: 60, montoMaximo: 408836700 },
+  NINGUNA: { plazoMaximo: 60, montoMaximo: 408836700 },
 };
 export const parametrosVivienda: Record<
   'NINGUNA',
@@ -60,15 +62,15 @@ export const parametrosComercio: Record<
   TipoDeuda,
   { plazoMaximo: number; montoMaximo: number }
 > = {
-  HIPOTECA: { plazoMaximo: 72, montoMaximo: 408836700 },
-  DEUDOR_SOLIDARIO: { plazoMaximo: 72, montoMaximo: 408836700 },
-  NINGUNA: { plazoMaximo: 72, montoMaximo: 408836700 },
+  HIPOTECA: { plazoMaximo: 36, montoMaximo: 408836700 }, // se pasaron todos de 72 a 36 el 23jun2026
+  DEUDOR_SOLIDARIO: { plazoMaximo: 36, montoMaximo: 408836700 },
+  NINGUNA: { plazoMaximo: 36, montoMaximo: 408836700 },
 };
 export const parametrosEducativo: Record<
   'NINGUNA',
   { plazoMaximo: number; montoMaximo: number }
 > = {
-  NINGUNA: { plazoMaximo: 12, montoMaximo: 999999999 },
+  NINGUNA: { plazoMaximo: 36, montoMaximo: 999999999 }, // se pasó de 12 a 36 el 23jun2026
 };
 export const parametrosCrediFacil: Record<
   'NINGUNA',
@@ -84,16 +86,16 @@ export const parametrosAhorroContractuales: Record<'NINGUNA', { montoMinimo: num
   NINGUNA: { montoMinimo: 10000 },
 };
 export const tasaInteresAhorro: Record<number, { tasaEA: number }> = {
-  30: { tasaEA: 1.0},
-  60: { tasaEA: 1.3 },
-  90: { tasaEA: 5 },
-  120: { tasaEA: 5.2 },
-  180: { tasaEA: 6 },
-  270: { tasaEA: 6.2 },
-  360: { tasaEA: 7.2 },
-  450: { tasaEA: 7.5 },
-  540: { tasaEA: 7.55 },
-  720: { tasaEA: 8 },
+  30: { tasaEA: 1.43 },
+  60: { tasaEA: 1.75 },
+  90: { tasaEA: 6.66 },
+  120: { tasaEA: 6.81 },
+  180: { tasaEA: 7.27 },
+  270: { tasaEA: 7.27 },
+  360: { tasaEA: 8.39 },
+  450: { tasaEA: 8.91 },
+  540: { tasaEA: 8.91 },
+  720: { tasaEA: 8.91 },
 };
 export const tasaInteresAhorroContractuales: Record<number, { tasaEA: number }> = {
   6: { tasaEA: 4.00 },
